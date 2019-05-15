@@ -1,0 +1,422 @@
+@import "./mixins";
+
+:root {
+  /* Set fade in duration */
+  --fade-time: 0.5s;
+}
+
+.signle_product_showcase {
+  padding: 80px 30px !important;
+}
+
+.main-img img,
+.imgs img {
+  width: 100%;
+}
+
+.imgs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  margin-top: 10px;
+}
+
+.imgs img {
+  cursor: pointer;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn var(--fade-time) ease-in 1 forwards;
+}
+
+.single_product_information {
+  small {
+    display: block;
+  }
+  .p_model {
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 26px;
+    color: #000000;
+    font-weight: 600;
+    padding-top: 25px;
+  }
+
+  .p_price {
+    font-size: 26px;
+    font-weight: 700;
+    padding: 15px 0;
+  }
+  .form {
+    @include inputField;
+
+    .form-group {
+      padding: 20px 0;
+    }
+    .starMark {
+      color: #ee221d;
+    }
+
+    label,
+    select {
+      display: inline-block;
+    }
+
+    label {
+      padding-right: 30px;
+    }
+
+    select {
+      width: 250px !important;
+    }
+
+    input[type="number"] {
+      width: 100px !important;
+      text-align: center;
+      display: inline-block;
+      outline: none !important;
+    }
+
+    button {
+      padding: 15px 60px;
+      background: #000;
+      border: 2px solid #000;
+      text-align: center;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 400;
+      transition: all 0.3s ease;
+      span {
+        padding-right: 15px;
+      }
+      &:hover {
+        background: transparent;
+        color: #000000;
+      }
+    }
+  }
+
+  .additional_icon {
+    margin-top: 20px;
+
+    a {
+      text-decoration: none;
+      color: #888888;
+      font-size: 22px;
+      margin-bottom: 20px;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+
+.p_details_information_section {
+  border-bottom: 1px solid #eae9e9;
+  padding-bottom: 35px;
+}
+
+.p_reviews {
+  margin-top: 15px;
+
+  a {
+    text-decoration: none !important;
+    color: #888888 !important;
+  }
+
+  .review_icon {
+    display: inline-block;
+    margin-right: 15px;
+    a {
+      font-size: 18px;
+
+      &:not(:last-child) {
+        color: #ee221d !important;
+      }
+    }
+  }
+  a.review_text {
+    font-size: 13px !important;
+    transition: all 0.3s ease !important;
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+    &:hover {
+      color: #000000 !important;
+    }
+  }
+}
+
+.nav-tabs {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eae9e9;
+}
+.nav-tabs .nav-link {
+  border: none !important;
+  color: #888888;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.tab-content {
+  margin-top: 40px;
+}
+
+.p_left_list {
+  display: inline-block;
+  list-style: none;
+
+  li {
+    padding: 10px;
+    color: #000000;
+    font-weight: 400;
+  }
+}
+.p_right_list {
+  display: inline-block;
+  list-style: none;
+  padding-left: 80px;
+  margin-left: 150px;
+  border-left: 1px solid #eae9e9;
+
+  li {
+    padding: 10px;
+    font-weight: 400;
+  }
+}
+
+.p_reviews_details {
+  h3 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #000;
+  }
+}
+
+.review_section {
+  clear: both;
+  margin-top: 30px;
+  list-style: none;
+  border-bottom: 1px solid #eae9e9;
+  padding-bottom: 40px;
+
+  li {
+    padding: 25px 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #eae9e9;
+    }
+  }
+
+  .review_title {
+    color: #000000;
+    padding-bottom: 15px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .review_rating {
+    padding: 5px 0;
+  }
+  .review_summery_wrapper {
+    .review_label {
+      display: inline-block;
+      font-size: 12px;
+    }
+
+    .review_icon_wrapper {
+      display: inline-block;
+
+      a {
+        text-decoration: none;
+        color: #888888;
+        &:not(:last-child) {
+          color: #f8882d;
+        }
+      }
+    }
+  }
+}
+
+.review_desc {
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.review_author {
+  p {
+    display: inline-block;
+    font-size: 12px;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+  span {
+    font-weight: bold;
+  }
+}
+
+form.filter {
+  @include inputField;
+  float: right;
+
+  select,
+  label {
+    display: inline-block;
+    color: #000;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  select {
+    width: 80px !important;
+    padding-left: 10px;
+    text-align: center;
+  }
+}
+
+.review_add {
+  padding-top: 25px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #eae9e9;
+}
+
+.block_title {
+  clear: both;
+  font-size: 26px;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.block_content {
+  .p_name_content {
+    margin-bottom: 15px;
+
+    span {
+      font-size: 12px;
+      color: #000;
+      &:not(:last-child) {
+        margin-right: 17px;
+      }
+    }
+  }
+}
+
+.your_rating {
+  small {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .starMark {
+    color: #ee221d;
+  }
+
+  .review_icon_wrap {
+    padding: 15px 0;
+    margin-left: 25px;
+
+    li {
+      list-style: none;
+      span.span_title {
+        font-size: 12px;
+        margin-right: 8px;
+      }
+
+      a {
+        text-decoration: none;
+        color: #888888;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #f8882d;
+        }
+      }
+    }
+  }
+}
+
+.form_content {
+  form {
+    @include inputField;
+  }
+
+  .reviewBtn {
+    padding: 13px 30px;
+    background: #000;
+    color: #fff;
+    border: 2px solid #000;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: transparent;
+      color: #000;
+    }
+  }
+}
+
+.related_products_section {
+  @include productCardStyle;
+  border-bottom: 1px solid #eae9e9;
+}
+
+.similar_products_section {
+  padding-top: 20px;
+  @include productCardStyle;
+  border-bottom: 1px solid #eae9e9;
+}
+// Media
+
+@media (max-width: 615px) {
+  .p_left_list {
+    li {
+      font-size: 13px;
+    }
+  }
+  .p_right_list {
+    padding-left: 0;
+    margin-left: 10px;
+    border-left: none;
+
+    li {
+      font-size: 13px;
+    }
+  }
+}
+
+@media (max-width: 250px) {
+  .p_left_list {
+    li {
+      font-size: 10px;
+    }
+  }
+  .p_right_list {
+    li {
+      font-size: 10px;
+    }
+  }
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .imgs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,52 @@
+﻿
+input[type="date"] {
+    display: block;
+    width: 100%;
+    padding: 6px 20px;
+    font-size: 12px;
+    line-height: 24px;
+    min-height: 50px;
+    outline: none;
+    background: #f6f6f6;
+    border: 0;
+}
+
+.clsRequiredMsg > span {
+    color: red;
+    font-size: smaller;
+}
+
+.primary .action:hover, .action.primary:hover {
+   
+    background-color: #000000;
+    border-color: #000000;
+    color: #fff;
+}
+.date-picker-wrapper select {
+    width: 20% !important;
+    margin:0 .25em;
+    display: inline-block !important;
+}
+
+.primary .action, .action.primary {
+    background-color: #fff;
+    color: #000;
+    vertical-align: sub;
+    margin: 0 .25rem;
+    display: inline-block;
+    padding: 11px 19px 12px;
+    padding-top: 11px;
+    padding-right: 19px;
+    padding-bottom: 12px;
+    padding-left: 19px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+    border: 2px solid #eae9e9;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+}

@@ -1,0 +1,192 @@
+﻿<!-- Page Header -->
+<header class="page_header">
+    <div class="container">
+        <!-- first navbar -->
+        @await Component.InvokeAsync("HeaderLinks")
+        <!-- End of First Navbar -->
+        <!-- second-nav -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light second_nav">
+            <a class="navbar-brand" href="#">
+                <img src="~/Themes/Junkyard/Content/img/logo_4.png" alt="logo" />
+                @*<img src="~/Themes/Junkyard/Content/img/logo_4.png" alt="logo" />*@
+            </a>
+            <button class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon lnr lnr-cart"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link" href="#">
+                        <span class="lnr lnr-cart cart_icon"></span> My Cart
+                        <span class="cart_counter">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <!-- end of second-nav -->
+    </div>
+    <!-- third-nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark third_nav">
+        <div class="container">
+            <button class="navbar-toggler d-lg-none"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapsibleNavId"
+                    aria-controls="collapsibleNavId"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 thirdNav__ul"
+                    id="third_nav_ul">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           id="InteriorID"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           href="#">Interior</a>
+                        <div class="dropdown-menu " aria-labelledby="InteriorID">
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Tailored car
+                                Mats
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Floor & Cargo
+                                Mats
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Storage &
+                                Organization
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Steering Wheel
+                                Covers
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Car Seat
+                                Covers
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           id="ExteriorId"
+                           href="#">Exterior</a>
+                        <div class="dropdown-menu" aria-labelledby="ExteriorId">
+                            <a class="dropdown-item" href="#"><span class="lnr lnr-chevron-right"></span>Tow Bars</a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Tow Bar
+                                electric Kit
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Car Covers &
+                                Car Protection
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Cargo
+                                Management
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Exterior Car
+                                Decoration
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           id="LightingId"
+                           href="#">Lighting</a>
+                        <div class="dropdown-menu" aria-labelledby="LightingId">
+                            <a class="dropdown-item" href="#"><span class="lnr lnr-chevron-right"></span>Headlight</a>
+                            <a class="dropdown-item" href="#"><span class="lnr lnr-chevron-right"></span>Indictor</a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Taillights
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Combination
+                                Taillight
+                            </a>
+                            <a class="dropdown-item" href="#">
+                                <span class="lnr lnr-chevron-right"></span>Brake light
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Repair Parts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Body Parts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                </ul>
+                <!-- Searchbox Icon-->
+                <button type="button"
+                        class="search searchBtn"
+                        onclick="toggleSearchBox()">
+                    <span class="lnr lnr-magnifier" id="searchbox_icon"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Start SearchBox -->
+    <!-- <div class="container"> -->
+    <div class="search_box" id="search_box_container">
+        <div class="form-group search_form_group">
+            <input type="text"
+                   name="search_input"
+                   id="search_input"
+                   placeholder="Search entire store here..." />
+            <a class="ineer_searchLink" href="#">
+                <span class="lnr lnr-magnifier ineer_searchbox_icon"></span>
+            </a>
+        </div>
+    </div>
+    <!-- </div> -->
+    <!-- end_searchbox -->
+    <!-- end of third-nav -->
+    
+</header>
+
+
+
+
+@*<div class="header">
+        @await Component.InvokeAsync("Widget", new { widgetZone = "header_before" })
+        <div class="header-upper">
+            <div class="header-selectors-wrapper">
+                @await Component.InvokeAsync("TaxTypeSelector")
+                @await Component.InvokeAsync("CurrencySelector")
+                @await Component.InvokeAsync("LanguageSelector")
+                @await Component.InvokeAsync("Widget", new { widgetZone = "header_selectors" })
+            </div>
+            <div class="header-links-wrapper">
+                @await Component.InvokeAsync("HeaderLinks")
+                @await Component.InvokeAsync("FlyoutShoppingCart")
+            </div>
+        </div>
+        @await Component.InvokeAsync("Widget", new { widgetZone = "header_middle" })
+        <div class="header-lower">
+            <div class="header-logo">
+                @await Component.InvokeAsync("Logo")
+            </div>
+            <div class="search-box store-search-box">
+                @await Component.InvokeAsync("SearchBox")
+            </div>
+        </div>
+        @await Component.InvokeAsync("Widget", new { widgetZone = "header_after" })
+    </div>*@

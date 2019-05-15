@@ -1,0 +1,155 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+    <Copyright>Copyright © Nop Solutions, Ltd</Copyright>
+    <Company>Nop Solutions, Ltd</Company>
+    <Authors>Nop Solutions, Ltd</Authors>
+    <Version>4.0.0.0</Version>
+    <Description>Nop.Web is also an MVC web application project, a presentation layer for public store and admin area.</Description>
+    <PackageLicenseUrl>http://www.nopcommerce.com/licensev3.aspx</PackageLicenseUrl>
+    <PackageProjectUrl>http://www.nopcommerce.com/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nopSolutions/nopCommerce</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Abstractions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Composite" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Physical" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Nop.Core\Nop.Core.csproj" />
+    <ProjectReference Include="..\..\Libraries\Nop.Data\Nop.Data.csproj" />
+    <ProjectReference Include="..\..\Libraries\Nop.Services\Nop.Services.csproj" />
+    <ProjectReference Include="..\Nop.Web.Framework\Nop.Web.Framework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- We copy the entire \App_Data directory. But we ignore JSON files and data protection keys  -->
+    <Content Include="App_Data\**" CopyToPublishDirectory="PreserveNewest" Exclude="App_Data\*.json" />
+    <Content Update="App_Data\*.json" CopyToPublishDirectory="Never" />
+    <Content Update="App_Data\DataProtectionKeys\*.xml" CopyToPublishDirectory="Never" />
+
+    <Compile Remove="Plugins\**" />
+    <EmbeddedResource Remove="Plugins\**" />
+    <None Remove="Plugins\**" />
+
+    <!-- We copy the entire \Plugins and \Themes directories.
+	    But we ignore cshtml and JSON files to avoid "Duplicate 'Content' items were included" error during publishing.
+	    We also can use "CheckForDuplicateItemsContinueOnError" as per https://github.com/dotnet/sdk/blob/master/src/Tasks/Microsoft.NET.Build.Tasks/build/Microsoft.NET.Sdk.DefaultItems.targets -->
+    <Content Include="Plugins\**" CopyToPublishDirectory="PreserveNewest" Exclude="Plugins\**\*.config;Plugins\**\*.cshtml;Plugins\**\*.json" />
+    <Content Include="Themes\**" CopyToPublishDirectory="PreserveNewest" Exclude="Themes\**\*.config;Themes\**\*.cshtml;Themes\**\*.json" />
+
+    <!-- We copy the \Logs directory -->
+    <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
+    <None Remove="Themes\JunkYard\Content\css\CustomStyles.css" />
+    <None Remove="Themes\JunkYard\Content\css\ie8.css" />
+    <None Remove="Themes\JunkYard\Content\css\print.css" />
+    <None Remove="Themes\JunkYard\Content\css\styles - Copy.rtl.css" />
+    <None Remove="Themes\JunkYard\Content\css\styles.css" />
+    <None Remove="Themes\JunkYard\Content\css\styles.rtl.css" />
+    <None Remove="Themes\JunkYard\Content\css\styles__ORI.css" />
+    <None Remove="Themes\JunkYard\Content\images\ajax-loader-small.gif" />
+    <None Remove="Themes\JunkYard\Content\images\back-button.png" />
+    <None Remove="Themes\JunkYard\Content\images\calendar-next.png" />
+    <None Remove="Themes\JunkYard\Content\images\calendar-prev.png" />
+    <None Remove="Themes\JunkYard\Content\images\close.png" />
+    <None Remove="Themes\JunkYard\Content\images\compare-button.png" />
+    <None Remove="Themes\JunkYard\Content\images\details.png" />
+    <None Remove="Themes\JunkYard\Content\images\discontinued-product-icon.png" />
+    <None Remove="Themes\JunkYard\Content\images\download-button.png" />
+    <None Remove="Themes\JunkYard\Content\images\edit.png" />
+    <None Remove="Themes\JunkYard\Content\images\edit_.png" />
+    <None Remove="Themes\JunkYard\Content\images\email-button.png" />
+    <None Remove="Themes\JunkYard\Content\images\first.png" />
+    <None Remove="Themes\JunkYard\Content\images\ie_warning.jpg" />
+    <None Remove="Themes\JunkYard\Content\images\last.png" />
+    <None Remove="Themes\JunkYard\Content\images\loading.gif" />
+    <None Remove="Themes\JunkYard\Content\images\logo.png" />
+    <None Remove="Themes\JunkYard\Content\images\menu-icon.png" />
+    <None Remove="Themes\JunkYard\Content\images\move.png" />
+    <None Remove="Themes\JunkYard\Content\images\new.png" />
+    <None Remove="Themes\JunkYard\Content\images\next.png" />
+    <None Remove="Themes\JunkYard\Content\images\pointer.png" />
+    <None Remove="Themes\JunkYard\Content\images\prev.png" />
+    <None Remove="Themes\JunkYard\Content\images\rating1.png" />
+    <None Remove="Themes\JunkYard\Content\images\rating2.png" />
+    <None Remove="Themes\JunkYard\Content\images\remove.png" />
+    <None Remove="Themes\JunkYard\Content\images\remove_.png" />
+    <None Remove="Themes\JunkYard\Content\images\reply.png" />
+    <None Remove="Themes\JunkYard\Content\images\retry.png" />
+    <None Remove="Themes\JunkYard\Content\images\return.png" />
+    <None Remove="Themes\JunkYard\Content\images\rss.png" />
+    <None Remove="Themes\JunkYard\Content\images\shipping.png" />
+    <None Remove="Themes\JunkYard\Content\images\shopping-bag.png" />
+    <None Remove="Themes\JunkYard\Content\images\social-sprite.png" />
+    <None Remove="Themes\JunkYard\Content\images\subscribe-button.png" />
+    <None Remove="Themes\JunkYard\Content\images\toggle-black.png" />
+    <None Remove="Themes\JunkYard\Content\images\toggle-gray.png" />
+    <None Remove="Themes\JunkYard\Content\images\toggle-white.png" />
+    <None Remove="Themes\JunkYard\Content\images\topic-type1.png" />
+    <None Remove="Themes\JunkYard\Content\images\topic-type2.png" />
+    <None Remove="Themes\JunkYard\Content\images\topic-type3.png" />
+    <None Remove="Themes\JunkYard\Content\images\view-grid.png" />
+    <None Remove="Themes\JunkYard\Content\images\view-list.png" />
+    <None Remove="Themes\JunkYard\Content\images\vote-down-selected.png" />
+    <None Remove="Themes\JunkYard\Content\images\vote-down.png" />
+    <None Remove="Themes\JunkYard\Content\images\vote-up-selected.png" />
+    <None Remove="Themes\JunkYard\Content\images\vote-up.png" />
+    <None Remove="Themes\JunkYard\Content\images\watch.png" />
+    <None Remove="Themes\JunkYard\Content\images\wishlist-button.png" />
+    <None Remove="Themes\JunkYard\preview.jpg" />
+    <Content Update="Themes\JunkYard\Views\Home\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\FooterSubscribe\Default.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\Footer\Default__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\HeaderLinks\Default__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\HomepageBestSellers\Default__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\HomepageNews\Default__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Head.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\_ViewImports.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views-bakup\Home\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+
+    <None Update="Areas\Admin\sitemap.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- This target execute after "Build" target.
+    We use it to clean up folder with plugins from unnecessary and obsolete libraries. -->
+  <Target Name="NopTarget" AfterTargets="Build">
+    <ItemGroup>
+      <!-- Get all the libraries from the shadow copy folder to remove them,
+        because depending on the settings, this may not happen when the application is starting,
+        but this can lead to unpredictable results during debugging of the project. -->
+      <ShadowCopiesLibraries Include="$(MSBuildProjectDirectory)\Plugins\bin\*.*" Exclude="$(MSBuildProjectDirectory)\Plugins\bin\placeholder.txt" />
+    </ItemGroup>
+    <!-- Delete libraries from the shadow copy folder -->
+    <Delete Files="@(ShadowCopiesLibraries)" />
+    <!-- When .NET Core builds a project, it copies all referenced libraries to the output folder.
+      For plugins it creates too many unnecessary files that just take up space.
+      At the moment you can't disable this behavior. That's why we have to manually delete all unnecessary libraries from plugin output directories. -->
+    <MSBuild Projects="$(MSBuildProjectDirectory)\..\..\Build\ClearPluginAssemblies.proj" Targets="NopClear" />
+  </Target>
+
+</Project>
