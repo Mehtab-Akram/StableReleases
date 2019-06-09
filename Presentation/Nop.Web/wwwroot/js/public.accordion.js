@@ -35,6 +35,10 @@ var Accordion = {
             this.closeExistingSection();
             this.currentSectionId = section.attr('id');
             $('#' + this.currentSectionId).addClass('active');
+            //assign active class to header
+            var headerId = "lih-" + this.currentSectionId;
+            $("#" + headerId).addClass("progress_bar_item_active");
+
             var contents = section.children('.a-item');
             $(contents[0]).show();
 
@@ -57,6 +61,9 @@ var Accordion = {
     closeSection: function (section) {
         var section = $(section);
         section.removeClass('active');
+        //Remove active class from Header
+        var headerId = "lih-" + $(section).attr("id");
+        $("#" + headerId).removeClass("progress_bar_item_active");
         var contents = section.children('.a-item');
         $(contents[0]).hide();
 

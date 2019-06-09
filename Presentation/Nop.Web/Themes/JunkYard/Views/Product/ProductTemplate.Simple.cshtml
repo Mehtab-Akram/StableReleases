@@ -44,65 +44,34 @@
 }
 <!--product breadcrumb-->
 @section Breadcrumb
-{
+    {
     @await Html.PartialAsync("_ProductBreadcrumb", Model.Breadcrumb)
 }
-@await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_after_breadcrumb", additionalData = Model.Id })
-<div class="page product-details-page">
-    <div class="page-body">
-        @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_top", additionalData = Model.Id })
-        <form asp-route="Product" asp-route-sename="@Model.SeName" method="post" id="product-details-form">
-            <div itemscope itemtype="http://schema.org/Product" data-productid="@Model.Id">
-                <div class="product-essential">
-                    @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_before_pictures", additionalData = Model.Id })
+
+<!-- main content start -->
+<main>
+    <section class="signle_product_showcase py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <!--Carousel Wrapper-->
                     <!--product pictures-->
                     @await Html.PartialAsync("_ProductDetailsPictures", Model)
-                    @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_after_pictures", additionalData = Model.Id })
-                    <div class="overview">
-                        @await Html.PartialAsync("_Discontinued", Model)
-                        <div class="product-name">
-                            <h1 itemprop="name">
-                                @Model.Name
-                            </h1>
-                        </div>
-                        @if (!string.IsNullOrEmpty(Model.ShortDescription))
-                        {
-                            <div class="short-description">
-                                @Html.Raw(Model.ShortDescription)
-                            </div>
-                        }
-                        @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_overview_top", additionalData = Model.Id })
-                        <!--product reviews-->
-                        @await Html.PartialAsync("_ProductReviewOverview", Model.ProductReviewOverview)
-                        <!--manufacturers-->
-                        @await Html.PartialAsync("_ProductManufacturers", Model.ProductManufacturers)
+                    <!--/.Carousel Wrapper-->
+                </div>
+                <div class="col-md-6">
+                    <div class="single_product_information">
+                        @*<small class="stock">In stock</small>
+                            <small class="p_model">SKU 8541</small>*@
                         <!--availability-->
                         @await Html.PartialAsync("_Availability", Model)
                         <!--SKU, MAN, GTIN, vendor-->
                         @await Html.PartialAsync("_SKU_Man_GTIN_Ven", Model)
-                        <!--delivery-->
-                        @await Html.PartialAsync("_DeliveryInfo", Model)
-                        <!--sample download-->
-                        @await Html.PartialAsync("_DownloadSample", Model)
-                        <!--attributes-->
-                        @{
-                            var dataDictAttributes = new ViewDataDictionary(ViewData);
-                            dataDictAttributes.TemplateInfo.HtmlFieldPrefix = $"attributes_{Model.Id}";
-                            @await Html.PartialAsync("_ProductAttributes", Model.ProductAttributes, dataDictAttributes)
-                        }
-                        <!--gift card-->
-                        @{
-                            var dataDictGiftCard = new ViewDataDictionary(ViewData);
-                            dataDictGiftCard.TemplateInfo.HtmlFieldPrefix = $"giftcard_{Model.Id}";
-                            @await Html.PartialAsync("_GiftCardInfo", Model.GiftCard, dataDictGiftCard)
-                        }
-                        <!--rental info-->
-                        @{
-                            var dataDictRental = new ViewDataDictionary(ViewData);
-                            dataDictRental.TemplateInfo.HtmlFieldPrefix = $"rental_{Model.Id}";
-                            @await Html.PartialAsync("_RentalInfo", Model, dataDictRental)
-                        }
-                        <!--price & add to cart-->
+                        <h3 class="p_title">
+                            @Model.Name
+                        </h3>
+                        @*<p class="p_price">$2563.00</p>*@
+                        <!--price-->
                         @{
                             var dataDictPrice = new ViewDataDictionary(ViewData);
                             dataDictPrice.TemplateInfo.HtmlFieldPrefix = $"price_{Model.Id}";
@@ -110,10 +79,58 @@
 
                             @await Html.PartialAsync("_ProductTierPrices", Model.TierPrices)
 
-                            var dataDictAddToCart = new ViewDataDictionary(ViewData);
-                            dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = $"addtocart_{Model.Id}";
-                            @await Html.PartialAsync("_AddToCart", Model.AddToCart, dataDictAddToCart)
                         }
+                        @if (!string.IsNullOrEmpty(Model.ShortDescription))
+                        {
+                            <p class="p_description">
+                                @Html.Raw(Model.ShortDescription)
+                            </p>
+                        }
+
+                        <form class="form">
+                            @*<div class="form-group">
+                                    <label for="body_type">
+                                        Vehicle Body Type
+                                        <span class="starMark">*</span>
+                                    </label>
+                                    <select name="body_type" id="body_type" required>
+                                        <option value="select">-- Please Select --</option>
+                                        <option value="sedan">Sedan +$38.00</option>
+                                        <option value="coupe">Coupe +$50.00</option>
+                                        <option value="hatchback">Hatchback +$120.00</option>
+                                    </select>
+                                </div>*@
+                            @*<div class="form-group">
+                                    <label for="finish_color">Color Finish<span class="starMark">*</span></label>
+                                    <select name="finish_color" id="finish_color" required>
+                                        <option value="select">--Please Select--</option>
+                                        <option value="value1">Value 1</option>
+                                        <option value="value2">Value2</option>
+                                        <option value="value3">Value3</option>
+                                    </select>
+                                </div>*@
+                            @{
+                                var dataDictAddToCart = new ViewDataDictionary(ViewData);
+                                dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = $"addtocart_{Model.Id}";
+                                @await Html.PartialAsync("_AddToCart", Model.AddToCart, dataDictAddToCart)
+                            }
+                            @*<div class="form-group">
+                                    <label for="p_number">Qty</label>
+                                    <input type="number"
+                                           name="p_number"
+                                           id="p_number"
+                                           placeholder="1" />
+                                </div>
+                                <button type="submit">
+                                    <span class="lnr lnr-cart"></span>Add to Cart
+                                </button>*@
+                        </form>
+                        @*<div class="additional_icon">
+                                <a href="#"><span class="lnr lnr-heart"></span></a>
+                                <a href="#"><span class="lnr lnr-store"></span></a>
+                                <a href="#"><span class="lnr lnr-envelope"></span></a>
+                            </div>*@
+                        <br />
                         <!--wishlist, compare, email a friend-->
                         <div class="overview-buttons">
                             @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_inside_overview_buttons_before", additionalData = Model.Id })
@@ -126,9 +143,58 @@
                             @await Html.PartialAsync("_ProductEmailAFriendButton", Model)
                             @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_inside_overview_buttons_after", additionalData = Model.Id })
                         </div>
+                        <!--product reviews-->
+                        @await Html.PartialAsync("_ProductReviewOverview", Model.ProductReviewOverview)
+                        @*<div class="p_reviews">
+                                <div class="review_icon">
+                                    <span class="far fa-star checked"></span>
+                                    <span class="far fa-star checked"></span>
+                                    <span class="far fa-star checked"></span>
+                                    <span class="far fa-star"></span>
+                                    <span class="far fa-star"></span>
+                                </div>
+                                <a href="#" class="review_text">2 Reviews</a>
+                                <a href="#" class="review_text">Add Your Review</a>
+                            </div>*@
                         @await Html.PartialAsync("_ShareButton", Model)
-                        @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_overview_bottom", additionalData = Model.Id })
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="p_details_information_section">
+        <div class="container">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active"
+                       id="nav-home-tab"
+                       data-toggle="tab"
+                       href="#nav-home"
+                       role="tab"
+                       aria-controls="nav-home"
+                       aria-selected="true">Details</a>
+                    <a class="nav-item nav-link"
+                       id="nav-profile-tab"
+                       data-toggle="tab"
+                       href="#nav-profile"
+                       role="tab"
+                       aria-controls="nav-profile"
+                       aria-selected="false">More Information</a>
+                    @*<a class="nav-item nav-link"
+                        id="nav-contact-tab"
+                        data-toggle="tab"
+                        href="#nav-contact"
+                        role="tab"
+                        aria-controls="nav-contact"
+                        aria-selected="false">Reviews(2)</a>*@
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active"
+                     id="nav-home"
+                     role="tabpanel"
+                     aria-labelledby="nav-home-tab">
+                    @*<p></p>*@
                     @if (!string.IsNullOrEmpty(Model.FullDescription))
                     {
                         <div class="full-description" itemprop="description">
@@ -136,15 +202,405 @@
                         </div>
                     }
                 </div>
-                @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_before_collateral", additionalData = Model.Id })
-                <div class="product-collateral">
-                    @await Html.PartialAsync("_ProductSpecifications", Model.ProductSpecifications)
-                    @await Html.PartialAsync("_ProductTags", Model.ProductTags)
+                <div class="tab-pane fade"
+                     id="nav-profile"
+                     role="tabpanel"
+                     aria-labelledby="nav-profile-tab">
+                    <div class="row">
+                        <div class="col-md-6">
+                            @*<ul class="p_left_list">
+                                    <li>Manufacturer</li>
+                                    <li>Item model number</li>
+                                    <li>Diameter</li>
+                                    <li>Construction year to</li>
+                                    <li>Location</li>
+                                    <li>Shape</li>
+                                    <li>Class</li>
+                                    <li>Submodel</li>
+                                    <li>Color</li>
+                                </ul>
+
+                                <ul class="p_right_list">
+                                    <li>Germany</li>
+                                    <li>F5-58G</li>
+                                    <li>89 mm</li>
+                                    <li>04.2017</li>
+                                    <li>Driver Side</li>
+                                    <li>Cylindrical</li>
+                                    <li>B</li>
+                                    <li>Evolution MR</li>
+                                    <li>No</li>
+                                </ul>*@
+
+                            <div class="product-collateral">
+                                @await Html.PartialAsync("_ProductSpecifications", Model.ProductSpecifications)
+                                @await Html.PartialAsync("_ProductTags", Model.ProductTags)
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                @await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })
-                @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })
+
+                @*<div class="tab-pane fade"
+                         id="nav-contact"
+                         role="tabpanel"
+                         aria-labelledby="nav-contact-tab">
+                        <div class="container p_reviews_details">
+                            <h3>Customer Reviews</h3>
+                            <form action="" class="form filter">
+                                <label for="reviews_filter">show</label>
+                                <select name="reviews_filter" id="reviews_filter">
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="50">50</option>
+                                </select>
+                            </form>
+                            <ol class="review_section">
+                                <li>
+                                    <div class="review_title">not bad</div>
+                                    <div class="review_rating">
+                                        <div class="review_summery_wrapper">
+                                            <span class="review_label">Price</span>
+                                            <div class="review_icon_wrapper">
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star"></span>
+                                                <span class="far fa-star"></span>
+                                            </div>
+                                        </div>
+                                        <div class="review_summery_wrapper">
+                                            <span class="review_label">Value</span>
+                                            <div class="review_icon_wrapper">
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star"></span>
+                                                <span class="far fa-star"></span>
+                                                <span class="far fa-star"></span>
+                                            </div>
+                                        </div>
+                                        <div class="review_summery_wrapper">
+                                            <span class="review_label">Quality</span>
+                                            <div class="review_icon_wrapper">
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star"></span>
+                                            </div>
+                                        </div>
+                                        <div class="review_desc">
+                                            Great service from this store.
+                                        </div>
+                                        <div class="review_author">
+                                            <p class="author_name">Review by <span>Lora</span></p>
+                                            <p class="review_date">Posted on 12/16/17</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="review_title">good product</div>
+                                    <div class="review_rating">
+                                        <div class="review_summery_wrapper">
+                                            <span class="review_label">Price</span>
+                                            <div class="review_icon_wrapper">
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star"></span>
+                                            </div>
+                                        </div>
+                                        <div class="review_summery_wrapper">
+                                            <span class="review_label">Value</span>
+                                            <div class="review_icon_wrapper">
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star "></span>
+                                                <span class="far fa-star"></span>
+                                            </div>
+                                        </div>
+                                        <div class="review_summery_wrapper">
+                                            <span class="review_label">Quality</span>
+                                            <div class="review_icon_wrapper">
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                                <span class="far fa-star checked"></span>
+                                            </div>
+                                        </div>
+                                        <div class="review_desc">
+                                            Great service from this store.
+                                        </div>
+                                        <div class="review_author">
+                                            <p class="author_name">
+                                                Review by <span class="name">Lora</span>
+                                            </p>
+                                            <p class="review_date">Posted on 12/16/17</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ol>
+
+                            <div class="block review_add">
+                                <form action="" class="form filter">
+                                    <label for="reviews_filter">show</label>
+                                    <select name="reviews_filter" id="reviews_filter">
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="50">50</option>
+                                    </select>
+                                </form>
+                                <div class="block_title">
+                                    Write Your Own Review
+                                </div>
+
+                                <div class="block_content">
+                                    <div class="p_name_content">
+                                        <span>You're reviewing:</span>
+                                        <span>Maserati Granturismo Gearbox Transmission</span>
+                                    </div>
+                                    <div class="your_rating">
+                                        <small>Your Rating<span class="starMark">*</span></small>
+                                        <div class="review_icon_wrap">
+                                            <li>
+                                                <span class="span_title">Price:</span>
+                                                <fieldset class="rating1">
+                                                    <input type="radio"
+                                                           id="star5"
+                                                           name="rating1"
+                                                           value="5" /><label class="full"
+                                                                              for="star5"
+                                                                              title="Awesome - 5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star4half"
+                                                           name="rating1"
+                                                           value="4 and a half" /><label class="half"
+                                                                                         for="star4half"
+                                                                                         title="Pretty good - 4.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star4"
+                                                           name="rating1"
+                                                           value="4" /><label class="full"
+                                                                              for="star4"
+                                                                              title="Pretty good - 4 stars"></label>
+                                                    <input type="radio"
+                                                           id="star3half"
+                                                           name="rating1"
+                                                           value="3 and a half" /><label class="half"
+                                                                                         for="star3half"
+                                                                                         title="Meh - 3.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star3"
+                                                           name="rating1"
+                                                           value="3" /><label class="full"
+                                                                              for="star3"
+                                                                              title="Meh - 3 stars"></label>
+                                                    <input type="radio"
+                                                           id="star2half"
+                                                           name="rating1"
+                                                           value="2 and a half" /><label class="half"
+                                                                                         for="star2half"
+                                                                                         title="Kinda bad - 2.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star2"
+                                                           name="rating1"
+                                                           value="2" /><label class="full"
+                                                                              for="star2"
+                                                                              title="Kinda bad - 2 stars"></label>
+                                                    <input type="radio"
+                                                           id="star1half"
+                                                           name="rating1"
+                                                           value="1 and a half" /><label class="half"
+                                                                                         for="star1half"
+                                                                                         title="Meh - 1.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star1"
+                                                           name="rating1"
+                                                           value="1" /><label class="full"
+                                                                              for="star1"
+                                                                              title="Sucks big time - 1 star"></label>
+                                                    <input type="radio"
+                                                           id="starhalf"
+                                                           name="rating1"
+                                                           value="half" /><label class="half"
+                                                                                 for="starhalf"
+                                                                                 title="Sucks big time - 0.5 stars"></label>
+                                                </fieldset>
+                                            </li>
+                                            <li>
+                                                <span class="span_title">Value:</span>
+                                                <fieldset class="rating2">
+                                                    <input type="radio"
+                                                           id="star5_2"
+                                                           name="rating2"
+                                                           value="5" /><label class="full"
+                                                                              for="star5_2"
+                                                                              title="Awesome - 5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star4half_2"
+                                                           name="rating2"
+                                                           value="4 and a half" /><label class="half"
+                                                                                         for="star4half_2"
+                                                                                         title="Pretty good - 4.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star4_2"
+                                                           name="rating2"
+                                                           value="4" /><label class="full"
+                                                                              for="star4_2"
+                                                                              title="Pretty good - 4 stars"></label>
+                                                    <input type="radio"
+                                                           id="star3half_2"
+                                                           name="rating2"
+                                                           value="3 and a half" /><label class="half"
+                                                                                         for="star3half_2"
+                                                                                         title="Meh - 3.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star3_2"
+                                                           name="rating2"
+                                                           value="3" /><label class="full"
+                                                                              for="star3_2"
+                                                                              title="Meh - 3 stars"></label>
+                                                    <input type="radio"
+                                                           id="star2half_2"
+                                                           name="rating2"
+                                                           value="2 and a half" /><label class="half"
+                                                                                         for="star2half_2"
+                                                                                         title="Kinda bad - 2.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star2_2"
+                                                           name="rating2"
+                                                           value="2" /><label class="full"
+                                                                              for="star2_2"
+                                                                              title="Kinda bad - 2 stars"></label>
+                                                    <input type="radio"
+                                                           id="star1half_2"
+                                                           name="rating2"
+                                                           value="1 and a half" /><label class="half"
+                                                                                         for="star1half_2"
+                                                                                         title="Meh - 1.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star1_2"
+                                                           name="rating2"
+                                                           value="1" /><label class="full"
+                                                                              for="star1_2"
+                                                                              title="Sucks big time - 1 star"></label>
+                                                    <input type="radio"
+                                                           id="starhalf_2"
+                                                           name="rating2"
+                                                           value="half" /><label class="half"
+                                                                                 for="starhalf_2"
+                                                                                 title="Sucks big time - 0.5 stars"></label>
+                                                </fieldset>
+                                            </li>
+                                            <li>
+                                                <span class="span_title">Quality:</span>
+                                                <fieldset class="rating3">
+                                                    <input type="radio"
+                                                           id="star5_3"
+                                                           name="rating3"
+                                                           value="5" /><label class="full"
+                                                                              for="star5_3"
+                                                                              title="Awesome - 5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star4half_3"
+                                                           name="rating3"
+                                                           value="4 and a half" /><label class="half"
+                                                                                         for="star4half_3"
+                                                                                         title="Pretty good - 4.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star4_3"
+                                                           name="rating3"
+                                                           value="4" /><label class="full"
+                                                                              for="star4_3"
+                                                                              title="Pretty good - 4 stars"></label>
+                                                    <input type="radio"
+                                                           id="star3half_3"
+                                                           name="rating3"
+                                                           value="3 and a half" /><label class="half"
+                                                                                         for="star3half_3"
+                                                                                         title="Meh - 3.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star3_3"
+                                                           name="rating3"
+                                                           value="3" /><label class="full"
+                                                                              for="star3_3"
+                                                                              title="Meh - 3 stars"></label>
+                                                    <input type="radio"
+                                                           id="star2half_3"
+                                                           name="rating3"
+                                                           value="2 and a half" /><label class="half"
+                                                                                         for="star2half_3"
+                                                                                         title="Kinda bad - 2.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star2_3"
+                                                           name="rating3"
+                                                           value="2" /><label class="full"
+                                                                              for="star2_3"
+                                                                              title="Kinda bad - 2 stars"></label>
+                                                    <input type="radio"
+                                                           id="star1half_3"
+                                                           name="rating3"
+                                                           value="1 and a half" /><label class="half"
+                                                                                         for="star1half_3"
+                                                                                         title="Meh - 1.5 stars"></label>
+                                                    <input type="radio"
+                                                           id="star1_3"
+                                                           name="rating3"
+                                                           value="1" /><label class="full"
+                                                                              for="star1_3"
+                                                                              title="Sucks big time - 1 star"></label>
+                                                    <input type="radio"
+                                                           id="starhalf_3"
+                                                           name="rating3"
+                                                           value="half" /><label class="half"
+                                                                                 for="starhalf_3"
+                                                                                 title="Sucks big time - 0.5 stars"></label>
+                                                </fieldset>
+                                            </li>
+                                        </div>
+                                        <div class="col-md-8 form_content">
+                                            <form action="" class="form">
+                                                <div class="form-group">
+                                                    <label for="nickname">Nickname<span class="starMark">*</span></label>
+                                                    <input type="text"
+                                                           name="nickname"
+                                                           id="nickname"
+                                                           required />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="summary">Summary<span class="starMark">*</span></label>
+                                                    <input type="text"
+                                                           name="summary"
+                                                           id="summary"
+                                                           required />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="review">Review<span class="starMark">*</span></label>
+                                                    <textarea name="review"
+                                                              id="review"
+                                                              rows="3"></textarea>
+                                                </div>
+                                                <button type="submit" class="reviewBtn">
+                                                    Review Now
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
             </div>
-        </form>
-        @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_bottom", additionalData = Model.Id })
+        </div>
     </div>
-</div>
+    <!-- Related Product Section -->
+    @await Component.InvokeAsync("RelatedProducts", new { productId = Model.Id })
+
+    <!-- You might like these product -->
+    @await Component.InvokeAsync("ProductsAlsoPurchased", new { productId = Model.Id })
+    
+</main>
+<!-- main content end -->

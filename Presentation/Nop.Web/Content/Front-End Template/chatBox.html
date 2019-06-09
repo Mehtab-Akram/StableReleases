@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Magetique</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    />
+    <!-- LinearIcons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Main wrapper -->
+    <div class="page_wrapper">
+      <!-- Mobile NavBar start -->
+      <div class="mobileNav_container fixed-top pb-5">
+        <ul class="mobile_nav_top_ul">
+          <!-- 1st menu item -->
+          <li class="hamburger_menu">
+            <a
+              href="#"
+              onclick="show_hamburger_menu()"
+              class="hamburger_menu_btn"
+            >
+              <span class="lnr lnr-menu" id="hamburger_menu_icon"></span>
+            </a>
+          </li>
+          <!-- 2nd menu item -->
+          <li class="mobile_search_box">
+            <a
+              href="#"
+              onclick="show_mobile_search()"
+              class="mobile_search_box_btn"
+            >
+              <span class="lnr lnr-magnifier" id="mobile_search_icon"></span>
+            </a>
+          </li>
+          <!-- 3rd menu item-->
+          <li class="mobile_profile_box">
+            <a
+              href="#"
+              onclick="show_mobile_profile()"
+              class="mobile_profile_box_btn"
+            >
+              <span class="lnr lnr-user" id="mobile_profile_icon"></span>
+            </a>
+          </li>
+          <!-- 4th menu item -->
+          <li class="moblie_cart">
+            <a href="#" onclick="show_mobile_cart()" class="mobile_cart_btn">
+              <span class="lnr lnr-cart cart_icon" id="mobile_cart_icon"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 1st menu item content start -->
+      <div
+        class="mobile_hamburger_menu_content_container"
+        id="show_hamburger_menu"
+      >
+        <div class="row">
+          <div class="col">
+            <div
+              id="hamburger_menu_item"
+              role="tablist"
+              aria-multiselectable="true"
+            >
+              <!-- Interior -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_interior">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Interior</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_interior_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_interior_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="interior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_interior_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_interior"
+                >
+                  <div class="mobile_interior_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Exterior -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_exterior">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Exterior</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_exterior_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_exterior_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="exterior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_exterior_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_exterior"
+                >
+                  <div class="mobile_exterior_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Lighting -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_lighting">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Lighting</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_lighting_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_lighting_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="exterior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_lighting_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_lighting"
+                >
+                  <div class="mobile_lighting_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Repair Parts -->
+              <div class="mb-4 pb-2" <div role="tab" id="mobile_repair_part">
+                <h5 class="mb-0">
+                  <a href="#" class="mobile_menu_nav_link">Repair Parts</a>
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#hamburger_menu_item"
+                    href="#mobile_repair_parts_content_ID"
+                    aria-expanded="true"
+                    aria-controls="mobile_repair_parts_content_ID"
+                    class="lnr lnr-chevron-down"
+                    id="exterior_down"
+                  ></a>
+                </h5>
+              </div>
+              <div
+                id="mobile_repair_parts_content_ID"
+                class="collapse in"
+                role="tabpanel"
+                aria-labelledby="mobile_repair_part"
+              >
+                <div class="mobile_repair_parts_content">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Body Parts -->
+            <div class="mb-4 pb-2">
+              <div role="tab" id="mobile_body_parts">
+                <h5 class="mb-0">
+                  <a href="#" class="mobile_menu_nav_link">Body Parts</a>
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#hamburger_menu_item"
+                    href="#mobile_body_parts_content_ID"
+                    aria-expanded="true"
+                    aria-controls="mobile_body_parts_content_ID"
+                    class="lnr lnr-chevron-down"
+                    id="exterior_down"
+                  ></a>
+                </h5>
+              </div>
+              <div
+                id="mobile_body_parts_content_ID"
+                class="collapse in"
+                role="tabpanel"
+                aria-labelledby="mobile_body_parts"
+              >
+                <div class="mobile_body_parts_content">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Blog -->
+            <li class="mobile_blog"><a href="#">Blog</a></li>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1st menu item content end -->
+      <!-- 2nd menu item content start -->
+      <div class="mobile_search_content_container" id="show_mobile_search">
+        <form action="" class="mobile_search_form">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search entire store here..."
+            id="mobile_search_input"
+          />
+          <button type="submit">
+            <span class="lnr lnr-magnifier"></span>
+          </button>
+        </form>
+      </div>
+      <!-- 2nd menu item content end -->
+      <!-- 3rd menu item content start -->
+      <div class="mobile_profile_content_container" id="show_mobile_profile">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">My Account</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-heart"></span>
+              <span class="mobile_profile_link">My Wish List</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">Sign In</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">Create an Account</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 3rd menu item content end -->
+      <!-- 4th menu item content start -->
+      <div class="mobile_cart_content_container" id="show_mobile_cart">
+        <h3>You have no item in your cart. Please shopping first</h3>
+      </div>
+
+      <!-- Mobile NavBar End -->
+      <!-- Page Header -->
+      <header class="page_header mt-3">
+        <div class="container">
+          <!-- first navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light first_nav">
+            <span class="navbar-text">
+              Default welcome msg!
+            </span>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item my_account">
+                  <a class="nav-link" href="#"
+                    ><span class="lnr lnr-user"></span>My Account</a
+                  >
+                </li>
+                <li class="nav-item wishlist">
+                  <a class="nav-link" href="#"
+                    ><span class="lnr lnr-heart"></span>My Wish List</a
+                  >
+                </li>
+                <li class="nav-item signIn">
+                  <a class="nav-link" href="#"
+                    ><span class="lnr lnr-user"></span>Sign In</a
+                  >
+                </li>
+                <li class="nav-item newAccount">
+                  <a class="nav-link" href="#"
+                    ><span class="lnr lnr-user"></span>Create an Account</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- End of First Navbar -->
+          <!-- second-nav -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light second_nav">
+            <a class="navbar-brand second_nav_logo" href="#">
+              <img src="./img/logo_4.png" alt="logo" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="#"
+                  ><span class="lnr lnr-cart shopping_cart_icon"></span> My Cart
+                  <span class="cart_counter">0</span>
+                </a>
+              </div>
+            </div>
+          </nav>
+          <!-- end of second-nav -->
+        </div>
+        <!-- third-nav -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark third_nav">
+          <div class="container">
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul
+                class="navbar-nav mr-auto mt-2 mt-lg-0 thirdNav__ul"
+                id="third_nav_ul"
+              >
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    id="InteriorID"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    href="#"
+                    >Interior</a
+                  >
+                  <div class="dropdown-menu " aria-labelledby="InteriorID">
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Tailored car
+                      Mats</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Floor & Cargo
+                      Mats</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Storage &
+                      Organization
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Steering Wheel
+                      Covers
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Car Seat
+                      Covers
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    id="ExteriorId"
+                    href="#"
+                    >Exterior</a
+                  >
+                  <div class="dropdown-menu" aria-labelledby="ExteriorId">
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Tow Bars</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Tow Bar
+                      electric Kit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Car Covers &
+                      Car Protection
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Cargo
+                      Management
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Exterior Car
+                      Decoration
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    id="LightingId"
+                    href="#"
+                    >Lighting</a
+                  >
+                  <div class="dropdown-menu" aria-labelledby="LightingId">
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Headlight</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Indictor</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Taillights
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Combination
+                      Taillight
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Brake light
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Repair Parts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Body Parts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Blog</a>
+                </li>
+              </ul>
+              <!-- Searchbox -->
+
+              <button
+                type="button"
+                class="search searchBtn"
+                onclick="toggleSearchBox()"
+              >
+                <span class="lnr lnr-magnifier" id="searchbox_icon"></span>
+              </button>
+              <!-- End searchbox -->
+            </div>
+          </div>
+        </nav>
+        <!-- Start SearchBox -->
+        <!-- <div class="container"> -->
+        <div class="search_box" id="search_box_container">
+          <div class="form-group search_form_group">
+            <input
+              type="text"
+              name="search_input"
+              id="search_input"
+              placeholder="Search entire store here..."
+            />
+            <a class="ineer_searchLink" href="#"
+              ><span class="lnr lnr-magnifier ineer_searchbox_icon"></span
+            ></a>
+          </div>
+        </div>
+        <!-- </div> -->
+        <!-- end_searchbox -->
+        <!-- end of third-nav -->
+      </header>
+      <!-- main content start -->
+      <main>
+        <div class="container-fluid h-100 py-5" id="chatbox_container">
+          <div class="row justify-content-center h-100">
+            <div class="col-md-4 col-xl-3 chat">
+              <div class="card mb-sm-3 mb-md-0 contacts_card">
+                <div class="card-header">
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      placeholder="Search..."
+                      name=""
+                      class="form-control search"
+                    />
+                    <div class="input-group-prepend">
+                      <span class="input-group-text search_btn"
+                        ><i class="fas fa-search"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body contacts_body">
+                  <ui class="contacts">
+                    <li class="active">
+                      <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                          <img
+                            src="./img/chat_user/chat_user1.jpg"
+                            class="rounded-circle user_img"
+                            alt="user_image"
+                          />
+                          <span class="online_icon"></span>
+                        </div>
+                        <div class="user_info">
+                          <span>Maryam Naz</span>
+                          <p>Maryam is online</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                          <img
+                            src="./img/chat_user/chat_user2.jpg"
+                            class="rounded-circle user_img"
+                            alt="user_image"
+                            ;
+                          />
+                          <span class="online_icon offline"></span>
+                        </div>
+                        <div class="user_info">
+                          <span>Sahar Darya</span>
+                          <p>Sahar left 7 mins ago</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                          <img
+                            src="./img/chat_user/chat_user3.jpg"
+                            class="rounded-circle user_img"
+                            alt="user_image"
+                          />
+                          <span class="online_icon"></span>
+                        </div>
+                        <div class="user_info">
+                          <span>Yolduz Rafi</span>
+                          <p>Yolduz is online</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                          <img
+                            src="./img/chat_user/chat_user1.jpg"
+                            class="rounded-circle user_img"
+                            alt="user_image"
+                          />
+                          <span class="online_icon offline"></span>
+                        </div>
+                        <div class="user_info">
+                          <span>Nargis Hawa</span>
+                          <p>Nargis left 30 mins ago</p>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                          <img
+                            src="./img/chat_user/chat_user3.jpg"
+                            class="rounded-circle user_img"
+                            alt="user_image"
+                          />
+                          <span class="online_icon offline"></span>
+                        </div>
+                        <div class="user_info">
+                          <span>Khadija Mehr</span>
+                          <p>Khadija left 50 mins ago</p>
+                        </div>
+                      </div>
+                    </li>
+                  </ui>
+                </div>
+                <div class="card-footer"></div>
+              </div>
+            </div>
+            <div class="col-md-8 col-xl-6 chat">
+              <div class="card">
+                <div class="card-header msg_head">
+                  <div class="d-flex bd-highlight">
+                    <div class="img_cont">
+                      <img
+                        src="./img/chat_user/chat_user1.jpg"
+                        class="rounded-circle user_img"
+                        alt="user_image"
+                      />
+                      <span class="online_icon"></span>
+                    </div>
+                    <div class="user_info">
+                      <span>Chat with Maryam Naz</span>
+                      <p>1767 Messages</p>
+                    </div>
+                    <div class="video_cam">
+                      <span><i class="fas fa-video"></i></span>
+                      <span><i class="fas fa-phone"></i></span>
+                    </div>
+                  </div>
+                  <span id="action_menu_btn" onclick="showActionMenu()"
+                    ><i class="fas fa-ellipsis-v"></i
+                  ></span>
+                  <div class="action_menu" id="action_menu_container">
+                    <ul>
+                      <li><i class="fas fa-user-circle"></i> View profile</li>
+                      <li><i class="fas fa-users"></i> Add to close friends</li>
+                      <li><i class="fas fa-plus"></i> Add to group</li>
+                      <li><i class="fas fa-ban"></i> Block</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="card-body msg_card_body">
+                  <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                      <img
+                        src="./img/chat_user/chat_user1.jpg"
+                        class="rounded-circle user_img_msg"
+                        alt="user_image"
+                      />
+                    </div>
+                    <div class="msg_cotainer">
+                      Hi, how are you samim?
+                      <span class="msg_time">8:40 AM, Today</span>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                      Hi Maryam i am good tnx how about you?
+                      <span class="msg_time_send">8:55 AM, Today</span>
+                    </div>
+                    <div class="img_cont_msg">
+                      <img
+                        src="./img/chat_user/chat_user4.jpg"
+                        class="rounded-circle user_img_msg"
+                        alt="user_image"
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                      <img
+                        src="./img/chat_user/chat_user1.jpg"
+                        class="rounded-circle user_img_msg"
+                        alt="user_image"
+                      />
+                    </div>
+                    <div class="msg_cotainer">
+                      I am good too, thank you for your chat template
+                      <span class="msg_time">9:00 AM, Today</span>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                      You welcome Maryam
+                      <span class="msg_time_send">9:05 AM, Today</span>
+                    </div>
+                    <div class="img_cont_msg">
+                      <img
+                        src="./img/chat_user/chat_user4.jpg"
+                        class="rounded-circle user_img_msg"
+                        alt="user_image"
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                      <img
+                        src="./img/chat_user/chat_user1.jpg"
+                        class="rounded-circle user_img_msg"
+                        alt="user_image"
+                      />
+                    </div>
+                    <div class="msg_cotainer">
+                      I am looking for your next templates
+                      <span class="msg_time">9:07 AM, Today</span>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-end mb-4">
+                    <div class="msg_cotainer_send">
+                      Ok, thank you have a good day
+                      <span class="msg_time_send">9:10 AM, Today</span>
+                    </div>
+                    <div class="img_cont_msg">
+                      <img
+                        src="./img/chat_user/chat_user4.jpg"
+                        class="rounded-circle user_img_msg"
+                        alt="user_image"
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-start mb-4">
+                    <div class="img_cont_msg">
+                      <img
+                        src="./img/chat_user/chat_user1.jpg"
+                        class="rounded-circle user_img_msg"
+                        alt="user_image"
+                      />
+                    </div>
+                    <div class="msg_cotainer">
+                      Bye, see you
+                      <span class="msg_time">9:12 AM, Today</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="input-group">
+                    <div class="input-group-append">
+                      <span class="input-group-text attach_btn"
+                        ><i class="fas fa-paperclip"></i
+                      ></span>
+                    </div>
+                    <textarea
+                      name=""
+                      class="form-control type_msg"
+                      placeholder="Type your message..."
+                    ></textarea>
+                    <div class="input-group-append">
+                      <span class="input-group-text send_btn"
+                        ><i class="fas fa-location-arrow"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- main content end -->
+
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 left_content">
+              <strong class="logo"
+                ><img src="./img/logo_4.png" alt="logo"
+              /></strong>
+              <div class="d-flex flex-row social_icon">
+                <div class="social-media" id="facebook">
+                  <a href="https://www.facebook.com/" target="_blank">
+                    <i class="fab fa-facebook-f"></i
+                  ></a>
+                </div>
+                <div class="social-media" id="twitter">
+                  <a href="https://twitter.com/" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+                <div class="social-media" id="googlePlus">
+                  <a href="#" target="_blank">
+                    <i class="fab fa-google-plus-g"></i
+                  ></a>
+                </div>
+                <div class="social-media" id="instagram">
+                  <a href="https://www.instagram.com/" target="_blank">
+                    <i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+                <div class="social-media" id="pinterest">
+                  <a href="#" target="_blank">
+                    <i class="fab fa-pinterest"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 footer_menu">
+              <ul class="first">
+                <li><a href="#">Shipping & Delivery</a></li>
+                <li><a href="#">Secure payment</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Guarantee</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+              </ul>
+              <ul class="second">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Customer Service</a></li>
+                <li><a href="#">Template Settings</a></li>
+              </ul>
+              <ul class="third">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Search Terms</a></li>
+                <li><a href="#">Orders and Returns</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Advanced Search</a></li>
+                <li>
+                  <a href="#" data-toggle="modal" data-target="#newsLetterModal"
+                    >Newsletter Subscription</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col copyright">
+              <small>&copy;2019 Magento Demo Store. All Rights Reserved.</small>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Modal of Newsletter -->
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="newsLetterModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modelTitleId"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8 top_content text-center">
+                  <h3>Get the latest news delivered daily.</h3>
+                  <small
+                    >Give us your email and you will be daily updated with the
+                    latest events, in detail.</small
+                  >
+                </div>
+              </div>
+              <div class="row justify-content-center pt-2 mt-3">
+                <div class="col">
+                  <form action="" class="modal_form_container">
+                    <div class="row justify-content-center">
+                      <div class="col-md-8 text-center">
+                        <div class="form-group">
+                          <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            id="email"
+                            aria-describedby="helpId"
+                            placeholder="Enter your email address"
+                            required;
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <button type="submit">Subscribe</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+.mobileNav_container {
+  min-height: 30px;
+  background: #fff;
+  padding: 15px 5px !important;
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
+  margin-left: 0;
+  margin-right: 0;
+  z-index: 30;
+  display: none;
+  position: fixed;
+  .mobile_nav_top_ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style: none;
+    margin-left: -20px;
+    li {
+      border-right: 1px solid #eae9e9;
+      padding: 6px;
+      a {
+        text-decoration: none;
+        color: #888888;
+        padding: 10px;
+        font-size: 22px;
+
+        text-align: center;
+      }
+    }
+  }
+}
+.mobile_cart_btn {
+  position: relative;
+
+  &:hover {
+    .cart_icon::after {
+      background: #000;
+      color: #fff;
+      border: 1px solid #000000;
+    }
+  }
+}
+.cart_icon::after {
+  position: absolute;
+  content: "0";
+  width: 17px;
+  height: 17px;
+  background: #eae9e9;
+  text-align: center;
+  border: 1px solid #eae9e9;
+  border-radius: 100%;
+  font-size: 12px;
+  // padding-top: 5px;
+  margin-left: -2px;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+}
+
+//Mobile Search box content
+
+.mobile_search_content_container {
+  width: 100vw;
+  min-height: 25px;
+  padding: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  background: #fff;
+  margin-top: -999999999px;
+  display: none;
+  transition: all 0.5s ease;
+  z-index: 30;
+  position: absolute;
+  left: 0;
+  top: 85px;
+  form.mobile_search_form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    input[type="text"] {
+      padding: 13px 5px;
+      width: 100%;
+      font-size: 13px;
+      color: #000;
+      border: none;
+      background: #f6f6f6;
+      transition: color 0.3s ease;
+
+      &:focus {
+        color: #888888;
+      }
+    }
+
+    button {
+      width: 10%;
+      border: none;
+      outline: none;
+      background: #f6f6ff;
+      padding: 12px 5px;
+      font-size: 22px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background: #000000;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Show Mobile Profile Content
+
+.mobile_profile_content_container {
+  width: 100vw;
+  min-height: 55px;
+  padding: 35px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  background: #fff;
+  margin-top: 1px;
+  margin-right: -999999999px;
+  display: none;
+  transition: margin-right 0.5s ease;
+  z-index: 30;
+  position: absolute;
+  left: 0;
+  top: 85px;
+
+  ul {
+    list-style: none;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 15px;
+
+    li {
+      a {
+        text-decoration: none;
+        color: rgb(27, 27, 27);
+        font-size: 22px;
+        transition: all 0.3s ease;
+        font-family: inherit;
+
+        &:hover {
+          color: #888888;
+        }
+
+        .mobile_profile_link {
+          font-size: 16px;
+          margin-left: 15px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Cart_content
+
+.mobile_cart_content_container {
+  width: 100vw;
+  min-height: 35px;
+  padding: 35px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  background: #fff;
+  margin-top: 1px;
+  margin-right: -999999999px;
+  display: none;
+  transition: margin-right 0.5s ease;
+  position: absolute;
+  left: 0;
+  top: 85px;
+  z-index: 30;
+  h3 {
+    font-weight: 400;
+    font-family: inherit;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 17px;
+  }
+}
+
+// Hamburger Menu Item
+
+.mobile_hamburger_menu_content_container {
+  min-width: 320px;
+  height: 100vh;
+  margin-top: 0.5px;
+  position: fixed;
+  top: 85px;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  padding: 40px 30px;
+  overflow-y: scroll;
+  margin-left: -9999999px;
+  display: none;
+  z-index: 40;
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  h5 {
+    display: flex;
+    justify-content: space-between;
+    a {
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #000;
+      font-size: 17px;
+      transition: all 0.3s ease;
+      &:hover {
+        color: #888888;
+      }
+    }
+  }
+
+  .mobile_interior_content,
+  .mobile_exterior_content,
+  .mobile_exterior_content,
+  .mobile_lighting_content,
+  .mobile_repair_parts_content,
+  .mobile_body_parts_content {
+    ul {
+      // margin-top: 20px !important;
+      padding: 20px 5px !important;
+
+      a {
+        color: rgb(59, 59, 59);
+        font-size: 15px;
+        font-weight: 400;
+        font-family: inherit;
+        letter-spacing: 1px;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+          color: #888888;
+        }
+      }
+    }
+  }
+
+  .mobile_blog {
+    font-size: 17px;
+    a {
+      text-decoration: none;
+      color: #000000;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: inherit;
+      transition: color 0.3s ease-in-out;
+      &:hover {
+        color: #888888;
+      }
+    }
+  }
+}

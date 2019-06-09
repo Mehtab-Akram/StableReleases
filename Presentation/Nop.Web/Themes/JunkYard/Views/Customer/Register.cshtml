@@ -337,7 +337,21 @@
                                 }
                                 @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0)
                                 {
-                                    <div class="fieldset">
+                                    <h5>@T("Account.Options")</h5>
+                                    @if (Model.NewsletterEnabled)
+                                    {
+                                        <div class="form-group py-2">
+                                            <label asp-for="Newsletter" asp-postfix=":">
+                                            </label>
+                                            <input asp-for="Newsletter" />
+                                            <span class="clsRequiredMsg" asp-validation-for="Newsletter"></span>
+                                        </div>
+                                    }
+                                    @if (Model.CustomerAttributes.Count > 0)
+                                    {
+                                        @await Html.PartialAsync("_CustomerAttributes", Model.CustomerAttributes)
+                                    }
+                                    @*<div class="fieldset">
                                         <div class="title">
                                             <h5>@T("Account.Options")</h5>
                                         </div>
@@ -347,16 +361,16 @@
                                                 <div class="form-group py-2">
                                                     <label asp-for="Newsletter" asp-postfix=":">
                                                     </label>
-                                                        <input asp-for="Newsletter" />
-                                                        <span class="clsRequiredMsg" asp-validation-for="Newsletter"></span>
-</div>
+                                                    <input asp-for="Newsletter" />
+                                                    <span class="clsRequiredMsg" asp-validation-for="Newsletter"></span>
+                                                </div>
                                             }
                                             @if (Model.CustomerAttributes.Count > 0)
                                             {
                                                 @await Html.PartialAsync("_CustomerAttributes", Model.CustomerAttributes)
                                             }
                                         </div>
-                                    </div>
+                                    </div>*@
                                     @*<h5>Options</h5>
                                         <div class="form-group py-2">
                                             <label for="email" class="control-label">Newsletter </label>

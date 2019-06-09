@@ -30,127 +30,155 @@
     });
     </script>
 }
-<input asp-for="Id" type="hidden"/>
+<input asp-for="Id" type="hidden" />
 <div class="edit-address">
-    <div class="inputs">
-        <label asp-for="FirstName" asp-postfix=":"></label>
+    <div class="inputs form-group py-2">
+        <label asp-for="FirstName" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
         <input asp-for="FirstName" />
-        <nop-required />
-        <span asp-validation-for="FirstName"></span>
+
+        <span  class="clsRequiredMsg" asp-validation-for="FirstName"></span>
     </div>
-    <div class="inputs">
-        <label asp-for="LastName" asp-postfix=":"></label>
+    <div class="inputs form-group py-2">
+        <label asp-for="LastName" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
         <input asp-for="LastName" />
-        <nop-required />
-        <span asp-validation-for="LastName"></span>
+
+        <span  class="clsRequiredMsg" asp-validation-for="LastName"></span>
     </div>
-    <div class="inputs">
-        <label asp-for="Email" asp-postfix=":"></label>
+    <div class="inputs form-group py-2">
+        <label asp-for="Email" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
         <input asp-for="Email" />
-        <nop-required />
-        <span asp-validation-for="Email"></span>
+
+        <span  class="clsRequiredMsg" asp-validation-for="Email"></span>
     </div>
     @if (Model.CompanyEnabled)
     {
-        <div class="inputs">
-            <label asp-for="Company" asp-postfix=":"></label>
+        <div class="inputs form-group py-2">
+            <label asp-for="Company" asp-postfix=":"></label><span class='starMark'>
+
+                @if (Model.CompanyRequired)
+                {
+                    <nop-required />
+                }
+
+            </span>
             <input asp-for="Company" />
-            @if (Model.CompanyRequired)
-            {
-                <nop-required />
-            }
-            <span asp-validation-for="Company"></span>
+
+            <span  class="clsRequiredMsg" asp-validation-for="Company"></span>
         </div>
     }
     @if (Model.CountryEnabled)
     {
-        <div class="inputs">
-            <label asp-for="CountryId" asp-postfix=":"></label>
+        <div class="inputs form-group py-2">
+            <label asp-for="CountryId" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
             <select asp-for="CountryId" asp-items="Model.AvailableCountries"></select>
-            <nop-required />
-            <span asp-validation-for="CountryId"></span>
+
+            <span  class="clsRequiredMsg" asp-validation-for="CountryId"></span>
         </div>
     }
 
     @if (Model.CountryEnabled && Model.StateProvinceEnabled)
     {
-        <div class="inputs">
+        <div class="inputs form-group py-2">
             <label asp-for="StateProvinceId" asp-postfix=":"></label>
             <select asp-for="StateProvinceId" asp-items="Model.AvailableStates"></select>
             <span id="states-loading-progress" style="display: none;" class="please-wait">@T("Common.Wait...")</span>
-            <span asp-validation-for="StateProvinceId"></span>
+            <span  class="clsRequiredMsg" asp-validation-for="StateProvinceId"></span>
         </div>
     }
     @if (Model.CityEnabled)
     {
-        <div class="inputs">
-            <label asp-for="City" asp-postfix=":"></label>
+        <div class="inputs form-group py-2">
+            <label asp-for="City" asp-postfix=":"></label><span class='starMark'>
+
+                @if (Model.CityRequired)
+                {
+                    <nop-required />
+                }
+
+            </span>
             <input asp-for="City" />
-            @if (Model.CityRequired)
-            {
-                <nop-required />
-            }
-            <span asp-validation-for="City"></span>
+
+            <span  class="clsRequiredMsg" asp-validation-for="City"></span>
         </div>
     }
     @if (Model.StreetAddressEnabled)
     {
-        <div class="inputs">
-            <label asp-for="Address1" asp-postfix=":"></label>
+        <div class="inputs form-group py-2">
+            <label asp-for="Address1" asp-postfix=":"></label><span class='starMark'>
+
+                @if (Model.StreetAddressRequired)
+                {
+                    <nop-required />
+                }
+
+            </span>
             <input asp-for="Address1" />
-            @if (Model.StreetAddressRequired)
-            {
-                <nop-required />
-            }
-            <span asp-validation-for="Address1"></span>
+
+            <span  class="clsRequiredMsg" asp-validation-for="Address1"></span>
         </div>
     }
     @if (Model.StreetAddress2Enabled)
     {
-        <div class="inputs">
-            <label asp-for="Address2" asp-postfix=":"></label>
+        <div class="inputs form-group py-2">
+            <label asp-for="Address2" asp-postfix=":"></label><span class='starMark'>
+
+                @if (Model.StreetAddress2Required)
+                {
+                    <nop-required />
+                }
+
+            </span>
             <input asp-for="Address2" />
-            @if (Model.StreetAddress2Required)
-            {
-                <nop-required />
-            }
-            <span asp-validation-for="Address2"></span>
+
+            <span  class="clsRequiredMsg" asp-validation-for="Address2"></span>
         </div>
     }
     @if (Model.ZipPostalCodeEnabled)
     {
-        <div class="inputs">
-            <label asp-for="ZipPostalCode" asp-postfix=":"></label>
+        <div class="inputs form-group py-2">
+            <label asp-for="ZipPostalCode" asp-postfix=":"></label><span class='starMark'>
+
+                @if (Model.ZipPostalCodeRequired)
+                {
+                    <nop-required />
+                }
+
+            </span>
             <input asp-for="ZipPostalCode" />
-            @if (Model.ZipPostalCodeRequired)
-            {
-                <nop-required />
-            }
-            <span asp-validation-for="ZipPostalCode"></span>
+
+            <span  class="clsRequiredMsg" asp-validation-for="ZipPostalCode"></span>
         </div>
     }
     @if (Model.PhoneEnabled)
     {
-        <div class="inputs">
-            <label asp-for="PhoneNumber" asp-postfix=":"></label>
+        <div class="inputs form-group py-2">
+            <label asp-for="PhoneNumber" asp-postfix=":"></label><span class='starMark'>
+
+                @if (Model.PhoneRequired)
+                {
+                    <nop-required />
+                }
+
+            </span>
             <input asp-for="PhoneNumber" />
-            @if (Model.PhoneRequired)
-            {
-                <nop-required />
-            }
-            <span asp-validation-for="PhoneNumber"></span>
+
+            <span  class="clsRequiredMsg" asp-validation-for="PhoneNumber"></span>
         </div>
     }
     @if (Model.FaxEnabled)
     {
-        <div class="inputs">
-            <label asp-for="FaxNumber" asp-postfix=":"></label>
+        <div class="inputs form-group py-2">
+            <label asp-for="FaxNumber" asp-postfix=":"></label><span class='starMark'>
+
+                @if (Model.FaxRequired)
+                {
+                    <nop-required />
+                }
+
+            </span>
             <input asp-for="FaxNumber" />
-            @if (Model.FaxRequired)
-            {
-                <nop-required />
-            }
-            <span asp-validation-for="FaxNumber"></span>
+
+            <span  class="clsRequiredMsg" asp-validation-for="FaxNumber"></span>
         </div>
     }
     @if (Model.CustomAddressAttributes.Count > 0)

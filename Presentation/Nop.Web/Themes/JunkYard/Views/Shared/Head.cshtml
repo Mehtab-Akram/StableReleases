@@ -9,6 +9,7 @@
     var themeName = themeContext.WorkingThemeName;
     var isIe8 = userAgentHelper.IsIe8();
 
+
     //add browser specific CSS files
     if (isIe8)
     {
@@ -23,6 +24,9 @@
     {
         Html.AppendCssFileParts($"~/Themes/{themeName}/Content/css/styles.css");
     }
+    //By MU
+    Html.AppendCssFileParts($"~/Themes/{themeName}/Content/css/otherStyles.css");
+    Html.AppendCssFileParts($"~/Themes/{themeName}/Content/css/style.css");
     Html.AppendCssFileParts($"~/Themes/{themeName}/Content/css/CustomStyles.css");
     //add jQuery UI css file
     Html.AppendCssFileParts("~/lib/jquery-ui-themes/smoothness/jquery-ui-1.10.3.custom.min.css");

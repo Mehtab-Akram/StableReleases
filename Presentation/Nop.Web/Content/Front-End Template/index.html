@@ -31,25 +31,464 @@
   <body>
     <!-- Main wrapper -->
     <div class="page_wrapper">
+      <!-- Mobile NavBar start -->
+      <div class="mobileNav_container fixed-top pb-5">
+        <ul class="mobile_nav_top_ul">
+          <!-- 1st menu item -->
+          <li class="hamburger_menu">
+            <a
+              href="#"
+              onclick="show_hamburger_menu()"
+              class="hamburger_menu_btn"
+            >
+              <span class="lnr lnr-menu" id="hamburger_menu_icon"></span>
+            </a>
+          </li>
+          <!-- 2nd menu item -->
+          <li class="mobile_search_box">
+            <a
+              href="#"
+              onclick="show_mobile_search()"
+              class="mobile_search_box_btn"
+            >
+              <span class="lnr lnr-magnifier" id="mobile_search_icon"></span>
+            </a>
+          </li>
+          <!-- 3rd menu item-->
+          <li class="mobile_profile_box">
+            <a
+              href="#"
+              onclick="show_mobile_profile()"
+              class="mobile_profile_box_btn"
+            >
+              <span class="lnr lnr-user" id="mobile_profile_icon"></span>
+            </a>
+          </li>
+          <!-- 4th menu item -->
+          <li class="moblie_cart">
+            <a href="#" onclick="show_mobile_cart()" class="mobile_cart_btn">
+              <span class="lnr lnr-cart cart_icon" id="mobile_cart_icon"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 1st menu item content start -->
+      <div
+        class="mobile_hamburger_menu_content_container"
+        id="show_hamburger_menu"
+      >
+        <div class="row">
+          <div class="col">
+            <div
+              id="hamburger_menu_item"
+              role="tablist"
+              aria-multiselectable="true"
+            >
+              <!-- Interior -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_interior">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Interior</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_interior_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_interior_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="interior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_interior_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_interior"
+                >
+                  <div class="mobile_interior_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Exterior -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_exterior">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Exterior</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_exterior_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_exterior_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="exterior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_exterior_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_exterior"
+                >
+                  <div class="mobile_exterior_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Lighting -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_lighting">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Lighting</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_lighting_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_lighting_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="exterior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_lighting_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_lighting"
+                >
+                  <div class="mobile_lighting_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Repair Parts -->
+              <div class="mb-4 pb-2" <div role="tab" id="mobile_repair_part">
+                <h5 class="mb-0">
+                  <a href="#" class="mobile_menu_nav_link">Repair Parts</a>
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#hamburger_menu_item"
+                    href="#mobile_repair_parts_content_ID"
+                    aria-expanded="true"
+                    aria-controls="mobile_repair_parts_content_ID"
+                    class="lnr lnr-chevron-down"
+                    id="exterior_down"
+                  ></a>
+                </h5>
+              </div>
+              <div
+                id="mobile_repair_parts_content_ID"
+                class="collapse in"
+                role="tabpanel"
+                aria-labelledby="mobile_repair_part"
+              >
+                <div class="mobile_repair_parts_content">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Body Parts -->
+            <div class="mb-4 pb-2">
+              <div role="tab" id="mobile_body_parts">
+                <h5 class="mb-0">
+                  <a href="#" class="mobile_menu_nav_link">Body Parts</a>
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#hamburger_menu_item"
+                    href="#mobile_body_parts_content_ID"
+                    aria-expanded="true"
+                    aria-controls="mobile_body_parts_content_ID"
+                    class="lnr lnr-chevron-down"
+                    id="exterior_down"
+                  ></a>
+                </h5>
+              </div>
+              <div
+                id="mobile_body_parts_content_ID"
+                class="collapse in"
+                role="tabpanel"
+                aria-labelledby="mobile_body_parts"
+              >
+                <div class="mobile_body_parts_content">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Blog -->
+            <li class="mobile_blog"><a href="#">Blog</a></li>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1st menu item content end -->
+      <!-- 2nd menu item content start -->
+      <div class="mobile_search_content_container" id="show_mobile_search">
+        <form action="" class="mobile_search_form">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search entire store here..."
+            id="mobile_search_input"
+          />
+          <button type="submit">
+            <span class="lnr lnr-magnifier"></span>
+          </button>
+        </form>
+      </div>
+      <!-- 2nd menu item content end -->
+      <!-- 3rd menu item content start -->
+      <div class="mobile_profile_content_container" id="show_mobile_profile">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">My Account</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-heart"></span>
+              <span class="mobile_profile_link">My Wish List</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">Sign In</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">Create an Account</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 3rd menu item content end -->
+      <!-- 4th menu item content start -->
+      <div class="mobile_cart_content_container" id="show_mobile_cart">
+        <h3>You have no item in your cart. Please shopping first</h3>
+      </div>
+
+      <!-- Mobile NavBar End -->
       <!-- Page Header -->
-      <header class="page_header">
+      <header class="page_header mt-3">
         <div class="container">
           <!-- first navbar -->
           <nav class="navbar navbar-expand-lg navbar-light bg-light first_nav">
             <span class="navbar-text">
               Default welcome msg!
             </span>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarText"
-              aria-controls="navbarText"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon lnr lnr-user"></span>
-            </button>
             <div class="collapse navbar-collapse" id="navbarText">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item my_account">
@@ -76,26 +515,19 @@
             </div>
           </nav>
           <!-- End of First Navbar -->
+
           <!-- second-nav -->
           <nav class="navbar navbar-expand-lg navbar-light bg-light second_nav">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand second_nav_logo" href="#">
               <img src="./img/logo_4.png" alt="logo" />
             </a>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNavAltMarkup"
-              aria-controls="navbarNavAltMarkup"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
+            <div
+              class="collapse navbar-collapse second_nav_right_content"
+              id="navbarNavAltMarkup"
             >
-              <span class="navbar-toggler-icon lnr lnr-cart"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link" href="#"
-                  ><span class="lnr lnr-cart cart_icon"></span> My Cart
+                  ><span class="lnr lnr-cart shopping_cart_icon"></span> My Cart
                   <span class="cart_counter">0</span>
                 </a>
               </div>
@@ -106,17 +538,6 @@
         <!-- third-nav -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark third_nav">
           <div class="container">
-            <button
-              class="navbar-toggler d-lg-none"
-              type="button"
-              data-toggle="collapse"
-              data-target="#collapsibleNavId"
-              aria-controls="collapsibleNavId"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
               <ul
                 class="navbar-nav mr-auto mt-2 mt-lg-0 thirdNav__ul"
@@ -949,7 +1370,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <form action="">
+                <form action="" onsubmit="subscription_alert()">
                   <div class="form-group">
                     <input
                       type="email"
@@ -958,15 +1379,41 @@
                       id="email"
                       aria-describedby="helpId"
                       placeholder="Enter your email address"
+                      required;
                     />
                   </div>
-                  <button type="submit">Subscribe</button>
+                  <button type="submit">
+                    Subscribe
+                  </button>
                   <div class="clearfix"></div>
                 </form>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- A message pop after subscripe -->
+        <div class="message_content" id="subscription_alert">
+          <div class="row">
+            <div class="col">
+              <div
+                class="alert alert-success alert-dismissible fade show subscription_message"
+                role="alert"
+              >
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="alert"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Thank you for your subcription.</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- End of Newsletter -->
       </main>
       <!-- main content end -->
@@ -1025,7 +1472,11 @@
                 <li><a href="#">Orders and Returns</a></li>
                 <li><a href="#">Contact Us</a></li>
                 <li><a href="#">Advanced Search</a></li>
-                <li><a href="#">Newsletter Subscription</a></li>
+                <li>
+                  <a href="#" data-toggle="modal" data-target="#newsLetterModal"
+                    >Newsletter Subscription</a
+                  >
+                </li>
               </ul>
             </div>
           </div>

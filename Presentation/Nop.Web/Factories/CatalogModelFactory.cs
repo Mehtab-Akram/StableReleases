@@ -1209,7 +1209,7 @@ namespace Nop.Web.Factories
         /// <param name="model">Search model</param>
         /// <param name="command">Catalog paging filtering command</param>
         /// <returns>Search model</returns>
-        public virtual SearchModel PrepareSearchModel(SearchModel model, CatalogPagingFilteringModel command)
+        public virtual SearchModel PrepareSearchModel(SearchModel model, CatalogPagingFilteringModel command, bool byPassMinimumLength = false)
         {
             if (model == null)
                 throw new ArgumentNullException(nameof(model));
@@ -1321,7 +1321,7 @@ namespace Nop.Web.Factories
             var isSearchTermSpecified = _httpContextAccessor.HttpContext.Request.Query.ContainsKey("q");
             if (isSearchTermSpecified)
             {
-                if (searchTerms.Length < _catalogSettings.ProductSearchTermMinimumLength)
+                if ((searchTerms.Length < _catalogSettings.ProductSearchTermMinimumLength) && byPassMinimumLength == false)
                 {
                     model.Warning = string.Format(_localizationService.GetResource("Search.SearchTermMinimumLengthIsNCharacters"), _catalogSettings.ProductSearchTermMinimumLength);
                 }

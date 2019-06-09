@@ -1,58 +1,89 @@
 ﻿@model ProductDetailsModel
-@{
-    Html.AddScriptParts(ResourceLocation.Footer, "~/lib/magnific-popup/jquery.magnific-popup.min.js");
-    Html.AddCssFileParts("~/lib/magnific-popup/magnific-popup.css");
-}
-<div class="gallery">
-    <div class="picture">
-        @if (Model.DefaultPictureZoomEnabled)
-        {
-            <a href="@Model.DefaultPictureModel.FullSizeImageUrl" title="@Model.DefaultPictureModel.Title" id="main-product-img-lightbox-anchor-@Model.Id">
-                <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" itemprop="image" id="main-product-img-@Model.Id" />
-            </a>
-            <script type="text/javascript" asp-location="Footer">
-                $(document).ready(function () {
-                    $('#main-product-img-lightbox-anchor-@Model.Id').magnificPopup(
-                        {
-                            type: 'image',
-                            removalDelay: 300,
-                            gallery: {
-                                enabled: true,
-                                tPrev: '@T("Media.MagnificPopup.Previous")',
-                                tNext: '@T("Media.MagnificPopup.Next")',
-                                tCounter: '@T("Media.MagnificPopup.Counter")'
-                            },
-                            tClose: '@T("Media.MagnificPopup.Close")',
-                            tLoading: '@T("Media.MagnificPopup.Loading")'
-                        });
-                });
-            </script>
-        }
-        else
-        {
-            <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" itemprop="image" id="main-product-img-@Model.Id" />
-        }
-    </div>
+
+<div id="carousel-thumb"
+     class="carousel slide carousel-fade carousel-thumbnails product_carosel"
+     data-ride="carousel">
+    <!--Slides-->
     @if (Model.PictureModels.Count > 1)
     {
-        <div class="picture-thumbs">
+        <div class="carousel-inner" role="listbox">
+            @{
+                int firstImage = 1;
+                string activeClass = "";
+            }
             @foreach (var picture in Model.PictureModels)
             {
-                <div class="thumb-item">
-                    <img src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" data-defaultsize="@picture.ImageUrl" data-fullsize="@picture.FullSizeImageUrl"/>
+                if (firstImage == 1)
+                {
+                    activeClass = "active";
+                }
+                else
+                {
+                    activeClass = "";
+                }
+                <div class="carousel-item @activeClass">
+                    <img class="d-block w-100"
+                         src="@picture.ImageUrl"
+                         alt="@picture.AlternateText" title="@picture.Title" />
                 </div>
+
+                ++firstImage;
             }
         </div>
-        <script type="text/javascript" asp-location="Footer">
-            $(document).ready(function () {
-                $('.thumb-item img').on('click', function () {
-                    $('#main-product-img-@Model.Id').attr('src', $(this).attr('data-defaultsize'));
-                    $('#main-product-img-@Model.Id').attr('title', $(this).attr('title'));
-                    $('#main-product-img-@Model.Id').attr('alt', $(this).attr('alt'));
-                    $('#main-product-img-lightbox-anchor-@Model.Id').attr('href', $(this).attr('data-fullsize'));
-                    $('#main-product-img-lightbox-anchor-@Model.Id').attr('title', $(this).attr('title'));
-                });
-            });
-        </script>
+    }
+    else
+    {
+                    //default no image
+        <div class="carousel-item active">
+            <img class="d-block w-100"
+                 src="@Model.DefaultPictureModel.ImageUrl"
+                 alt="@Model.DefaultPictureModel.AlternateText" title="@Model.DefaultPictureModel.Title" />
+        </div>        
+    }
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev product_carosel_control"
+       href="#carousel-thumb"
+       role="button"
+       data-slide="prev">
+        <span class="carousel-control-prev-icon "
+              aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next product_carosel_control"
+       href="#carousel-thumb"
+       role="button"
+       data-slide="next">
+        <span class="carousel-control-next-icon"
+              aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+    @if (Model.PictureModels.Count > 1)
+                    {
+        <ol class="carousel-indicators product_carosel_indicatior">
+            @{
+                int firstImage = 1;
+                    string activeClass = "";
+                }
+                @foreach (var picture in Model.PictureModels)
+                {
+                    if (firstImage == 1)
+                    {
+                        activeClass = "active";
+                    }
+                    else
+                    {
+                        activeClass = "";
+                    }
+                <li data-target="#carousel-thumb" data-slide-to="0" class="@activeClass">
+                    <img class="d-block w-100 img-fluid"
+                         src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" ImageUrl="@picture.ImageUrl" FullSizeImageUrl="@picture.FullSizeImageUrl" />
+                </li>
+
+                ++firstImage;
+            }
+
+        </ol>
     }
 </div>

@@ -12,9 +12,9 @@
 {
     @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.Addresses })
 }
-<div class="page account-page address-list-page">
+<div class="right_product_content page account-page address-list-page">
     <div class="page-title">
-        <h1>@T("Account.MyAccount") - @T("Account.CustomerAddresses")</h1>
+        <h3>@T("Account.MyAccount") - @T("Account.CustomerAddresses")</h3>
     </div>
     <div class="page-body">
         <nop-antiforgery-token />
@@ -26,44 +26,60 @@
                         var address = Model.Addresses[i];
                         <div class="section address-item">
                             <div class="title">
-                                <strong>@address.FirstName @address.LastName</strong>
+                                <h5>@address.FirstName @address.LastName</h5>
                             </div>
                             <ul class="info">
                                 <li class="name">
+                                  <label class="bigtextlabel">
                                     @address.FirstName @address.LastName
+                                      </label> 
                                 </li>
                                 <li class="email">
                                     <label>@T("Address.Fields.Email"):</label>
-                                    @address.Email
+                                    <label class="bigtextlabel">
+                                        @address.Email</label>
                                 </li>
                                 @if (address.PhoneEnabled)
                                 {
-                                    <li class="phone">
-                                        <label>@T("Address.Fields.PhoneNumber"):</label>
-                                        @address.PhoneNumber
-                                    </li>
+                                <li class="phone">
+                                    <label>@T("Address.Fields.PhoneNumber"):</label>
+                                    <label class="bigtextlabel">
+                                        @address.PhoneNumber</label>
+                                </li>
                                 }
                                 @if (address.FaxEnabled)
                                 {
-                                    <li class="fax">
-                                        <label>@T("Address.Fields.FaxNumber"):</label>
+                                <li class="fax">
+                                    <label>
+                                        @T("Address.Fields.FaxNumber"):
+                                    </label>
+                                    <label class="bigtextlabel">
                                         @address.FaxNumber
-                                    </li>
+                                        </label>
+                                </li>
                                 }
                                 @if (address.CompanyEnabled && !string.IsNullOrEmpty(address.Company))
                                 {
-                                    <li class="company">@address.Company</li>
+                                <li class="company">
+                                    <label class="bigtextlabel">
+                                        @address.Company
+                                        </label>
+                                </li>
                                 }
                                 @if (address.StreetAddressEnabled)
                                 {
-                                    <li class="address1">
+                                <li class="address1">
+                                    <label class="bigtextlabel">
                                         @address.Address1
-                                    </li>
+                                        </label>
+                                </li>
                                 }
                                 @if (address.StreetAddress2Enabled && !string.IsNullOrEmpty(address.Address2))
                                 {
                                     <li class="address2">
-                                        @address.Address2
+                                        <label class="bigtextlabel">
+                                            @address.Address2
+                                        </label>
                                     </li>
                                 }
                                 @if (address.CityEnabled || address.StateProvinceEnabled || address.ZipPostalCodeEnabled)
@@ -95,25 +111,31 @@
                                     }
 
                                     <li class="city-state-zip">
-                                        @cityStateZip
+                                        <label class="bigtextlabel">
+                                            @cityStateZip
+                                            </label>
                                     </li>
                                 }
                                 @if (address.CountryEnabled && !string.IsNullOrEmpty(address.CountryName))
                                 {
                                     <li class="country">
-                                        @address.CountryName
+                                        <label class="bigtextlabel">
+                                            @address.CountryName
+                                            </label>
                                     </li>
                                 }
                                 @if (!string.IsNullOrEmpty(address.FormattedCustomAddressAttributes))
                                 {
                                     <li class="custom-attributes-view">
-                                        @Html.Raw(address.FormattedCustomAddressAttributes)
+                                        <label class="bigtextlabel">
+                                            @Html.Raw(address.FormattedCustomAddressAttributes)
+                                            </label>
                                     </li>
                                 }
                             </ul>
                             <div class="buttons">
-                                <input type="button" class="button-2 edit-address-button" onclick="location.href = '@(Url.RouteUrl("CustomerAddressEdit", new {addressId = address.Id}))'" value="@T("Common.Edit")"/>
-                                <input type="button" class="button-2 delete-address-button" onclick="deletecustomeraddress(@(address.Id))" value="@T("Common.Delete")"/>
+                                <input type="button" class="Normalbutton  button-2 edit-address-button" onclick="location.href = '@(Url.RouteUrl("CustomerAddressEdit", new {addressId = address.Id}))'" value="@T("Common.Edit")"/>
+                                <input type="button" class="Normalbutton button-2 delete-address-button" onclick="deletecustomeraddress(@(address.Id))" value="@T("Common.Delete")"/>
                             </div>
                         </div>
                     }
@@ -150,7 +172,7 @@
             </div>
         }
         <div class="add-button">
-            <input type="button" class="button-1 add-address-button" onclick="location.href='@Url.RouteUrl("CustomerAddressAdd")'" value="@T("Common.AddNew")" />
+            <input type="button" class="Normalbutton button-1 add-address-button" onclick="location.href='@Url.RouteUrl("CustomerAddressAdd")'" value="@T("Common.AddNew")" />
         </div>
     </div>
 </div>

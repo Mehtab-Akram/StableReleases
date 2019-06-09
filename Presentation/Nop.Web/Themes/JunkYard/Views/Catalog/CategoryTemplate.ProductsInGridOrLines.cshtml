@@ -24,134 +24,180 @@
 }
 @*category breadcrumb*@
 @section Breadcrumb
-{
+    {
     @if (Model.DisplayCategoryBreadcrumb)
     {
-        <div class="breadcrumb">
-            <ul>
-                <li>
-                    <a href="@Url.RouteUrl("HomePage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")</a>
-                    <span class="delimiter">@breadcrumbDelimiter</span>
-                </li>
-                @foreach (var cat in Model.CategoryBreadcrumb)
+        <nav class="breadcrumb">
+            <a class="breadcrumb-item" href="@Url.RouteUrl("HomePage")">@T("Products.Breadcrumb.Top")</a>
+
+            @foreach (var cat in Model.CategoryBreadcrumb)
+            {
+                var isLastCategory = cat.Id == Model.Id;
+                @if (isLastCategory)
                 {
-                    var isLastCategory = cat.Id == Model.Id;
-                    <li>
-                        @if (isLastCategory)
-                        {
-                            <strong class="current-item">@cat.Name</strong>
-                        }
-                        else
-                        {
-                            <a href="@Url.RouteUrl("Category", new { SeName = cat.SeName })" title="@cat.Name">@cat.Name</a>
-                            <span class="delimiter">@breadcrumbDelimiter</span>
-                        }
-                    </li>
+                    <span class="breadcrumb-item active">@cat.Name</span>
                 }
-            </ul>
-        </div>
+                else
+                {
+                    <a class="breadcrumb-item" href="@Url.RouteUrl("Category", new { SeName = cat.SeName })">@cat.Name</a>
+                }
+
+            }
+
+        </nav>
+        @*<div class="breadcrumb">
+                <ul>
+                    <li>
+                        <a href="@Url.RouteUrl("HomePage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")</a>
+                        <span class="delimiter">@breadcrumbDelimiter</span>
+                    </li>
+                    @foreach (var cat in Model.CategoryBreadcrumb)
+                    {
+                        var isLastCategory = cat.Id == Model.Id;
+                        <li>
+                            @if (isLastCategory)
+                            {
+                                <strong class="current-item">@cat.Name</strong>
+                            }
+                            else
+                            {
+                                <a href="@Url.RouteUrl("Category", new { SeName = cat.SeName })" title="@cat.Name">@cat.Name</a>
+                                <span class="delimiter">@breadcrumbDelimiter</span>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>*@
         @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_after_breadcrumb", additionalData = Model.Id })
     }
 }
-<div class="page category-page">
-    <div class="page-title">
-        <h1>@Model.Name</h1>
-    </div>
-    <div class="page-body">
-        @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_top", additionalData = Model.Id })
-        @*description*@
-        @if (!string.IsNullOrWhiteSpace(Model.Description))
-        {
-            <div class="category-description">
-                @Html.Raw(Model.Description)
-            </div>
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_subcategories", additionalData = Model.Id })
-        @*subcategories*@
-        @if (Model.SubCategories.Count > 0)
-        {
-            <div class="category-grid sub-category-grid">
-                <div class="item-grid">
-                    @foreach (var item in Model.SubCategories)
-                    {
-                        <div class="item-box">
-                            <div class="sub-category-item">
-                                <h2 class="title">
-                                    <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
-                                        @item.Name
-                                    </a>
-                                </h2>
-                                <div class="picture">
-                                    <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
-                                        <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl" title="@item.PictureModel.Title" />
-                                    </a>
+
+
+        <div class="right_product_content">
+            <h3>@Model.Name</h3>
+            @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_top", additionalData = Model.Id })
+            @*description*@
+            @if (!string.IsNullOrWhiteSpace(Model.Description))
+            {
+                <div class="category-description">
+                    @Html.Raw(Model.Description)
+                </div>
+            }
+            @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_subcategories", additionalData = Model.Id })
+            @*subcategories*@
+            @if (Model.SubCategories.Count > 0)
+            {
+                <div class="category-grid sub-category-grid">
+                    <div class="item-grid">
+                        @foreach (var item in Model.SubCategories)
+                        {
+                            <div class="item-box">
+                                <div class="sub-category-item">
+                                    <h2 class="title">
+                                        <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                                            @item.Name
+                                        </a>
+                                    </h2>
+                                    <div class="picture">
+                                        <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                                            <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl" title="@item.PictureModel.Title" />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_featured_products", additionalData = Model.Id })
-        @*featured products*@
-        @if (Model.FeaturedProducts.Count > 0)
-        {
-            <div class="product-grid featured-product-grid">
-                <div class="title">
-                    <strong>@T("Products.FeaturedProducts")</strong>
-                </div>
-                <div class="item-grid">
-                    @foreach (var item in Model.FeaturedProducts)
-                    {
-                        <div class="item-box">
+            }
+            @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_featured_products", additionalData = Model.Id })
+            @*featured products*@
+            @if (Model.FeaturedProducts.Count > 0)
+            {
+                <div class="product-grid featured-product-grid">
+                    <div class="title">
+                        <strong>@T("Products.FeaturedProducts")</strong>
+                    </div>
+                    <div class="item-grid">
+                        @foreach (var item in Model.FeaturedProducts)
+                        {
                             @await Html.PartialAsync("_ProductBox", item)
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_after_featured_products", additionalData = Model.Id })
-        @if (Model.Products.Count > 0)
-        {
-            @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext)
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_filters", additionalData = Model.Id })
-        <div class="product-filters">
-            @*filtering*@
-            @if (Model.PagingFilteringContext.PriceRangeFilter.Enabled)
-            {
-                @await Html.PartialAsync("_FilterPriceBox", Model.PagingFilteringContext.PriceRangeFilter)
             }
-            @*filtering*@
-            @if (Model.PagingFilteringContext.SpecificationFilter.Enabled)
+            @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_after_featured_products", additionalData = Model.Id })
+            <!--Filter-->
+            @if (Model.Products.Count > 0)
             {
-                @await Html.PartialAsync("_FilterSpecsBox", Model.PagingFilteringContext.SpecificationFilter)
+                @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext)
             }
-        </div>
-        @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_product_list", additionalData = Model.Id })
+            @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_filters", additionalData = Model.Id })
+            
 
-        @if (Model.Products.Count > 0)
-        {
-            <div class="@(Model.PagingFilteringContext.ViewMode == "list" ? "product-list" : "product-grid")">
-                <div class="item-grid">
+            @*After Filter is developed Its html will be put in the content above  and it will be made dynamic using the following code*@
+            @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_filters", additionalData = Model.Id })
+
+            <div class="product-filters">
+                @*filtering*@
+                @if (Model.PagingFilteringContext.PriceRangeFilter.Enabled)
+                {
+                    @await Html.PartialAsync("_FilterPriceBox", Model.PagingFilteringContext.PriceRangeFilter)
+                }
+                @*filtering*@
+                @if (Model.PagingFilteringContext.SpecificationFilter.Enabled)
+                {
+                    @await Html.PartialAsync("_FilterSpecsBox", Model.PagingFilteringContext.SpecificationFilter)
+                }
+            </div>
+            @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_before_product_list", additionalData = Model.Id })
+            <!--Filter Ends-->
+            <!-- 1st row -->
+            @if (Model.Products.Count > 0)
+            {
+                <div class="row @(Model.PagingFilteringContext.ViewMode == "list" ? "product-list" : "product-grid")">
+
                     @foreach (var product in Model.Products)
                     {
-                        <div class="item-box">
-                            @await Html.PartialAsync("_ProductBox", product)
-                        </div>
+                        @await Html.PartialAsync("_ProductBox", product)
                     }
                 </div>
-            </div>
-        }
-        @{
-            var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
-        }
-        @if (!pager.IsEmpty())
-        {
-            <div class="pager">
-                @pager
-            </div>
-        }
-        @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_bottom", additionalData = Model.Id })
-    </div>
-</div>
+                <!-- 3rd row end -->
+                @*<div class="product_pagination">
+                    <nav aria-label="...">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link prev" href="#">
+                                    Prev<span class="lnr lnr-chevron-left"></span>
+                                </a>
+                            </li>
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item " aria-current="page">
+                                <a class="page-link" href="#">2 </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link next" href="#">
+                                    Next<span class="lnr lnr-chevron-right"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>*@
+            }
+            @{
+                var pager = Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber");
+            }
+            @if (!pager.IsEmpty())
+            {
+                <div class="product_pagination">
+                    <nav aria-label="...">
+                        @pager
+                    </nav>
+                </div>
+            }
+            @await Component.InvokeAsync("Widget", new { widgetZone = "categorydetails_bottom", additionalData = Model.Id })
+        </div>

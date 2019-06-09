@@ -11,7 +11,7 @@
 }
 
 @section left
-{
+    {
     @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.Info })
 }
 
@@ -45,278 +45,167 @@
         });
     </script>
 }
+<div class="right_product_content">
+    <h3>@T("Account.MyAccount") - @T("Account.CustomerInfo")</h3>
+    <form asp-route="CustomerInfo" method="post">
+        <div asp-validation-summary="ModelOnly" class="message-error"></div>
 
-<div class="page account-page customer-info-page">
-    <div class="page-title">
-        <h1>@T("Account.MyAccount") - @T("Account.CustomerInfo")</h1>
-    </div>
-    <div class="page-body">
-        <form asp-route="CustomerInfo" method="post">
-            <div asp-validation-summary="ModelOnly" class="message-error"></div>
-            <div class="fieldset">
-                <div class="title">
-                    <strong>@T("Account.YourPersonalDetails")</strong>
+
+
+        <div class="col-md-8">
+
+            <h5>@T("Account.YourPersonalDetails")</h5>
+
+            @if (Model.GenderEnabled)
+            {
+                <div class="form-group py-2">
+                    <label for="email" class="control-label">@T("Account.Fields.Gender"):</label>
+                    <br>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <label class="custom-check-label" for="GenderMale">
+                            <input type="radio" asp-for="Gender" checked="@(Model.Gender == "M")" class=" form-check-input" value="M" id="gender-male" />
+                            @T("Account.Fields.Gender.Male")
+                        </label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <label class="custom-check-label" for="GenderFemale">
+                            <input type="radio" asp-for="Gender" checked="@(Model.Gender == "F")" class=" form-check-input" value="F" id="gender-female" name="Gender" />
+                            @T("Account.Fields.Gender.Female")
+                        </label>
+                    </div>
+
                 </div>
-                <div class="form-fields">
-                    @if (Model.GenderEnabled)
-                    {
-                        <div class="inputs">
-                            <label>@T("Account.Fields.Gender"):</label>
-                            <div class="gender">
-                                <span class="male">
-                                    <input type="radio" asp-for="Gender" value="M" checked="@(Model.Gender == "M")" id="gender-male" />
-                                    <label class="forcheckbox" for="gender-male">@T("Account.Fields.Gender.Male")</label>
-                                </span>
-                                <span class="female">
-                                    <input type="radio" asp-for="Gender" value="F" checked="@(Model.Gender == "F")" id="gender-female" />
-                                    <label class="forcheckbox" for="gender-female">@T("Account.Fields.Gender.Female")</label>
-                                </span>
-                            </div>
-                        </div>
-                    }
-                    <div class="inputs">
-                        <label asp-for="FirstName" asp-postfix=":"></label>
-                        <input asp-for="FirstName" />
-                        <nop-required/>
-                        <span asp-validation-for="FirstName"></span>
-                    </div>
-                    <div class="inputs">
-                        <label asp-for="LastName" asp-postfix=":"></label>
-                        <input asp-for="LastName" />
-                        <nop-required />
-                        <span asp-validation-for="LastName"></span>
-                    </div>
-                    @if (Model.DateOfBirthEnabled)
-                    {
-                        <div class="inputs date-of-birth">
-                            <label>@T("Account.Fields.DateOfBirth"):</label>
-                            <nop-date-picker 
-                                asp-day-name="@Html.NameFor(x => x.DateOfBirthDay)" 
-                                asp-month-name="@Html.NameFor(x => x.DateOfBirthMonth)" 
-                                asp-year-name="@Html.NameFor(x => x.DateOfBirthYear)"
-                                asp-begin-year="@(DateTime.Now.Year - 110)"
-                                asp-end-year="@(DateTime.Now.Year)"
-                                asp-selected-day="@Model.DateOfBirthDay"
-                                asp-selected-month="@Model.DateOfBirthMonth"
-                                asp-selected-year="@Model.DateOfBirthYear"
-                            />
+            }
+            <div class="form-group py-2">
+                <label asp-for="FirstName" asp-postfix=":"></label><span class="starMark"><nop-required /></span>
+                <input asp-for="FirstName" type="text" name="FirstName" id="FirstName" required />
+                <span class="clsRequiredMsg" asp-validation-for="FirstName"></span>
+            </div>
+            <div class="form-group py-2">
+                <label asp-for="LastName" asp-postfix=":"></label><span class="starMark"><nop-required /></span>
+                <input asp-for="LastName" type="text" name="LastName" id="LastName" required />
+                <span class="clsRequiredMsg" asp-validation-for="LastName"></span>
+            </div>
+            @if (Model.DateOfBirthEnabled)
+            {
+
+                <div class="form-group py-2">
+                    <label>
+                        @T("Account.Fields.DateOfBirth"):<span class="starMark">
                             @if (Model.DateOfBirthRequired)
                             {
                                 <nop-required />
                             }
-                            <span asp-validation-for="DateOfBirthDay"></span>
-                            <span asp-validation-for="DateOfBirthMonth"></span>
-                            <span asp-validation-for="DateOfBirthYear"></span>
-                        </div>
-                    }
-                    <div class="inputs">
-                        <label asp-for="Email" asp-postfix=":"></label>
-                        <input asp-for="Email" />
-                        <nop-required />
-                        <span asp-validation-for="Email"></span>
-                    </div>
-                    @if (!string.IsNullOrEmpty(Model.EmailToRevalidate))
-                    {
-                        <div class="inputs">
-                            <label asp-for="EmailToRevalidate"></label>
-                            <span class="email-to-revalidate">@Model.EmailToRevalidate</span>
-                            <span class="email-to-revalidate-note">
-                                <em>@T("Account.Fields.EmailToRevalidate.Note")</em>
-                            </span>
-                        </div>
-                    }
-                    @if (Model.UsernamesEnabled)
-                    {
-                        if (Model.AllowUsersToChangeUsernames)
-                        {
-                            <div class="inputs">
-                                <label asp-for="Username" asp-postfix=":"></label>
-                                <input asp-for="Username" />
-                                <nop-required />
-                                <span asp-validation-for="Username"></span>
-                                @if (Model.CheckUsernameAvailabilityEnabled)
-                                {
-                                    @await Html.PartialAsync("_CheckUsernameAvailability")
-                                }
-                            </div>
-                        }
-                        else
-                        {
-                            <div class="inputs">
-                                <label asp-for="Username" asp-postfix=":"></label>
-                                <span class="readonly-username">@Model.Username</span>
-                            </div>
-                        }
-                    }
+                        </span>
+                    </label>
+
+                    <nop-date-picker asp-day-name="@Html.NameFor(x => x.DateOfBirthDay)"
+                                     asp-month-name="@Html.NameFor(x => x.DateOfBirthMonth)"
+                                     asp-year-name="@Html.NameFor(x => x.DateOfBirthYear)"
+                                     asp-begin-year="@(DateTime.Now.Year - 110)"
+                                     asp-end-year="@(DateTime.Now.Year)"
+                                     asp-selected-day="@Model.DateOfBirthDay"
+                                     asp-selected-month="@Model.DateOfBirthMonth"
+                                     asp-selected-year="@Model.DateOfBirthYear" />
+
+                    <span class="clsRequiredMsg" asp-validation-for="DateOfBirthDay"></span>
+                    <span class="clsRequiredMsg" asp-validation-for="DateOfBirthMonth"></span>
+                    <span class="clsRequiredMsg" asp-validation-for="DateOfBirthYear"></span>
+
                 </div>
+            }
+
+            <div class="form-group py-2">
+                <label asp-for="Email" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
+                <input asp-for="Email" />
+
+                <span class="clsRequiredMsg" asp-validation-for="Email"></span>
+                @*<label for="email">Email Address<span class="starMark">*</span></label>
+                    <input type="email" name="email" id="email" required />*@
             </div>
+            @if (!string.IsNullOrEmpty(Model.EmailToRevalidate))
+            {
+                <div class="form-group py-2">
+                    <label asp-for="EmailToRevalidate"></label>
+                    <span class="email-to-revalidate">@Model.EmailToRevalidate</span>
+                    <span class="email-to-revalidate-note">
+                        <em>@T("Account.Fields.EmailToRevalidate.Note")</em>
+                    </span>
+                </div>
+            }
+            @if (Model.UsernamesEnabled)
+            {
+                if (Model.AllowUsersToChangeUsernames)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="Username" asp-postfix=":"></label>
+                        <input asp-for="Username" />
+                        <nop-required />
+                        <span class="clsRequiredMsg" asp-validation-for="Username"></span>
+                        @if (Model.CheckUsernameAvailabilityEnabled)
+                        {
+                            @await Html.PartialAsync("_CheckUsernameAvailability")
+                        }
+                    </div>
+                }
+                else
+                {
+                    <div class="inputs">
+                        <label asp-for="Username" asp-postfix=":"></label>
+                        <span class="readonly-username">@Model.Username</span>
+                    </div>
+                }
+            }
+
             @if (Model.CompanyEnabled || Model.DisplayVatNumber)
             {
-                <div class="fieldset">
-                    <div class="title">
-                        <strong>@T("Account.CompanyDetails")</strong>
+
+                <h5>@T("Account.CompanyDetails")</h5>
+
+
+                @if (Model.CompanyEnabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="Company" asp-postfix=":"></label><span class='starMark'>
+                            @if (Model.CompanyRequired)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <input asp-for="Company" />
+                        @*@if (Model.CompanyRequired)
+                                {
+                                 <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="Company"></span>
                     </div>
-                    <div class="form-fields">
-                        @if (Model.CompanyEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="Company" asp-postfix=":"></label>
-                                <input asp-for="Company" />
-                                @if (Model.CompanyRequired)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="Company"></span>
-                            </div>
-                        }
-                        @if (Model.DisplayVatNumber)
-                        {
-                            <div class="inputs">
-                                <label asp-for="VatNumber" asp-postfix=":"></label>
-                                <input asp-for="VatNumber" />
-                                <span class="vat-status">@Model.VatNumberStatusNote</span>
-                                <span class="vat-note">
-                                    <em>@T("Account.Fields.VatNumber.Note")</em>
-                                </span>
-                            </div>
-                        }
+                }
+                @if (Model.DisplayVatNumber)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="VatNumber" asp-postfix=":"></label>
+                        <input asp-for="VatNumber" />
+                        <span class="vat-note"><em>@T("Account.Fields.VatNumber.Note")</em></span>
                     </div>
-                </div>
-            }
-            @if (Model.StreetAddressEnabled ||
-                    Model.StreetAddress2Enabled ||
-                    Model.ZipPostalCodeEnabled ||
-                    Model.CityEnabled ||
-                    Model.CountryEnabled)
-            {
-                <div class="fieldset">
-                    <div class="title">
-                        <strong>@T("Account.YourAddress")</strong>
-                    </div>
-                    <div class="form-fields">
-                        @if (Model.StreetAddressEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="StreetAddress" asp-postfix=":"></label>
-                                <input asp-for="StreetAddress" />
-                                @if (Model.StreetAddressRequired)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="StreetAddress"></span>
-                            </div>
-                        }
-                        @if (Model.StreetAddress2Enabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="StreetAddress2" asp-postfix=":"></label>
-                                <input asp-for="StreetAddress2" />
-                                @if (Model.StreetAddress2Required)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="StreetAddress2"></span>
-                            </div>
-                        }
-                        @if (Model.ZipPostalCodeEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="ZipPostalCode" asp-postfix=":"></label>
-                                <input asp-for="ZipPostalCode" />
-                                @if (Model.ZipPostalCodeRequired)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="ZipPostalCode"></span>
-                            </div>
-                        }
-                        @if (Model.CityEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="City" asp-postfix=":"></label>
-                                <input asp-for="City" />
-                                @if (Model.CityRequired)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="City"></span>
-                            </div>
-                        }
-                        @if (Model.CountryEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="CountryId" asp-postfix=":"></label>
-                                <select asp-for="CountryId" asp-items="Model.AvailableCountries"></select>
-                                @if (Model.CountryRequired)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="CountryId"></span>
-                            </div>
-                        }
-                        @if (Model.CountryEnabled && Model.StateProvinceEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="StateProvinceId" asp-postfix=":"></label>
-                                <select asp-for="StateProvinceId" asp-items="Model.AvailableStates"></select>
-                                @if (Model.StateProvinceRequired)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="StateProvinceId"></span>
-                                <span id="states-loading-progress" style="display: none;" class="please-wait">@T("Common.Wait...")</span>
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
-            @if (Model.PhoneEnabled || Model.FaxEnabled)
-            {
-                <div class="fieldset">
-                    <div class="title">
-                        <strong>@T("Account.YourContactInformation")</strong>
-                    </div>
-                    <div class="form-fields">
-                        @if (Model.PhoneEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="Phone" asp-postfix=":"></label>
-                                <input asp-for="Phone" />
-                                @if (Model.PhoneRequired)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="Phone"></span>
-                            </div>
-                        }
-                        @if (Model.FaxEnabled)
-                        {
-                            <div class="inputs">
-                                <label asp-for="Fax" asp-postfix=":"></label>
-                                <input asp-for="Fax" />
-                                @if (Model.FaxRequired)
-                                {
-                                    <nop-required />
-                                }
-                                <span asp-validation-for="Fax"></span>
-                            </div>
-                        }
-                    </div>
-                </div>
+                }
+                @*<label for="email">Company Name</label>
+                    <input type="text" name="Company" id="Company" required />*@
+
             }
             @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0)
             {
                 <div class="fieldset">
                     <div class="title">
-                        <strong>@T("Account.Options")</strong>
+                        <h5>@T("Account.Options")</h5>
                     </div>
                     <div class="form-fields">
                         @if (Model.NewsletterEnabled)
                         {
-                            <div class="inputs">
-                                <label asp-for="Newsletter" asp-postfix=":"></label>
+                            <div class="form-group py-2">
+                                <label asp-for="Newsletter" asp-postfix=":">
+                                </label>
                                 <input asp-for="Newsletter" />
-                                <span asp-validation-for="Newsletter"></span>
+                                <span class="clsRequiredMsg" asp-validation-for="Newsletter"></span>
                             </div>
                         }
                         @if (Model.CustomerAttributes.Count > 0)
@@ -325,110 +214,261 @@
                         }
                     </div>
                 </div>
+                @*<h5>Options</h5>
+                    <div class="form-group py-2">
+                        <label for="email" class="control-label">Newsletter </label>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <label class="custom-check-label" for="GenderMale">
+                                <input type="checkbox" class=" form-check-input" value="1" name="NewsLetter" checked>
+
+                            </label>
+                        </div>
+                    </div>*@
             }
-            @if (Model.AllowCustomersToSetTimeZone || Model.SignatureEnabled)
+            @if (Model.StreetAddressEnabled || Model.StreetAddress2Enabled || Model.ZipPostalCodeEnabled
+|| Model.CityEnabled || Model.CountryEnabled)
             {
-                <div class="fieldset">
-                    <div class="title">
-                        <strong>@T("Account.Preferences")</strong>
+                <h5>@T("Account.YourAddress")</h5>
+                @if (Model.StreetAddressEnabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="StreetAddress" asp-postfix=":"></label>
+                        <span class='starMark'>
+                            @if (Model.StreetAddressRequired)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <input asp-for="StreetAddress" />
+                        @*@if (Model.StreetAddressRequired)
+                            {
+                                <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="StreetAddress"></span>
                     </div>
-                    <div class="form-fields">
+                }
+                @if (Model.StreetAddress2Enabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="StreetAddress2" asp-postfix=":"></label><span class='starMark'>
+                            @if (Model.StreetAddress2Required)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <input asp-for="StreetAddress2" />
+                        @*@if (Model.StreetAddress2Required)
+                                {
+                                                                    <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="StreetAddress2"></span>
+                    </div>
+                }
+                @if (Model.ZipPostalCodeEnabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="ZipPostalCode" asp-postfix=":"></label><span class='starMark'>
+                            @if (Model.ZipPostalCodeRequired)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <input asp-for="ZipPostalCode" />
+                        @*@if (Model.ZipPostalCodeRequired)
+                                {
+                                                                    <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="ZipPostalCode"></span>
+                    </div>
+                }
+                @if (Model.CityEnabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="City" asp-postfix=":"></label><span class='starMark'>
+                            @if (Model.CityRequired)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <input asp-for="City" />
+                        @*@if (Model.CityRequired)
+                            {
+                                <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="City"></span>
+                    </div>
+                }
+                @if (Model.CountryEnabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="CountryId" asp-postfix=":"></label><span class='starMark'>
+                            @if (Model.CountryRequired)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <select asp-for="CountryId" asp-items="Model.AvailableCountries"></select>
+                        @*@if (Model.CountryRequired)
+                            {
+                                <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="CountryId"></span>
+                    </div>
+                }
+                @if (Model.CountryEnabled && Model.StateProvinceEnabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="StateProvinceId" asp-postfix=":"></label><span class='starMark'>
+                            @if (Model.StateProvinceRequired)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <select asp-for="StateProvinceId" asp-items="Model.AvailableStates"></select>
+                        @*@if (Model.StateProvinceRequired)
+                            {
+                                <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="StateProvinceId"></span>
+                        <span id="states-loading-progress" style="display: none;" class="please-wait">@T("Common.Wait...")</span>
+                    </div>
+                }
+            }
+            @if (Model.PhoneEnabled || Model.FaxEnabled)
+            {
+                <h5>@T("Account.YourContactInformation")</h5>
+                @if (Model.PhoneEnabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="Phone" asp-postfix=":"></label><span class='starMark'>
+                            @if (Model.PhoneRequired)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <input asp-for="Phone" />
+                        @*@if(Model.PhoneRequired)
+                            {
+                                <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="Phone"></span>
+                    </div>
+                }
+                @if (Model.FaxEnabled)
+                {
+                    <div class="form-group py-2">
+                        <label asp-for="Fax" asp-postfix=":"></label><span class='starMark'>
+                            @if (Model.FaxRequired)
+                            {
+                                <nop-required />
+                            }
+                        </span>
+                        <input asp-for="Fax" />
+                        @*@if (Model.FaxRequired)
+                            {
+                                <nop-required />
+                            }*@
+                        <span class="clsRequiredMsg" asp-validation-for="Fax"></span>
+                    </div>
+                }
+                @if (Model.AllowCustomersToSetTimeZone || Model.SignatureEnabled)
+                {
+                    <h5>@T("Account.Preferences")</h5>
+
+                    <div class="form-group py-2">
                         @if (Model.AllowCustomersToSetTimeZone)
                         {
-                            <div class="inputs">
-                                <label asp-for="TimeZoneId" asp-postfix=":"></label>
-                                <select asp-for="TimeZoneId" asp-items="Model.AvailableTimeZones"></select>
-                                <span asp-validation-for="TimeZoneId"></span>
-                            </div>
+                            <label asp-for="TimeZoneId" asp-postfix=":"></label>
+                            <select asp-for="TimeZoneId" asp-items="Model.AvailableTimeZones"></select>
+                            <span asp-validation-for="TimeZoneId"></span>
                         }
                         @if (Model.SignatureEnabled)
                         {
-                            <div class="inputs">
-                                <label asp-for="Signature" asp-postfix=":"></label>
-                                <textarea asp-for="Signature" class="account-signature-text"></textarea>
+                            <label asp-for="Signature" asp-postfix=":"></label>
+                            <textarea asp-for="Signature" class="account-signature-text"></textarea>
+                        }
+                    </div>
+                }
+                @if (Model.NumberOfExternalAuthenticationProviders > 0)
+                {
+                            <h5>@T("Account.AssociatedExternalAuth")</h5>
+                    <div class="fieldset">
+                       
+                        @if (Model.AssociatedExternalAuthRecords.Count > 0)
+                        {
+                            //existing associated external records
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <colgroup>
+                                        <col />
+                                        <col />
+                                        <col />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th class="auth-method-name">
+                                                @T("Account.AssociatedExternalAuth.AuthMethodName")
+                                            </th>
+                                            <th class="email">
+                                                @T("Account.AssociatedExternalAuth.Email")
+                                            </th>
+                                            <th class="external-id">
+                                                @T("Account.AssociatedExternalAuth.ExternalIdentifier")
+                                            </th>
+                                            @if (Model.AllowCustomersToRemoveAssociations)
+                                            {
+                                                <th class="remove">
+                                                    @T("Account.AssociatedExternalAuth.Remove")
+                                                </th>
+                                            }
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.AssociatedExternalAuthRecords)
+                                        {
+                                            <tr>
+                                                <td class="auth-method-name">
+                                                    @item.AuthMethodName
+                                                </td>
+                                                <td class="email">
+                                                    @item.Email
+                                                </td>
+                                                <td class="external-id">
+                                                    @CommonHelper.EnsureMaximumLength(item.ExternalIdentifier, 40, "...")
+                                                </td>
+                                                @if (Model.AllowCustomersToRemoveAssociations)
+                                                {
+                                                    <td class="remove">
+                                                        <a href="#" onclick="return removeexternalassociation(@item.Id)">@T("Account.AssociatedExternalAuth.Remove")</a>
+                                                    </td>
+                                                }
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        @if (Model.NumberOfExternalAuthenticationProviders > Model.AssociatedExternalAuthRecords.Count)
+                        {
+                            //we can add more external records
+                            <div class="form-fields add-more-external-records">
+                                @T("Account.AssociatedExternalAuth.AddMoreRecords")
+                                <a href="@Url.RouteUrl("Login", null, "http")">
+                                    @Url.RouteUrl("Login", null, "http")
+                                </a>
                             </div>
                         }
                     </div>
-                </div>
+                }
             }
-            @if (Model.NumberOfExternalAuthenticationProviders > 0)
-            {
-                <div class="fieldset">
-                    <div class="title">
-                        <strong>@T("Account.AssociatedExternalAuth")</strong>
-                    </div>
-                    @if (Model.AssociatedExternalAuthRecords.Count > 0)
-                    {
-                        //existing associated external records
-                        <div class="table-wrapper">
-                            <table class="data-table">
-                                <colgroup>
-                                    <col />
-                                    <col />
-                                    <col />
-                                </colgroup>
-                                <thead>
-                                    <tr>
-                                        <th class="auth-method-name">
-                                            @T("Account.AssociatedExternalAuth.AuthMethodName")
-                                        </th>
-                                        <th class="email">
-                                            @T("Account.AssociatedExternalAuth.Email")
-                                        </th>
-                                        <th class="external-id">
-                                            @T("Account.AssociatedExternalAuth.ExternalIdentifier")
-                                        </th>
-                                        @if (Model.AllowCustomersToRemoveAssociations)
-                                        {
-                                            <th class="remove">
-                                                @T("Account.AssociatedExternalAuth.Remove")
-                                            </th>
-                                        }
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model.AssociatedExternalAuthRecords)
-                                    {
-                                        <tr>
-                                            <td class="auth-method-name">
-                                                @item.AuthMethodName
-                                            </td>
-                                            <td class="email">
-                                                @item.Email
-                                            </td>
-                                            <td class="external-id">
-                                                @CommonHelper.EnsureMaximumLength(item.ExternalIdentifier, 40, "...")
-                                            </td>
-                                            @if (Model.AllowCustomersToRemoveAssociations)
-                                            {
-                                                <td class="remove">
-                                                    <a href="#" onclick="return removeexternalassociation(@item.Id)">@T("Account.AssociatedExternalAuth.Remove")</a>
-                                                </td>
-                                            }
-                                        </tr>
-                                    }
-                                </tbody>
-                            </table>
-                        </div>
-                    }
-                    @if (Model.NumberOfExternalAuthenticationProviders > Model.AssociatedExternalAuthRecords.Count)
-                    {
-                        //we can add more external records
-                        <div class="form-fields add-more-external-records">
-                            @T("Account.AssociatedExternalAuth.AddMoreRecords")
-                            <a href="@Url.RouteUrl("Login", null, "http")">
-                                @Url.RouteUrl("Login", null, "http")
-                            </a>
-                        </div>
-                    }
+                <div class="buttons">
+                    <button type="submit" value="@T("Common.Save")" name="save-info-button" class="Normalbutton button-1 save-customer-info-button">@T("Common.Save")</button>
                 </div>
-            }
-            <div class="buttons">
-                <input type="submit" value="@T("Common.Save")" name="save-info-button" class="button-1 save-customer-info-button" />
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+    
 </div>
+
 
 <script type="text/javascript" asp-location="Footer">
     function removeexternalassociation(itemId) {

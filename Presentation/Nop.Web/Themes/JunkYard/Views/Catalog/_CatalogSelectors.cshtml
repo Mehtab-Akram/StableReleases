@@ -1,35 +1,47 @@
 ﻿@model CatalogPagingFilteringModel
-<div class="product-selectors">
-    @*view mode*@
-    @if (Model.AllowProductViewModeChanging)
-    {
-        <div class="product-viewmode">
-            <span>@T("Catalog.ViewMode")</span>
-            @if (Model.AvailableViewModes.Count > 1)
-            {
-                var gridMode = Model.AvailableViewModes[0];
-                var listMode = Model.AvailableViewModes[1];
 
-                <a class="viewmode-icon grid @if(gridMode.Selected){<text>selected</text>}" href="@gridMode.Value" title="@gridMode.Text">@gridMode.Text</a>
-                <a class="viewmode-icon list @if (listMode.Selected){<text>selected</text>}" href="@listMode.Value" title="@listMode.Text">@listMode.Text</a>
-            }
-        </div>
-    }
-    @*sorting*@
+
+<div class="row pt-3 pb-5 header_filter_big justify-content-center">
     @if (Model.AllowProductSorting)
     {
-        <div class="product-sorting">
-            <span>@T("Catalog.OrderBy")</span>
-            @Html.DropDownList("products-orderby", Model.AvailableSortOptions, new { onchange = "setLocation(this.value);" })
+        <div class="col-md-4 text-center sort_filter_col">
+
+            <div class="sort_filter">
+                <label for="sort_by">@T("Catalog.OrderBy")</label>
+                @Html.DropDownList("products-orderby", Model.AvailableSortOptions, new { onchange = "setLocation(this.value);" })
+            </div>
+            @*<a href="#" class="desc_btn"><span class="lnr lnr-sort-amount-asc"></span></a>*@
         </div>
     }
-    @*page size*@
-    @if (Model.AllowCustomersToSelectPageSize)
-    {
-        <div class="product-page-size">
-            <span>@T("Catalog.PageSize")</span>
-            @Html.DropDownList("products-pagesize", Model.PageSizeOptions, new { onchange = "setLocation(this.value);" })
-            <span>@T("Catalog.PageSize.PerPage")</span>
-        </div>
-    }
+    <!-- this is different in nopcommerce from the template provided need to get value of page sise dropdown before showing it here.-->
+    <div class="col-md-4 page_item_number">
+
+        <p>Items 1-9 of 20</p>
+    </div>
+    <div class="col-md-4 text-center right_filter">
+        @*page size*@
+        @if (Model.AllowCustomersToSelectPageSize)
+        {
+            <div class="right_filter_content">
+                <label for="">@T("Catalog.PageSize")</label>
+                @Html.DropDownList("products-pagesize", Model.PageSizeOptions, new { onchange = "setLocation(this.value);" })
+            </div>
+        }
+        @*view mode*@
+        @if (Model.AllowProductViewModeChanging)
+        {
+            <div class="right_filter_action_btn">
+
+
+                @if (Model.AvailableViewModes.Count > 1)
+                {
+                    var gridMode = Model.AvailableViewModes[0];
+                    var listMode = Model.AvailableViewModes[1];
+                    <a href="@gridMode.Value" class="grid_view" title="@gridMode.Text"><i class="fas fa-th"></i></a>
+                    <a href="@listMode.Value" class="list_view" title="@listMode.Text"><i class="fas fa-list"></i></a>
+
+                }
+            </div>
+        }
+    </div>
 </div>

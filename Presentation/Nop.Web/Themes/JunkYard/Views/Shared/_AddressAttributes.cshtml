@@ -5,7 +5,7 @@
     var controlId = $"address_attribute_{attribute.Id}";
     var textPrompt = attribute.Name;
 
-    <div class="inputs custom-attributes">
+    <div class="inputs form-group py-2 custom-attributes">
         <label>@textPrompt:</label>
         
         @switch (attribute.AttributeControlType)
@@ -44,8 +44,8 @@
                 @foreach (var attributeValue in attribute.Values)
                     {
                     <li>
-                        <input id="@(controlId)_@(attributeValue.Id)" type="checkbox" name="@(controlId)" value="@attributeValue.Id" checked="@attributeValue.IsPreSelected" @(attribute.AttributeControlType == AttributeControlType.ReadonlyCheckboxes ? Html.Raw(" disabled=\"disabled\"") : null) />
                         <label for="@(controlId)_@(attributeValue.Id)">@attributeValue.Name</label>
+                        <input id="@(controlId)_@(attributeValue.Id)" type="checkbox" name="@(controlId)" value="@attributeValue.Id" checked="@attributeValue.IsPreSelected" @(attribute.AttributeControlType == AttributeControlType.ReadonlyCheckboxes ? Html.Raw(" disabled=\"disabled\"") : null) />
                     </li>
                     }
             </ul>

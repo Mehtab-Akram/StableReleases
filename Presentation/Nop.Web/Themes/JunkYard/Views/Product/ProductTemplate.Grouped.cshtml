@@ -49,6 +49,7 @@
 }
 @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_after_breadcrumb", additionalData = Model.Id })
 <div class="page product-details-page">
+    MMMM
     <div class="page-body">
         @await Component.InvokeAsync("Widget", new { widgetZone = "productdetails_top", additionalData = Model.Id })
         <form asp-route="Product" asp-route-sename="@Model.SeName" method="post" id="product-details-form">

@@ -69,17 +69,17 @@ function displayPopupContentFromUrl(url, title, modal, width) {
     var targetWidth = (width ? width : 550);
     var maxHeight = $(window).height() - 20;
 
-    $('<div></div>').load(url)
-        .dialog({
-            modal: isModal,
-            position: ['center', 20],
-            width: targetWidth,
-            maxHeight: maxHeight,
-            title: title,
-            close: function(event, ui) {
-                $(this).dialog('destroy').remove();
-            }
-        });
+    $(modal).find('.top_content').load(url)
+        //.dialog({
+        //    modal: isModal,
+        //    position: ['center', 20],
+        //    width: targetWidth,
+        //    maxHeight: maxHeight,
+        //    title: title,
+        //    close: function(event, ui) {
+        //        $(this).dialog('destroy').remove();
+        //    }
+        //});
 }
 
 var barNotificationTimeout;

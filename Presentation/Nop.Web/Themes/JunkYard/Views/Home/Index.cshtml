@@ -24,15 +24,15 @@
 
 
 @*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Magetique</title>*@
-    <!-- Required meta tags -->
-    @*<meta charset="utf-8" />
+    <html lang="en">
+    <head>
+        <title>Magetique</title>*@
+<!-- Required meta tags -->
+@*<meta charset="utf-8" />
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no" />*@
 
-    @*<!-- Bootstrap CSS -->
+@*<!-- Bootstrap CSS -->
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
@@ -45,9 +45,9 @@
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="./css/style.css" />*@
 @*</head>
-<body>*@
-    <!-- Main wrapper -->
-    @*<div class="page_wrapper">*@
+    <body>*@
+<!-- Main wrapper -->
+@*<div class="page_wrapper">*@
 <div class="top_container">
     <!-- Slider -->
     <div class="bd-example">
@@ -267,320 +267,319 @@
     </div>
     <!-- Catalog end -->
 </div>
-        <!-- main content start -->
-        <main>
-            <div class="widget">
-                <h1 class="page_title">
-                    <strong class="title">Top Rated</strong>
-                </h1>
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="product_card">
-                            <img src="~/Themes/Junkyard/Content/img/portseat_set_las_vegas_artificial_leather_black_01.png"
-                                 class="card-img-top"
-                                 alt="product_image" />
-                            <div class="card-body">
-                                <p class="card-text">
-                                    As low as <span class="price">$120.00</span>
-                                </p>
-                                <strong>Portseat Set Las Vegas Artif...</strong>
-                                <a href="#" class="btn addToCart"><span class="lnr lnr-cart"></span>Add to Cart</a>
-                                <div class="review">
-                                    <div class="review_star">
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                    </div>
-                                    <div class="review_text">4 reviews</div>
-                                </div>
-                                <div class="extra_option">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-store"></span>
-                                </div>
+<!-- main content start -->
+<main>
+    <!-- Top Rated Or Best Sellers -->
+    @await Component.InvokeAsync("HomepageBestSellers")
+    <!-- Special Product -->
+    <div class="special_product">
+        <h1 class="page_title">
+            <strong class="title">Special Products</strong>
+        </h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="product_card">
+                    <img src="~/Themes/Junkyard/Content/img/air_intake_hose_for_toyota_camry_2.2l_4cyl_1997_5_.png"
+                         class="card-img-top"
+                         alt="product_image" />
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span class="price">$120.00</span>
+                            <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong>Portseat Set Las Vegas Artif...</strong>
+                        <a href="#" class="btn link addToCart"><span class="lnr lnr-cart"></span>Add to Cart</a>
+                        <div class="review">
+                            <div class="review_star">
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
                             </div>
+                            <div class="review_text">4 reviews</div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="product_card">
-                            <img src="~/Themes/Junkyard/Content/img/headlight_daylight_mercedes_e_class_211_01.png"
-                                 class="card-img-top"
-                                 alt="product_image" />
-                            <div class="card-body">
-                                <p class="card-text">
-                                    As low as <span class="price">$120.00</span>
-                                </p>
-                                <strong>Portseat Set Las Vegas Artif...</strong>
-                                <a href="#" class="btn addToCart"><span class="lnr lnr-cart"></span>Add to Cart</a>
-                                <div class="review">
-                                    <div class="review_star">
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                    </div>
-                                    <div class="review_text">4 reviews</div>
-                                </div>
-                                <div class="extra_option">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-store"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="product_card">
-                            <img src="~/Themes/Junkyard/Content/img/frs_brz_wrx_fa20_stage_3_short_block_01.png"
-                                 class="card-img-top"
-                                 alt="product_image" />
-                            <div class="card-body">
-                                <p class="card-text">
-                                    As low as <span class="price">$120.00</span>
-                                </p>
-                                <strong>Portseat Set Las Vegas Artif...</strong>
-                                <a href="#" class="btn addToCart"><span class="lnr lnr-cart"></span>Add to Cart</a>
-                                <div class="review">
-                                    <div class="review_star">
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                    </div>
-                                    <div class="review_text">4 reviews</div>
-                                </div>
-                                <div class="extra_option">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-store"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="product_card">
-                            <img src="~/Themes/Junkyard/Content/img/fk_duplex_sports_exhaust_complete_system_for_audi_01.png"
-                                 class="card-img-top"
-                                 alt="product_image" />
-                            <div class="card-body">
-                                <p class="card-text">
-                                    As low as <span class="price">$120.00</span>
-                                </p>
-                                <strong>Portseat Set Las Vegas Artif...</strong>
-                                <a href="#" class="btn addToCart"><span class="lnr lnr-cart"></span>Add to Cart</a>
-                                <div class="review">
-                                    <div class="review_star">
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                    </div>
-                                    <div class="review_text">4 reviews</div>
-                                </div>
-                                <div class="extra_option">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-store"></span>
-                                </div>
-                            </div>
+                        <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Special Product Or Best Sellers -->
-            @await Component.InvokeAsync("HomepageBestSellers")
-            <!-- End of Special_product -->
-            <!-- second_widget -->
-            <div class="second_widget">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card bg-dark text-white card-one">
-                            <img src="~/Themes/Junkyard/Content/img/img_40_spare.jpg"
-                                 class="card-img"
-                                 alt="second_widget_image" />
-                            <div class="card-img-overlay">
-                                <div class="inner_content">
-                                    <h4 class="card-title">Suspension <span>Parts</span></h4>
-                                    <p class="card-text price">20 % off</p>
-                                    <a href="#" class="btn">Shop now</a>
-                                </div>
+            <div class="col-md-3">
+                <div class="product_card">
+                    <img src="~/Themes/Junkyard/Content/img/noco_genius_boost_12v_ultrasafe_lithium_jump_starter_06_2_.png"
+                         class="card-img-top"
+                         alt="product_image" />
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span class="price">$120.00</span>
+                            <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong>Portseat Set Las Vegas Artif...</strong>
+                        <p class="outOfStock">Out of stock</p>
+                        <div class="review">
+                            <div class="review_star">
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
                             </div>
+                            <div class="review_text">4 reviews</div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-dark text-white card-two">
-                            <img src="~/Themes/Junkyard/Content/img/img_41_spare.jpg"
-                                 class="card-img"
-                                 alt="second_widget_image" />
-                            <div class="card-img-overlay">
-                                <div class="inner_content">
-                                    <h4 class="card-title">Auto <span>Lighting</span></h4>
-                                    <a href="#" class="btn">Shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card bg-dark text-white card-three">
-                            <img src="~/Themes/Junkyard/Content/img/img_42_spare.jpg"
-                                 class="card-img"
-                                 alt="second_widget_image" />
-                            <div class="card-img-overlay">
-                                <div class="inner_content">
-                                    <h4 class="card-title">Car <span>SPOILERS</span></h4>
-                                    <p class="card-text price">50 % off</p>
-                                    <a href="#" class="btn">Shop now</a>
-                                </div>
-                            </div>
+                        <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- end second_widget -->
-            <!-- blog Or News-->
-            @await Component.InvokeAsync("HomepageNews")
-            <!-- end of blog -->
-            <!-- Newsletter -->
-            @await Component.InvokeAsync("FooterSubscribe")
-            <!-- End of Newsletter -->
-        </main>
-        <!-- main content end -->
-
-        @*<footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 left_content">
-                        <strong class="logo">
-                            <img src="~/Themes/Junkyard/Content/img/logo_4.png" alt="logo" />
-                        </strong>
-                        <div class="d-flex flex-row social_icon">
-                            <div class="social-media" id="facebook">
-                                <a href="https://www.facebook.com/" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
+            <div class="col-md-3">
+                <div class="product_card">
+                    <img src="~/Themes/Junkyard/Content/img/sport_shock_absorber_high_tec_bmw_mini_cooper_2_.png"
+                         class="card-img-top"
+                         alt="product_image" />
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span class="price">$120.00</span>
+                            <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong>Portseat Set Las Vegas Artif...</strong>
+                        <a href="#" class="btn link addToCart"><span class="lnr lnr-cart"></span>Add to Cart</a>
+                        <div class="review">
+                            <div class="review_star">
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
                             </div>
-                            <div class="social-media" id="twitter">
-                                <a href="https://twitter.com/" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </div>
-                            <div class="social-media" id="googlePlus">
-                                <a href="#" target="_blank">
-                                    <i class="fab fa-google-plus-g"></i>
-                                </a>
-                            </div>
-                            <div class="social-media" id="instagram">
-                                <a href="https://www.instagram.com/" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </div>
-                            <div class="social-media" id="pinterest">
-                                <a href="#" target="_blank">
-                                    <i class="fab fa-pinterest"></i>
-                                </a>
-                            </div>
+                            <div class="review_text">4 reviews</div>
                         </div>
-                    </div>
-                    <div class="col-md-8 footer_menu">
-                        <ul class="first">
-                            <li><a href="#">Shipping & Delivery</a></li>
-                            <li><a href="#">Secure payment</a></li>
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Guarantee</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                        </ul>
-                        <ul class="second">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Customer Service</a></li>
-                            <li><a href="#">Template Settings</a></li>
-                        </ul>
-                        <ul class="third">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Search Terms</a></li>
-                            <li><a href="#">Orders and Returns</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Advanced Search</a></li>
-                            <li><a href="#">Newsletter Subscription</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col copyright">
-                        <small>&copy;2019 Magento Demo Store. All Rights Reserved.</small>
+                        <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </footer>*@
-    @*</div>*@
-
-    <!-- Modal of Newsletter -->
-    <!-- Modal -->
-    <div class="modal fade"
-         id="newsLetterModal"
-         tabindex="-1"
-         role="dialog"
-         aria-labelledby="modelTitleId"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row justify-content-center mb-4">
-                            <div class="col-md-8 top_content text-center">
-                                <h3>Get the latest news delivered daily.</h3>
-                                <small>
-                                    Give us your email and you will be daily updated with the
-                                    latest events, in detail.
-                                </small>
+            <div class="col-md-3">
+                <div class="product_card">
+                    <img src="~/Themes/Junkyard/Content/img/sport_air_filter_replacement_filter_peugeot_206_fr_01.png"
+                         class="card-img-top"
+                         alt="product_image" />
+                    <div class="card-body">
+                        <p class="card-text">
+                            <span class="price">$120.00</span>
+                            <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong>Portseat Set Las Vegas Artif...</strong>
+                        <a href="#" class="btn link addToCart"><span class="lnr lnr-cart"></span>Add to Cart</a>
+                        <div class="review">
+                            <div class="review_star">
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
+                                <span class="lnr lnr-star"></span>
                             </div>
+                            <div class="review_text">4 reviews</div>
                         </div>
-                        <div class="row justify-content-center pt-2 mt-3">
-                            <div class="col">
-                                <form action="" class="modal_form_container">
-                                    <div class="row justify-content-center">
-                                        <div class="col-md-8 text-center">
-                                            <div class="form-group">
-                                                <input type="email"
-                                                       class="form-control"
-                                                       name="email"
-                                                       id="email"
-                                                       aria-describedby="helpId"
-                                                       placeholder="Enter your email address"
-                                                       required; />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <button type="submit">Subscribe</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                        <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- End of Special_product -->
+    <!-- second_widget -->
+    <div class="second_widget">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white card-one">
+                    <img src="~/Themes/Junkyard/Content/img/img_40_spare.jpg"
+                         class="card-img"
+                         alt="second_widget_image" />
+                    <div class="card-img-overlay">
+                        <div class="inner_content">
+                            <h4 class="card-title">Suspension <span>Parts</span></h4>
+                            <p class="card-text price">20 % off</p>
+                            <a href="#" class="btn">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white card-two">
+                    <img src="~/Themes/Junkyard/Content/img/img_41_spare.jpg"
+                         class="card-img"
+                         alt="second_widget_image" />
+                    <div class="card-img-overlay">
+                        <div class="inner_content">
+                            <h4 class="card-title">Auto <span>Lighting</span></h4>
+                            <a href="#" class="btn">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white card-three">
+                    <img src="~/Themes/Junkyard/Content/img/img_42_spare.jpg"
+                         class="card-img"
+                         alt="second_widget_image" />
+                    <div class="card-img-overlay">
+                        <div class="inner_content">
+                            <h4 class="card-title">Car <span>SPOILERS</span></h4>
+                            <p class="card-text price">50 % off</p>
+                            <a href="#" class="btn">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end second_widget -->
+    <!-- blog Or News-->
+    @await Component.InvokeAsync("HomepageNews")
+    <!-- end of blog -->
+    <!-- Newsletter -->
+    @await Component.InvokeAsync("FooterSubscribe")
+    <!-- End of Newsletter -->
+</main>
+<!-- main content end -->
+@*<footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 left_content">
+                    <strong class="logo">
+                        <img src="~/Themes/Junkyard/Content/img/logo_4.png" alt="logo" />
+                    </strong>
+                    <div class="d-flex flex-row social_icon">
+                        <div class="social-media" id="facebook">
+                            <a href="https://www.facebook.com/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </div>
+                        <div class="social-media" id="twitter">
+                            <a href="https://twitter.com/" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                        <div class="social-media" id="googlePlus">
+                            <a href="#" target="_blank">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </div>
+                        <div class="social-media" id="instagram">
+                            <a href="https://www.instagram.com/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                        <div class="social-media" id="pinterest">
+                            <a href="#" target="_blank">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 footer_menu">
+                    <ul class="first">
+                        <li><a href="#">Shipping & Delivery</a></li>
+                        <li><a href="#">Secure payment</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Guarantee</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                    <ul class="second">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Template Settings</a></li>
+                    </ul>
+                    <ul class="third">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Search Terms</a></li>
+                        <li><a href="#">Orders and Returns</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Advanced Search</a></li>
+                        <li><a href="#">Newsletter Subscription</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col copyright">
+                    <small>&copy;2019 Magento Demo Store. All Rights Reserved.</small>
+                </div>
+            </div>
+        </div>
+    </footer>*@
+@*</div>*@
 
-    <!-- <script>
-      $("#exampleModal").on("show.bs.modal", event => {
-        var button = $(event.relatedTarget);
-        var modal = $(this);
-        // Use above variables to manipulate the DOM
-      });
-    </script> -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<!-- Modal of Newsletter -->
+<!-- Modal -->
+<div class="modal fade" id="newsLetterModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-md-8 top_content text-center">
+                            <h3>Get the latest news delivered daily.</h3>
+                            <small>
+                                Give us your email and you will be daily updated with the
+                                latest events, in detail.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center pt-2 mt-3">
+                        <div class="col">
+                            <form action="" class="modal_form_container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 text-center">
+                                        <div class="form-group">
+                                            <input type="email"
+                                                   class="form-control"
+                                                   name="email"
+                                                   id="email"
+                                                   aria-describedby="helpId"
+                                                   placeholder="Enter your email address"
+                                                   required; />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <script>
+  $("#exampleModal").on("show.bs.modal", event => {
+    var button = $(event.relatedTarget);
+    var modal = $(this);
+    // Use above variables to manipulate the DOM
+  });
+</script> -->
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+@*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
@@ -594,4 +593,4 @@
     </script>
     <script src="./js/script.js"></script>*@
 @*</body>
-</html>*@
+    </html>*@

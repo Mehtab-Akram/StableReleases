@@ -1,0 +1,209 @@
+﻿
+
+.margin0auto
+{
+    margin: 0 auto;
+}
+
+
+table th.total, table td.total
+{
+    text-align:right;
+}
+/****** ORDER DETAILS & SHIPPING DETAILS Start ******/
+.order-details-page .page-title {
+    border-bottom: none;
+}
+
+    .order-details-page .page-title h1 {
+        margin: 0 0 30px;
+        border-bottom: 1px solid #ddd;
+        padding: 0 0 10px;
+    }
+
+.order-details-page .order-overview {
+    margin: 0 0 50px;
+    line-height: 26px;
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+}
+
+    .order-details-page .order-overview .order-number {
+        margin: 0 0 10px;
+        text-transform: uppercase;
+    }
+
+    .order-details-page .order-overview .order-total strong {
+        font-weight: normal;
+        color: #4ab2f1;
+    }
+
+.order-details-page .repost .button-2 {
+    display: inline-block;
+    margin: 10px 0;
+    border: none;
+    background-color: #4ab2f1;
+    padding: 10px 15px;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+    .order-details-page .repost .button-2:hover {
+        background-color: #248ece;
+    }
+
+.order-details-page .download a {
+    font-weight: normal;
+    color: #4ab2f1;
+}
+
+    .order-details-page .download a:hover {
+        text-decoration: underline;
+    }
+
+.user-agreement-page .terms-of-agreement {
+    margin: 0 0 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.user-agreement-page .button-1 {
+    min-width: 140px;
+    border: none;
+    background-color: #4ab2f1;
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+    .user-agreement-page .button-1:hover {
+        background-color: #248ece;
+    }
+
+.order-details-page .tax-shipping-info {
+    margin: 30px 0;
+}
+
+    .order-details-page .tax-shipping-info a {
+        color: #4ab2f1;
+    }
+
+        .order-details-page .tax-shipping-info a:hover {
+            text-decoration: underline;
+        }
+
+.order-details-page .actions {
+    margin: 30px 0 0;
+    font-size: 0;
+}
+
+.order-details-page .totals.section {
+    width: 370px;
+    padding: 0 10px;
+    max-width: 100%;
+    margin: 0 230px 0px 50px;
+}
+
+.order-details-page .total-info {
+    background-color: #f9f9f9;
+    padding: 15px 20px;
+    color: #444;
+}
+
+/****** ORDER DETAILS & SHIPPING DETAILS Start ******/
+
+.center-1 {
+    margin: 0 0 100px;
+}
+
+    .center-1 .page-title,
+    .center-1 .title {
+        text-align: center;
+    }
+
+.cart-total
+{
+    width:100%;
+}
+
+.cart-total td {
+    width: 50%;
+    padding: 5px 0;
+    text-align: right;
+}
+
+    .cart-total td:first-child {
+        text-align: left;
+    }
+
+.cart-total .giftcard-remaining {
+    display: block;
+    font-style: italic;
+}
+
+.cart-total .order-total {
+    font-size: 20px;
+    color: #4ab2f1;
+}
+
+    .cart-total .order-total strong {
+        font-weight: normal;
+    }
+
+.cart-total .earn-reward-points {
+    font-style: italic;
+}
+
+.order-details-page .section.options {
+    text-align: right;
+}
+
+.order-details-page .selected-checkout-attributes {
+    padding: 0 10px;
+}
+
+.order-details-page .tax-shipping-info {
+    text-align: right;
+}
+
+.order-details-page .totals {
+    float: right;
+    clear: both;
+}
+
+.shipment-details-page .tracking-number .tracking-url {
+    color: #4ab2f1;
+}
+
+/*** ORDER DETAILS & SHIPPING DETAILS End ***/
+
+
+.search-box .ui-autocomplete-loading {
+    background: #fff url('../images/ajax-loader-small.gif') right center no-repeat;
+    background-position: 95%;
+}
+
+
+
+
+
+
+
+@media all and (min-width: 1001px) {
+
+    .center-1 .buttons {
+        text-align: center;
+    }
+
+
+    /*** TOPICS ***/
+
+
+    .center-1 .topic-block-title {
+        text-align: center;
+    }
+}

@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,700,900");
-
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 // Import other stylesheet
-
+@import "./mobile_nav";
 @import "./cart";
 @import "./products";
 @import "./checkout";
 @import "./singleProduct";
+@import "./chatBox";
 // initials
 * {
   box-sizing: border-box;
@@ -30,6 +31,7 @@ body {
 .container {
   max-width: 1404px !important;
 }
+
 // style of top Nav
 .first_nav {
   background: #fff !important;
@@ -71,7 +73,7 @@ body {
         color: #fff !important;
       }
     }
-    span.cart_icon {
+    span.shopping_cart_icon {
       font-size: 22px;
       padding-right: 5px;
       line-height: 1;
@@ -848,6 +850,9 @@ footer {
     min-height: 450px !important;
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.5);
     transform: translateX(-95px);
+    background-image: url(../img/envelope-regular.svg);
+    background-repeat: no-repeat;
+    background-position: top right;
   }
   .modal-header {
     border-bottom: none !important;
@@ -901,6 +906,25 @@ footer {
         background: #947272;
       }
     }
+  }
+}
+
+// Subscription Message
+.message_content {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: none;
+  .subscription_message {
+    border-radius: 0 !important;
+    span {
+      font-size: 30px !important;
+      font-weight: 300;
+    }
+  }
+  strong {
+    font-weight: 400;
+    font-family: inherit;
   }
 }
 
@@ -1262,5 +1286,40 @@ footer {
         text-align: center;
       }
     }
+  }
+}
+
+//Display Mobile Navbar and hide all navbar
+
+@media (max-width: 991px) {
+  header {
+    padding-top: 80px !important;
+  }
+  .first_nav {
+    display: none !important;
+  }
+
+  .second_nav {
+    .second_nav_logo {
+      margin: 0 auto !important;
+    }
+    .second_nav_right_content {
+      display: none !important;
+    }
+  }
+
+  .third_nav {
+    display: none !important;
+  }
+  .mobileNav_container {
+    display: block;
+  }
+
+  .shopping_cart {
+    margin-top: -25px !important;
+  }
+
+  section.checkout {
+    margin-top: -30px !important;
   }
 }

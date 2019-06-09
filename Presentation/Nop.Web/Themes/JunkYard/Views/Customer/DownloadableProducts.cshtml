@@ -12,9 +12,11 @@
 {
     @await Component.InvokeAsync("CustomerNavigation", new { selectedTabId = CustomerNavigationEnum.DownloadableProducts })
 }
+<div class="right_product_content">
+
 <div class="page account-page downloadable-products-page">
     <div class="page-title">
-        <h1>@T("Account.MyAccount") - @T("Account.DownloadableProducts")</h1>
+        <h3>@T("Account.MyAccount") - @T("Account.DownloadableProducts")</h3>
     </div>
     <div class="page-body">
         @if (Model.Items.Count > 0)
@@ -92,8 +94,12 @@
         else
         {
             <div class="no-data">
+                <h5>
                 @T("DownloadableProducts.NoItems")
+                </h5>
             </div>
         }
     </div>
+</div>
+
 </div>

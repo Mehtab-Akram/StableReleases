@@ -29,31 +29,86 @@ const toggleSearchBox = () => {
   }
 };
 
-// Image Slider
+// Mobile Navbar Script start
+//Mobile Search box content
+const show_mobile_search = () => {
+  const mobile_search_var = document.getElementById("show_mobile_search");
 
-//const current = document.querySelector("#current");
-//const imgs = document.querySelector(".imgs");
-//const img = document.querySelectorAll(".imgs img");
-//const opacity = 0.6;
+  if (mobile_search_var.style.display === "block") {
+    mobile_search_var.style.display = "none";
+    mobile_search_var.style.marginTop = "-999999999px";
+    document.getElementById("mobile_search_icon").className =
+      "lnr lnr-magnifier";
+  } else {
+    mobile_search_var.style.display = "block";
+    mobile_search_var.style.marginTop = "1px";
+    document.getElementById("mobile_search_icon").className = "lnr lnr-cross";
+  }
+};
 
-//// Set first img opacity
-//img[0].style.opacity = opacity;
+// Mobile Profile Content
 
-//imgs.addEventListener("click", imgClick);
+const show_mobile_profile = () => {
+  const mobile_profile_var = document.getElementById("show_mobile_profile");
 
-//function imgClick(e) {
-//  // Reset the opacity
-//  img.forEach(img => (img.style.opacity = 1));
+  if (mobile_profile_var.style.display === "block") {
+    mobile_profile_var.style.display = "none";
+    mobile_profile_var.style.marginRight = "-999999999px";
+    document.getElementById("mobile_profile_icon").className = "lnr lnr-user";
+  } else {
+    mobile_profile_var.style.display = "block";
+    mobile_profile_var.style.marginRight = "0px";
+    document.getElementById("mobile_profile_icon").className = "lnr lnr-cross";
+  }
+};
 
-//  // Change current image to src of clicked image
-//  current.src = e.target.src;
+// Mobile Cart Content
 
-//  // Add fade in class
-//  current.classList.add("fade-in");
+const show_mobile_cart = () => {
+  const mobile_cart_var = document.getElementById("show_mobile_cart");
 
-//  // Remove fade-in class after .5 seconds
-//  setTimeout(() => current.classList.remove("fade-in"), 500);
+  if (mobile_cart_var.style.display === "block") {
+    mobile_cart_var.style.display = "none";
+    mobile_cart_var.style.marginRight = "-999999999px";
+    document.getElementById("mobile_cart_icon").className = "lnr lnr-cart";
+  } else {
+    mobile_cart_var.style.display = "block";
+    mobile_cart_var.style.marginRight = "0px";
+    document.getElementById("mobile_cart_icon").className = "lnr lnr-cross";
+  }
+};
 
-//  // Change the opacity to opacity var
-//  e.target.style.opacity = opacity;
-//}
+// Show hamburger menu
+
+const show_hamburger_menu = () => {
+  const hamburger_menu_var = document.getElementById("show_hamburger_menu");
+
+  if (hamburger_menu_var.style.display === "block") {
+    hamburger_menu_var.style.display = "none";
+    hamburger_menu_var.style.marginLeft = "-9999999px";
+    document.getElementById("hamburger_menu_icon").className = "lnr lnr-menu";
+  } else {
+    hamburger_menu_var.style.display = "block";
+    hamburger_menu_var.style.marginLeft = "0px";
+    document.getElementById("hamburger_menu_icon").className = "lnr lnr-cross";
+  }
+};
+
+// Mobile Navbar Script End
+
+// Subscription success message
+
+const subscription_alert = () => {
+  document.getElementById("subscription_alert").style.display = "block";
+};
+
+// Show and Hide Action Menu on Chatbox.html
+
+const showActionMenu = () => {
+  const action_menu = document.getElementById("action_menu_container");
+  if (action_menu.style.display === "block") {
+    action_menu.style.display = "none";
+  } else {
+    action_menu.style.display = "block";
+  }
+};

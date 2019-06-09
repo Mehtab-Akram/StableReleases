@@ -32,28 +32,65 @@
 {
     @section Breadcrumb {
         @RenderSection("Breadcrumb")
-    } 
+    }
 }
-<div class="side-2">
-    @if (IsSectionDefined("left"))
-    {
-        @RenderSection("left")
+<main>
+    <div class="container form-container form_container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="left_product_content">
+                    @if (IsSectionDefined("left"))
+                    {
+                        @RenderSection("left")
+                    }
+                    else
+                    {
+                        @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_before" })
+                        @await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
+                        @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_after_category_navigation" })
+                        @await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
+                        @await Component.InvokeAsync("VendorNavigation")
+                        @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
+                        @await Component.InvokeAsync("PopularProductTags")
+                        @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })
+                        @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_after" })
+                    }
+                </div>
+
+            </div>
+            <div class="col-md-9">
+
+                @await Component.InvokeAsync("Widget", new { widgetZone = "main_column_before" })
+                @RenderBody()
+                @await Component.InvokeAsync("Widget", new { widgetZone = "main_column_after" })
+
+
+            </div>
+
+        </div>
+    </div>
+</main>
+<script>
+    $(document).ready(function () {
+        setNavigation();
+    });
+
+    function setNavigation() {
+        var path = window.location.pathname;
+        path = path.replace(/\/$/, "");
+        path = decodeURIComponent(path);
+
+        $(".left_product_content .block-category-navigation li a").each(function () {
+            var href = $(this).attr('href');
+            if (path.substring(0, href.length) === href) {
+                $(this).addClass('active');
+            }
+        });
     }
-    else
-    {
-        @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_before" })
-        @await Component.InvokeAsync("CategoryNavigation", new { currentCategoryId = currentCategoryId, currentProductId = currentProductId })
-        @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_after_category_navigation" })
-        @await Component.InvokeAsync("ManufacturerNavigation", new { currentManufacturerId = currentManufacturerId })
-        @await Component.InvokeAsync("VendorNavigation")
-        @await Component.InvokeAsync("RecentlyViewedProductsBlock", new { productThumbPictureSize = 64 })
-        @await Component.InvokeAsync("PopularProductTags")
-        @await Component.InvokeAsync("PollBlock", new { systemKeyword = "LeftColumnPoll" })
-        @await Component.InvokeAsync("Widget", new { widgetZone = "left_side_column_after" })
-    }
-</div>
-<div class="center-2">
-    @await Component.InvokeAsync("Widget", new { widgetZone = "main_column_before" })
-    @RenderBody()
-    @await Component.InvokeAsync("Widget", new { widgetZone = "main_column_after" })
-</div>
+</script>
+@*<div class="side-2">
+
+    </div>
+    <div class="center-2">
+
+    </div>*@

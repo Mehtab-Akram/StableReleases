@@ -1,6 +1,27 @@
 ﻿@model IList<ProductOverviewModel>
 @if (Model.Count > 0)
 {
+    <section class="py-5 related_products_section">
+        <div class="container">
+            <div class="related_products">
+                <h1 class="page_title">
+                    <strong class="title">@T("Products.RelatedProducts")</strong>
+                </h1>
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        @*<div class="col-md-3">*@
+                            @await Html.PartialAsync("_ProductBox", item)
+                        @*</div>*@
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@*@if (Model.Count > 0)
+{
     <div class="related-products-grid product-grid">
         <div class="title">
             <strong>@T("Products.RelatedProducts")</strong>
@@ -12,4 +33,4 @@
             }
         </div>
     </div>
-}
+}*@

@@ -17,42 +17,147 @@
         registerUrl = webHelper.ModifyQueryString(registerUrl, "returnurl=" + WebUtility.UrlEncode(this.Context.Request.Query["returnUrl"]), null);
     }
 }
-<div class="page login-page">
+
+<!-- main content start -->
+<main>
+    <section class="checkout py-5">
+        <h1 class="page_title">
+            <strong class="title">@T("Account.Login.Welcome")</strong>
+        </h1>
+        <div class="external-auth-errors">
+            @await Html.PartialAsync("_ExternalAuthentication.Errors")
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+
+                </div>
+                <div class="col-md-8">
+                    <div class="checkout_left_content">
+                        <div class="form_container">
+                            @if (Model.CheckoutAsGuest)
+    {
+                        <h5>@T("Account.Login.CheckoutAsGuestOrRegister")</h5>
+
+                        <div class="form-group py-2">
+                            <div class="note-black">
+                                <p>
+                                    @await Component.InvokeAsync("TopicBlock", new { systemName = "CheckoutAsGuestOrRegister" })
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group py-2">
+                            <div class="primary">
+                                <button type="button" class="action" onclick="location.href='@Url.RouteUrl("Checkout")'">@T("Account.Login.CheckoutAsGuest")</button>
+                                <button type="button" class="action" onclick="location.href='@registerUrl'">@T("Account.Register")</button>
+                            </div>
+                        </div>
+}
+else
+{
+                        <h5>@T("Account.Login.NewCustomer")</h5>
+                        <div class="form-group py-2">
+                            <div class="note-black">
+
+                                @T("Account.Login.NewCustomerText")
+                            </div>
+                        </div>
+                        <div class="primary">
+                            <button type="button" class="action primary" onclick="location.href='@registerUrl'" value="@T("Account.Register")">@T("Account.Register")</button>
+                        </div>
+}
+                            <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post">
+                                <div asp-validation-summary="ModelOnly" class="message-error">@T("Account.Login.Unsuccessful")</div>
+                                <h5>@T("Account.Login.ReturningCustomer")</h5>
+                                @if (Model.UsernamesEnabled)
+        {
+                        <div class="form-group py-2">
+                            <label asp-for="Username" asp-postfix=":"></label>
+                            <input asp-for="Username" class="username" autofocus="autofocus" />
+                            <span asp-validation-for="Username"></span>
+                        </div>
+}
+else
+{
+
+                        <div class="form-group py-2">
+                            <label asp-for="Email" asp-postfix=":"></label>
+                            <input asp-for="Email" class="email" autofocus="autofocus" />
+                            <span asp-validation-for="Email"></span>
+                        </div>
+}
+                                <div class="form-group py-2">
+                                    <label asp-for="Password" asp-postfix=":"></label>
+                                    <input asp-for="Password" class="password" />
+                                    <span asp-validation-for="Password"></span>
+                                </div>
+                                <div class="form-group py-2">
+                                    <input asp-for="RememberMe" />
+                                    <label asp-for="RememberMe"></label>
+                                    <span class="forgot-password">
+                                        <a asp-route="PasswordRecovery">@T("Account.Login.ForgotPassword")</a>
+                                    </span>
+                                </div>
+                                @if (Model.DisplayCaptcha)
+        {
+                        <div class="form-group py-2">
+
+                            <div class="captcha-box">
+                                <nop-captcha />
+                            </div>
+                        </div>
+}
+                        @*<div class="form-group py-2">
+        <label>Password<span class="starMark">*</span></label>
+        <input type="Password" name="Password" id="Password" required />
+    </div>
+    <div class="form-group py-2">
+        <div class="custom-control custom-radio custom-control-inline">
+            <label class="custom-check-label" for="GenderMale">
+                <input type="checkbox" class=" form-check-input" value="1" name="RememberMe">
+            </label>
+            <label for="email" class="control-label">Remember Me?&nbsp; &nbsp;&nbsp; </label>
+            <div class="pull-right">
+
+                <a href="#" class="forgotPassword">Forgot Password</a>
+            </div>
+
+        </div>
+    </div>*@
+
+                                <div class="form-group py-2">
+
+                                    <div class="primary">
+                                        <button type="submit" id="register-button" class="action primary" value="" name="login-button">@T("Account.Login.LoginButton")</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="external-authentication">
+                                @await Component.InvokeAsync("ExternalMethods", "ExternalAuthentication")
+                            </div>
+                            <div class="form-group py-2">
+                                <div class="note-black">
+                                    <p>
+                                        @await Component.InvokeAsync("TopicBlock", new { systemName = "LoginRegistrationInfo" })
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</main>
+<!-- main content end -->
+@*<div class="page login-page">
     <div class="page-title">
         <h1>@T("Account.Login.Welcome")</h1>
     </div>
     @await Html.PartialAsync("_ExternalAuthentication.Errors")
     <div class="page-body">
         <div class="customer-blocks">
-            @if (Model.CheckoutAsGuest)
-            {
-                <div class="new-wrapper checkout-as-guest-or-register-block">
-                    <div class="title">
-                        <strong>@T("Account.Login.CheckoutAsGuestOrRegister")</strong>
-                    </div>
-                    <div class="text">
-                        @await Component.InvokeAsync("TopicBlock", new { systemName = "CheckoutAsGuestOrRegister" })
-                    </div>
-                    <div class="buttons">
-                        <input type="button" class="button-1 checkout-as-guest-button" onclick="location.href='@Url.RouteUrl("Checkout")'" value="@T("Account.Login.CheckoutAsGuest")" />
-                        <input type="button" class="button-1 register-button" onclick="location.href='@registerUrl'" value="@T("Account.Register")" />
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="new-wrapper register-block">
-                    <div class="title">
-                        <strong>@T("Account.Login.NewCustomer")</strong>
-                    </div>
-                    <div class="text">
-                        @T("Account.Login.NewCustomerText")
-                    </div>
-                    <div class="buttons">
-                        <input type="button" class="button-1 register-button" onclick="location.href='@registerUrl'" value="@T("Account.Register")" />
-                    </div>
-                </div>
-            }
             <div class="returning-wrapper fieldset">
                 <form asp-route="Login" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post">
                     <div asp-validation-summary="ModelOnly" class="message-error">@T("Account.Login.Unsuccessful")</div>
@@ -106,4 +211,4 @@
         </div>
         @await Component.InvokeAsync("TopicBlock", new { systemName = "LoginRegistrationInfo" })
     </div>
-</div>
+</div>*@

@@ -291,7 +291,25 @@ namespace Nop.Web.Controllers
                 .ToList();
             return Json(result);
         }
-        
+
+        #endregion
+
+        #region Shop
+        [HttpsRequirement(SslRequirement.No)]
+        public virtual IActionResult Shop(SearchModel model, CatalogPagingFilteringModel command)
+        {
+            //'Continue shopping' URL
+            _genericAttributeService.SaveAttribute(_workContext.CurrentCustomer,
+                SystemCustomerAttributeNames.LastContinueShoppingPage,
+                _webHelper.GetThisPageUrl(false),
+                _storeContext.CurrentStore.Id);
+
+            if (model == null)
+                model = new SearchModel();
+            bool byPassMinimumLength = true;
+            model = _catalogModelFactory.PrepareSearchModel(model, command,  byPassMinimumLength);
+            return View(model);
+        }
         #endregion
     }
 }

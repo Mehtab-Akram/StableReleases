@@ -181,7 +181,7 @@ namespace Nop.Web.Factories
         /// <param name="model">Search model</param>
         /// <param name="command">Catalog paging filtering command</param>
         /// <returns>Search model</returns>
-        SearchModel PrepareSearchModel(SearchModel model, CatalogPagingFilteringModel command);
+        SearchModel PrepareSearchModel(SearchModel model, CatalogPagingFilteringModel command, bool byPassMinimumLength = false);
 
         /// <summary>
         /// Prepare search box model

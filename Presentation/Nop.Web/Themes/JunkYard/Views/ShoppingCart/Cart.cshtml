@@ -9,13 +9,68 @@
 }
 @if (!Model.OnePageCheckoutEnabled)
 {
-    @await Component.InvokeAsync("CheckoutProgress", new {step = CheckoutProgressStep.Cart})
+    @await Component.InvokeAsync("CheckoutProgress", new { step = CheckoutProgressStep.Cart })
 }
-<div class="page shopping-cart-page">
-    <div class="page-title">
-        <h1>@T("ShoppingCart")</h1>
-    </div>
-    <div class="page-body">
-        @await Component.InvokeAsync("OrderSummary", new { overriddenModel = Model})
+<main>
+    <section class="py-5 my-5 shopping_cart">
+        <div class="container">
+            <div class="page shopping-cart-page">
+
+                <h1 class="page_title">
+                    <strong class="title">@T("ShoppingCart")</strong>
+                </h1>
+                <div class="page-body">
+                    @await Component.InvokeAsync("OrderSummary", new { overriddenModel = Model })
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+<!-- Modal -->
+<div class="Modal-junkYard modal fade" id="termsandconditions" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-md-8 top_content text-center">
+                            @*<h3>@T("Checkout.TermsOfService")</h3>*@
+                            <small>
+                                Give us your email and you will be daily updated with the
+                                latest events, in detail.
+                            </small>
+                        </div>
+                    </div>
+                    @*<div class="row justify-content-center pt-2 mt-3">
+                        <div class="col">
+                            <form action="" class="modal_form_container">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 text-center">
+                                        <div class="form-group">
+                                            <input type="email"
+                                                   class="form-control"
+                                                   name="email"
+                                                   id="email"
+                                                   aria-describedby="helpId"
+                                                   placeholder="Enter your email address"
+                                                   required; />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="submit">Subscribe</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Magetique</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+    />
+    <!-- LinearIcons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- Main wrapper -->
+    <div class="page_wrapper">
+      <!-- Mobile NavBar start -->
+      <div class="mobileNav_container fixed-top pb-5">
+        <ul class="mobile_nav_top_ul">
+          <!-- 1st menu item -->
+          <li class="hamburger_menu">
+            <a
+              href="#"
+              onclick="show_hamburger_menu()"
+              class="hamburger_menu_btn"
+            >
+              <span class="lnr lnr-menu" id="hamburger_menu_icon"></span>
+            </a>
+          </li>
+          <!-- 2nd menu item -->
+          <li class="mobile_search_box">
+            <a
+              href="#"
+              onclick="show_mobile_search()"
+              class="mobile_search_box_btn"
+            >
+              <span class="lnr lnr-magnifier" id="mobile_search_icon"></span>
+            </a>
+          </li>
+          <!-- 3rd menu item-->
+          <li class="mobile_profile_box">
+            <a
+              href="#"
+              onclick="show_mobile_profile()"
+              class="mobile_profile_box_btn"
+            >
+              <span class="lnr lnr-user" id="mobile_profile_icon"></span>
+            </a>
+          </li>
+          <!-- 4th menu item -->
+          <li class="moblie_cart">
+            <a href="#" onclick="show_mobile_cart()" class="mobile_cart_btn">
+              <span class="lnr lnr-cart cart_icon" id="mobile_cart_icon"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 1st menu item content start -->
+      <div
+        class="mobile_hamburger_menu_content_container"
+        id="show_hamburger_menu"
+      >
+        <div class="row">
+          <div class="col">
+            <div
+              id="hamburger_menu_item"
+              role="tablist"
+              aria-multiselectable="true"
+            >
+              <!-- Interior -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_interior">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Interior</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_interior_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_interior_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="interior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_interior_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_interior"
+                >
+                  <div class="mobile_interior_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Exterior -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_exterior">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Exterior</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_exterior_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_exterior_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="exterior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_exterior_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_exterior"
+                >
+                  <div class="mobile_exterior_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Lighting -->
+              <div class="mb-4 pb-2">
+                <div role="tab" id="mobile_lighting">
+                  <h5 class="mb-0">
+                    <a href="#" class="mobile_menu_nav_link">Lighting</a>
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#hamburger_menu_item"
+                      href="#mobile_lighting_content_ID"
+                      aria-expanded="true"
+                      aria-controls="mobile_lighting_content_ID"
+                      class="lnr lnr-chevron-down"
+                      id="exterior_down"
+                    ></a>
+                  </h5>
+                </div>
+                <div
+                  id="mobile_lighting_content_ID"
+                  class="collapse in"
+                  role="tabpanel"
+                  aria-labelledby="mobile_lighting"
+                >
+                  <div class="mobile_lighting_content">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          ></a
+                        >
+                      </li>
+                      <li>
+                        <a href="">
+                          <span class="lnr lnr-chevron-right"></span>
+                          <span class="mobile_hamburger_dropdown_link"
+                            >Tailored car Mats</span
+                          >
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <!-- Repair Parts -->
+              <div class="mb-4 pb-2" <div role="tab" id="mobile_repair_part">
+                <h5 class="mb-0">
+                  <a href="#" class="mobile_menu_nav_link">Repair Parts</a>
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#hamburger_menu_item"
+                    href="#mobile_repair_parts_content_ID"
+                    aria-expanded="true"
+                    aria-controls="mobile_repair_parts_content_ID"
+                    class="lnr lnr-chevron-down"
+                    id="exterior_down"
+                  ></a>
+                </h5>
+              </div>
+              <div
+                id="mobile_repair_parts_content_ID"
+                class="collapse in"
+                role="tabpanel"
+                aria-labelledby="mobile_repair_part"
+              >
+                <div class="mobile_repair_parts_content">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Body Parts -->
+            <div class="mb-4 pb-2">
+              <div role="tab" id="mobile_body_parts">
+                <h5 class="mb-0">
+                  <a href="#" class="mobile_menu_nav_link">Body Parts</a>
+                  <a
+                    data-toggle="collapse"
+                    data-parent="#hamburger_menu_item"
+                    href="#mobile_body_parts_content_ID"
+                    aria-expanded="true"
+                    aria-controls="mobile_body_parts_content_ID"
+                    class="lnr lnr-chevron-down"
+                    id="exterior_down"
+                  ></a>
+                </h5>
+              </div>
+              <div
+                id="mobile_body_parts_content_ID"
+                class="collapse in"
+                role="tabpanel"
+                aria-labelledby="mobile_body_parts"
+              >
+                <div class="mobile_body_parts_content">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        ></a
+                      >
+                    </li>
+                    <li>
+                      <a href="">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link"
+                          >Tailored car Mats</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Blog -->
+            <li class="mobile_blog"><a href="#">Blog</a></li>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1st menu item content end -->
+      <!-- 2nd menu item content start -->
+      <div class="mobile_search_content_container" id="show_mobile_search">
+        <form action="" class="mobile_search_form">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search entire store here..."
+            id="mobile_search_input"
+          />
+          <button type="submit">
+            <span class="lnr lnr-magnifier"></span>
+          </button>
+        </form>
+      </div>
+      <!-- 2nd menu item content end -->
+      <!-- 3rd menu item content start -->
+      <div class="mobile_profile_content_container" id="show_mobile_profile">
+        <ul>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">My Account</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-heart"></span>
+              <span class="mobile_profile_link">My Wish List</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">Sign In</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="lnr lnr-user"></span>
+              <span class="mobile_profile_link">Create an Account</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- 3rd menu item content end -->
+      <!-- 4th menu item content start -->
+      <div class="mobile_cart_content_container" id="show_mobile_cart">
+        <h3>You have no item in your cart. Please shopping first</h3>
+      </div>
+      <!-- Mobile NavBar End -->
+      <!-- Page Header -->
+      <header class="page_header mt-3">
+        <div class="container">
+          <!-- first navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light first_nav">
+            <span class="navbar-text">
+              Default welcome msg!
+            </span>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item my_account">
+                  <a class="nav-link" href="#"
+                    ><span class="lnr lnr-user"></span>My Account</a
+                  >
+                </li>
+                <li class="nav-item wishlist">
+                  <a class="nav-link" href="#"
+                    ><span class="lnr lnr-heart"></span>My Wish List</a
+                  >
+                </li>
+                <li class="nav-item signIn">
+                  <a class="nav-link" href="#"
+                    ><span class="lnr lnr-user"></span>Sign In</a
+                  >
+                </li>
+                <li class="nav-item newAccount">
+                  <a class="nav-link" href="#"
+                    ><span class="lnr lnr-user"></span>Create an Account</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- End of First Navbar -->
+          <!-- second-nav -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light second_nav">
+            <a class="navbar-brand second_nav_logo" href="#">
+              <img src="./img/logo_4.png" alt="logo" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="#"
+                  ><span class="lnr lnr-cart shopping_cart_icon"></span> My Cart
+                  <span class="cart_counter">0</span>
+                </a>
+              </div>
+            </div>
+          </nav>
+          <!-- end of second-nav -->
+        </div>
+        <!-- third-nav -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark third_nav">
+          <div class="container">
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+              <ul
+                class="navbar-nav mr-auto mt-2 mt-lg-0 thirdNav__ul"
+                id="third_nav_ul"
+              >
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    id="InteriorID"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    href="#"
+                    >Interior</a
+                  >
+                  <div class="dropdown-menu " aria-labelledby="InteriorID">
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Tailored car
+                      Mats</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Floor & Cargo
+                      Mats</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Storage &
+                      Organization
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Steering Wheel
+                      Covers
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Car Seat
+                      Covers
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    id="ExteriorId"
+                    href="#"
+                    >Exterior</a
+                  >
+                  <div class="dropdown-menu" aria-labelledby="ExteriorId">
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Tow Bars</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Tow Bar
+                      electric Kit</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Car Covers &
+                      Car Protection
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Cargo
+                      Management
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Exterior Car
+                      Decoration
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    id="LightingId"
+                    href="#"
+                    >Lighting</a
+                  >
+                  <div class="dropdown-menu" aria-labelledby="LightingId">
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Headlight</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Indictor</a
+                    >
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Taillights
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Combination
+                      Taillight
+                    </a>
+                    <a class="dropdown-item" href="#"
+                      ><span class="lnr lnr-chevron-right"></span>Brake light
+                    </a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Repair Parts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Body Parts</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Blog</a>
+                </li>
+              </ul>
+              <!-- Searchbox -->
+
+              <button
+                type="button"
+                class="search searchBtn"
+                onclick="toggleSearchBox()"
+              >
+                <span class="lnr lnr-magnifier " id="searchbox_icon"></span>
+              </button>
+              <!-- End searchbox -->
+            </div>
+          </div>
+        </nav>
+        <!-- Start SearchBox -->
+        <!-- <div class="container"> -->
+        <div class="search_box" id="search_box_container">
+          <div class="form-group search_form_group">
+            <input
+              type="text"
+              name="search_input"
+              id="search_input"
+              placeholder="Search entire store here..."
+            />
+            <a class="ineer_searchLink" href="#"
+              ><span class="lnr lnr-magnifier ineer_searchbox_icon"></span
+            ></a>
+          </div>
+        </div>
+        <!-- </div> -->
+        <!-- end_searchbox -->
+        <!-- end of third-nav -->
+      </header>
+      <!-- main content start -->
+      <main>
+        <!-- breadcrub -->
+        <nav class="breadcrumb">
+          <a class="breadcrumb-item" href="#">Home</a>
+          <a class="breadcrumb-item" href="#">Exterior</a>
+          <span class="breadcrumb-item active">Tow Bars</span>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="left_product_content">
+                <h3>Shop By</h3>
+                <!-- Collapse -->
+                <div
+                  id="accordianId"
+                  role="tablist"
+                  aria-multiselectable="true"
+                >
+                  <div>
+                    <div role="tab" id="section1HeaderId">
+                      <h5 class="mb-0">
+                        <a
+                          data-toggle="collapse"
+                          data-parent="#accordianId"
+                          href="#section1ContentId"
+                          aria-expanded="true"
+                          aria-controls="section1ContentId"
+                        >
+                          Class &nbsp;<span class="lnr lnr-chevron-down"></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="section1ContentId"
+                      class="collapse in"
+                      role="tabpanel"
+                      aria-labelledby="section1HeaderId"
+                    >
+                      <div class="section_content">
+                        <li>
+                          <a href="#">A </a>
+                          <a href="#">8</a>
+                        </li>
+                        <li>
+                          <a href="#">B </a>
+                          <a href="#">10</a>
+                        </li>
+                        <li>
+                          <a href="#">C</a>
+                          <a href="#">1</a>
+                        </li>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div role="tab" id="color_selectID">
+                      <h5 class="mb-0">
+                        <a
+                          data-toggle="collapse"
+                          data-parent="#accordianId"
+                          href="#select_color_ID"
+                          aria-expanded="true"
+                          aria-controls="select_color_ID"
+                        >
+                          Color &nbsp;<span class="lnr lnr-chevron-down"></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="select_color_ID"
+                      class="collapse in"
+                      role="tabpanel"
+                      aria-labelledby="color_selectID"
+                    >
+                      <div class="section_content" id="color_content">
+                        <div
+                          style="height:24px;width:24px;background-color:red"
+                          class="red"
+                        ></div>
+                        <div
+                          style="height:24px;width:24px;background-color:white"
+                          class="white"
+                        ></div>
+                        <div
+                          style="height:24px;width:24px;background-color:blue"
+                          class="blue"
+                        ></div>
+                        <div
+                          style="height:24px;width:24px;background-color:black"
+                          class="black"
+                        ></div>
+                        <div
+                          style="height:24px;width:24px;background-color:grey"
+                          class="grey"
+                        ></div>
+                        <div
+                          style="height:24px;width:24px;background-color:beige"
+                          class="beige"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div role="tab" id="section2HeaderId">
+                      <h5 class="mb-0">
+                        <a
+                          data-toggle="collapse"
+                          data-parent="#accordianId"
+                          href="#section2ContentId"
+                          aria-expanded="true"
+                          aria-controls="section2ContentId"
+                        >
+                          Manufacturer&nbsp;<span
+                            class="lnr lnr-chevron-down"
+                          ></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="section2ContentId"
+                      class="collapse in"
+                      role="tabpanel"
+                      aria-labelledby="section2HeaderId"
+                    >
+                      <div class="section_content">
+                        <li>
+                          <a href="#">USA</a>
+                          <a href="#">8</a>
+                        </li>
+                        <li>
+                          <a href="#">Cina </a>
+                          <a href="#">4</a>
+                        </li>
+                        <li>
+                          <a href="#">Germany </a>
+                          <a href="#">4</a>
+                        </li>
+                        <li>
+                          <a href="#">France </a>
+                          <a href="#">3</a>
+                        </li>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div role="tab" id="section3HeaderId">
+                      <h5 class="mb-0">
+                        <a
+                          data-toggle="collapse"
+                          data-parent="#accordianId"
+                          href="#section3ContentId"
+                          aria-expanded="true"
+                          aria-controls="section3ContentId"
+                        >
+                          Price&nbsp;<span class="lnr lnr-chevron-down"></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="section3ContentId"
+                      class="collapse in"
+                      role="tabpanel"
+                      aria-labelledby="section3HeaderId"
+                    >
+                      <div class="section_content price_slider_range">
+                        <form>
+                          <div class="form-group">
+                            <input
+                              type="range"
+                              name="points"
+                              min="0"
+                              max="100"
+                            />
+                          </div>
+                          <div class=" form-group mt-3">
+                            <label for="id66i1">From</label>
+                            <input
+                              type="number"
+                              class="form-control range_inpt2"
+                              id="id66i1"
+                              min="20"
+                              max="700"
+                            />
+                          </div>
+                          <div class="form-group">
+                            <label for="id66i2">To</label>
+                            <input
+                              type="number"
+                              class="form-control range_inpt2"
+                              id="id66i2"
+                              min="20"
+                              max="700"
+                            />
+                          </div>
+                          <button type="submit" href="#" class="btn">
+                            Filter
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div role="tab" id="section4HeaderId">
+                      <h5 class="mb-0">
+                        <a
+                          data-toggle="collapse"
+                          data-parent="#accordianId"
+                          href="#section4ContentId"
+                          aria-expanded="true"
+                          aria-controls="section4ContentId"
+                        >
+                          Submodel&nbsp;<span
+                            class="lnr lnr-chevron-down"
+                          ></span>
+                        </a>
+                      </h5>
+                    </div>
+                    <div
+                      id="section4ContentId"
+                      class="collapse in"
+                      role="tabpanel"
+                      aria-labelledby="section4HeaderId"
+                    >
+                      <div class="section_content">
+                        <li>
+                          <a href="#">GSX</a>
+                          <a href="#">4</a>
+                        </li>
+                        <li>
+                          <a href="#">TSi </a>
+                          <a href="#">14</a>
+                        </li>
+                        <li>
+                          <a href="#">Evolution MR </a>
+                          <a href="#">1</a>
+                        </li>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="compare_products py-5">
+                  <h3>Compare Products</h3>
+                  <small>You have no item to compare</small>
+                </div>
+                <div class="wishlist_products py-5">
+                  <h3>My Wish List</h3>
+                  <h6>Last Added Items</h6>
+                  <small>You have no items in your wishlist</small>
+                </div>
+              </div>
+            </div>
+            <!-- Right product content -->
+            <div class="col-md-9">
+              <div class="right_product_content">
+                <h3>Tow Bars</h3>
+                <!-- Filter -->
+                <div
+                  class="row pt-3 pb-5 header_filter_big justify-content-center"
+                >
+                  <div class="col-md-4 text-center sort_filter_col">
+                    <div class="sort_filter">
+                      <label for="sort_by">Sort By</label>
+                      <select name="sorting" id="sort_by">
+                        <option value="position">Position</option>
+                        <option value="product_name">Product Name</option>
+                        <option value="price">Price</option>
+                      </select>
+                    </div>
+                    <a href="#" class="desc_btn"
+                      ><span class="lnr lnr-sort-amount-asc"></span
+                    ></a>
+                  </div>
+                  <div class="col-md-4 page_item_number">
+                    <p>Items 1-9 of 20</p>
+                  </div>
+                  <div class="col-md-4 text-center right_filter">
+                    <div class="right_filter_content">
+                      <label for="">Show</label>
+                      <select name="page_number" id="page_num">
+                        <option value="9">9</option>
+                        <option value="15">15</option>
+                        <option value="30">30</option>
+                      </select>
+                    </div>
+                    <div class="right_filter_action_btn">
+                      <a href="product.html" class="grid_view"
+                        ><i class="fas fa-th"></i
+                      ></a>
+                      <a href="listViewProduct.html" class="list_view"
+                        ><i class="fas fa-list"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Filter for on small screen -->
+                <div
+                  class="row py-3 header_filter_small justify-content-center"
+                >
+                  <div class="col-md-6 sort_filter_col">
+                    <div class="sort_filter">
+                      <select name="sorting" id="sort_by">
+                        <option value="position">Position</option>
+                        <option value="product_name">Product Name</option>
+                        <option value="price">Price</option>
+                      </select>
+                    </div>
+                    <a href="#" class="desc_btn"
+                      ><span class="lnr lnr-sort-amount-asc"></span
+                    ></a>
+                    <a href="#" class="fliter_btn">Filter</a>
+                  </div>
+                </div>
+                <!-- 1st row -->
+                <div class="row">
+                  <div class="col-md-4">
+                    <img
+                      src="./img/air_intake_hose_for_toyota_camry_2.2l_4cyl_1997_5_.png"
+                      class="card-img-top"
+                      alt="product_image"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="product_card listViewProduct">
+                      <div class="card-body">
+                        <p class="card-text">
+                          <span class="price">$120.00</span>
+                          <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong class="d-block"
+                          >Portseat Set Las Vegas Artif...</strong
+                        >
+                        <p class="listViewProduct_desc">
+                          We are honored to present you our products. We provide
+                          auto spare parts and our main goal is to satisfy all
+                          of our customers.
+                        </p>
+                        <div class="lisViewProduct_action_section">
+                          <a href="#" class="btn addToCart">
+                            <span class="lnr lnr-cart"></span> Add to Cart</a
+                          >
+                          <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
+                          </div>
+                        </div>
+                        <div class="review">
+                          <div class="review_star">
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                          </div>
+                          <div class="review_text">4 reviews</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 2nd row -->
+                <div class="row">
+                  <div class="col-md-4">
+                    <img
+                      src="./img/noco_genius_boost_12v_ultrasafe_lithium_jump_starter_06_2_.png"
+                      class="card-img-top"
+                      alt="product_image"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="product_card listViewProduct">
+                      <div class="card-body">
+                        <p class="card-text">
+                          <span class="price">$120.00</span>
+                          <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong class="d-block"
+                          >Portseat Set Las Vegas Artif...</strong
+                        >
+                        <p class="listViewProduct_desc">
+                          We are honored to present you our products. We provide
+                          auto spare parts and our main goal is to satisfy all
+                          of our customers.
+                        </p>
+                        <div class="lisViewProduct_action_section">
+                          <a href="#" class="btn addToCart">
+                            <span class="lnr lnr-cart"></span> Add to Cart</a
+                          >
+                          <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
+                          </div>
+                        </div>
+                        <div class="review">
+                          <div class="review_star">
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                          </div>
+                          <div class="review_text">4 reviews</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 3rd row -->
+                <div class="row">
+                  <div class="col-md-4">
+                    <img
+                      src="./img/sport_shock_absorber_high_tec_bmw_mini_cooper_2_.png"
+                      class="card-img-top"
+                      alt="product_image"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="product_card listViewProduct">
+                      <div class="card-body">
+                        <p class="card-text">
+                          <span class="price">$120.00</span>
+                          <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong class="d-block"
+                          >Portseat Set Las Vegas Artif...</strong
+                        >
+                        <p class="listViewProduct_desc">
+                          We are honored to present you our products. We provide
+                          auto spare parts and our main goal is to satisfy all
+                          of our customers.
+                        </p>
+                        <div class="lisViewProduct_action_section">
+                          <a href="#" class="btn addToCart">
+                            <span class="lnr lnr-cart"></span> Add to Cart</a
+                          >
+                          <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
+                          </div>
+                        </div>
+                        <div class="review">
+                          <div class="review_star">
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                          </div>
+                          <div class="review_text">4 reviews</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 4th row -->
+                <div class="row">
+                  <div class="col-md-4">
+                    <img
+                      src="./img/air_intake_hose_for_toyota_camry_2.2l_4cyl_1997_5_.png"
+                      class="card-img-top"
+                      alt="product_image"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="product_card listViewProduct">
+                      <div class="card-body">
+                        <p class="card-text">
+                          <span class="price">$120.00</span>
+                          <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong class="d-block"
+                          >Portseat Set Las Vegas Artif...</strong
+                        >
+                        <p class="listViewProduct_desc">
+                          We are honored to present you our products. We provide
+                          auto spare parts and our main goal is to satisfy all
+                          of our customers.
+                        </p>
+                        <div class="lisViewProduct_action_section">
+                          <a href="#" class="btn addToCart">
+                            <span class="lnr lnr-cart"></span> Add to Cart</a
+                          >
+                          <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
+                          </div>
+                        </div>
+                        <div class="review">
+                          <div class="review_star">
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                          </div>
+                          <div class="review_text">4 reviews</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 5th row -->
+                <div class="row">
+                  <div class="col-md-4">
+                    <img
+                      src="./img/noco_genius_boost_12v_ultrasafe_lithium_jump_starter_06_2_.png"
+                      class="card-img-top"
+                      alt="product_image"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="product_card listViewProduct">
+                      <div class="card-body">
+                        <p class="card-text">
+                          <span class="price">$120.00</span>
+                          <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong class="d-block"
+                          >Portseat Set Las Vegas Artif...</strong
+                        >
+                        <p class="listViewProduct_desc">
+                          We are honored to present you our products. We provide
+                          auto spare parts and our main goal is to satisfy all
+                          of our customers.
+                        </p>
+                        <div class="lisViewProduct_action_section">
+                          <a href="#" class="btn addToCart">
+                            <span class="lnr lnr-cart"></span> Add to Cart</a
+                          >
+                          <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
+                          </div>
+                        </div>
+                        <div class="review">
+                          <div class="review_star">
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                          </div>
+                          <div class="review_text">4 reviews</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 6th row -->
+                <div class="row">
+                  <div class="col-md-4">
+                    <img
+                      src="./img/sport_shock_absorber_high_tec_bmw_mini_cooper_2_.png"
+                      class="card-img-top"
+                      alt="product_image"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="product_card listViewProduct">
+                      <div class="card-body">
+                        <p class="card-text">
+                          <span class="price">$120.00</span>
+                          <span class="prevPrice">$36.00</span>
+                        </p>
+                        <strong class="d-block"
+                          >Portseat Set Las Vegas Artif...</strong
+                        >
+                        <p class="listViewProduct_desc">
+                          We are honored to present you our products. We provide
+                          auto spare parts and our main goal is to satisfy all
+                          of our customers.
+                        </p>
+                        <div class="lisViewProduct_action_section">
+                          <a href="#" class="btn addToCart">
+                            <span class="lnr lnr-cart"></span> Add to Cart</a
+                          >
+                          <div class="extra_option">
+                            <span class="lnr lnr-heart"></span>
+                            <span class="lnr lnr-store"></span>
+                          </div>
+                        </div>
+                        <div class="review">
+                          <div class="review_star">
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                            <span class="lnr lnr-star"></span>
+                          </div>
+                          <div class="review_text">4 reviews</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- pagination start -->
+                <div class="product_pagination">
+                  <nav aria-label="...">
+                    <ul class="pagination">
+                      <li class="page-item active">
+                        <a class="page-link" href="#"
+                          >1 <span class="sr-only">(current)</span></a
+                        >
+                      </li>
+                      <li class="page-item " aria-current="page">
+                        <a class="page-link" href="#">2 </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link next" href="#"
+                          >Next<span class="lnr lnr-chevron-right"></span
+                        ></a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- main content end -->
+
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 left_content">
+              <strong class="logo"
+                ><img src="./img/logo_4.png" alt="logo"
+              /></strong>
+              <div class="d-flex flex-row social_icon">
+                <div class="social-media" id="facebook">
+                  <a href="https://www.facebook.com/" target="_blank">
+                    <i class="fab fa-facebook-f"></i
+                  ></a>
+                </div>
+                <div class="social-media" id="twitter">
+                  <a href="https://twitter.com/" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+                <div class="social-media" id="googlePlus">
+                  <a href="#" target="_blank">
+                    <i class="fab fa-google-plus-g"></i
+                  ></a>
+                </div>
+                <div class="social-media" id="instagram">
+                  <a href="https://www.instagram.com/" target="_blank">
+                    <i class="fab fa-instagram"></i
+                  ></a>
+                </div>
+                <div class="social-media" id="pinterest">
+                  <a href="#" target="_blank">
+                    <i class="fab fa-pinterest"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8 footer_menu">
+              <ul class="first">
+                <li><a href="#">Shipping & Delivery</a></li>
+                <li><a href="#">Secure payment</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Guarantee</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+              </ul>
+              <ul class="second">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Customer Service</a></li>
+                <li><a href="#">Template Settings</a></li>
+              </ul>
+              <ul class="third">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Search Terms</a></li>
+                <li><a href="#">Orders and Returns</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Advanced Search</a></li>
+                <li>
+                  <a href="#" data-toggle="modal" data-target="#newsLetterModal"
+                    >Newsletter Subscription</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col copyright">
+              <small>&copy;2019 Magento Demo Store. All Rights Reserved.</small>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Modal of Newsletter -->
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="newsLetterModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="modelTitleId"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row justify-content-center mb-4">
+                <div class="col-md-8 top_content text-center">
+                  <h3>Get the latest news delivered daily.</h3>
+                  <small
+                    >Give us your email and you will be daily updated with the
+                    latest events, in detail.</small
+                  >
+                </div>
+              </div>
+              <div class="row justify-content-center pt-2 mt-3">
+                <div class="col">
+                  <form action="" class="modal_form_container">
+                    <div class="row justify-content-center">
+                      <div class="col-md-8 text-center">
+                        <div class="form-group">
+                          <input
+                            type="email"
+                            class="form-control"
+                            name="email"
+                            id="email"
+                            aria-describedby="helpId"
+                            placeholder="Enter your email address"
+                            required;
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <button type="submit">Subscribe</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

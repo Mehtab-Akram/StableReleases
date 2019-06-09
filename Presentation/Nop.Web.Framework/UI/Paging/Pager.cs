@@ -241,6 +241,7 @@ namespace Nop.Web.Framework.UI.Paging
                 links.Append(string.Format(localizationService.GetResource("Pager.CurrentPage"), model.PageIndex + 1, model.TotalPages, model.TotalItems));
                 links.Append("</li>");
             }
+
             if (showPagerItems && (model.TotalPages > 1))
             {
                 if (showFirst)
@@ -248,7 +249,7 @@ namespace Nop.Web.Framework.UI.Paging
                     //first page
                     if ((model.PageIndex >= 3) && (model.TotalPages > individualPagesDisplayedCount))
                     {
-                        links.Append(CreatePageLink(1, localizationService.GetResource("Pager.First"), "first-page"));
+                        links.Append(CreatePageLink(1, localizationService.GetResource("Pager.First"), "first-page", "page-link"));
                     }
                 }
                 if (showPrevious)
@@ -256,7 +257,7 @@ namespace Nop.Web.Framework.UI.Paging
                     //previous page
                     if (model.PageIndex > 0)
                     {
-                        links.Append(CreatePageLink(model.PageIndex, localizationService.GetResource("Pager.Previous"), "previous-page"));
+                        links.Append(CreatePageLink(model.PageIndex, localizationService.GetResource("Pager.Previous"), "previous-page", "page-link"));
                     }
                 }
                 if (showIndividualPages)
@@ -268,11 +269,13 @@ namespace Nop.Web.Framework.UI.Paging
                     {
                         if (model.PageIndex == i)
                         {
-                            links.AppendFormat("<li class=\"current-page\"><span>{0}</span></li>", (i + 1));
+                            //links.AppendFormat("<li class=\"current-page\"><span>{0}</span></li>", (i + 1));
+                            links.AppendFormat(CreatePageLink(i + 1, (i + 1).ToString(), "page-item active", "page-link"), (i + 1));
                         }
                         else
                         {
-                            links.Append(CreatePageLink(i + 1, (i + 1).ToString(), "individual-page"));
+                            //links.Append(CreatePageLink(i + 1, (i + 1).ToString(), "individual-page"));
+                            links.Append(CreatePageLink(i + 1, (i + 1).ToString(), "page-item", "page-link"));
                         }
                     }
                 }
@@ -281,7 +284,7 @@ namespace Nop.Web.Framework.UI.Paging
                     //next page
                     if ((model.PageIndex + 1) < model.TotalPages)
                     {
-                        links.Append(CreatePageLink(model.PageIndex + 2, localizationService.GetResource("Pager.Next"), "next-page"));
+                        links.Append(CreatePageLink(model.PageIndex + 2, localizationService.GetResource("Pager.Next"), "next-page", "page-link"));
                     }
                 }
                 if (showLast)
@@ -289,7 +292,7 @@ namespace Nop.Web.Framework.UI.Paging
                     //last page
                     if (((model.PageIndex + 3) < model.TotalPages) && (model.TotalPages > individualPagesDisplayedCount))
                     {
-                        links.Append(CreatePageLink(model.TotalPages, localizationService.GetResource("Pager.Last"), "last-page"));
+                        links.Append(CreatePageLink(model.TotalPages, localizationService.GetResource("Pager.Last"), "last-page", "page-link"));
                     }
                 }
             }
@@ -297,7 +300,7 @@ namespace Nop.Web.Framework.UI.Paging
             var result = links.ToString();
             if (!string.IsNullOrEmpty(result))
             {
-                result = "<ul>" + result + "</ul>";
+                result = "<ul class='pagination'>" + result + "</ul>";
             }
             return result;
 		}
@@ -357,7 +360,7 @@ namespace Nop.Web.Framework.UI.Paging
         /// <param name="text">Text</param>
         /// <param name="cssClass">CSS class</param>
         /// <returns>Link</returns>
-		protected virtual string CreatePageLink(int pageNumber, string text, string cssClass)
+		protected virtual string CreatePageLink(int pageNumber, string text, string cssClass, string aCssClass = "")
 		{
             var liBuilder = new TagBuilder("li");
             if (!string.IsNullOrWhiteSpace(cssClass))
@@ -366,6 +369,8 @@ namespace Nop.Web.Framework.UI.Paging
             var aBuilder = new TagBuilder("a");
             aBuilder.InnerHtml.AppendHtml(text);
             aBuilder.MergeAttribute("href", CreateDefaultUrl(pageNumber));
+            if (!string.IsNullOrWhiteSpace(aCssClass))
+                aBuilder.AddCssClass(aCssClass);
 
             liBuilder.InnerHtml.AppendHtml(aBuilder);
 		    return liBuilder.RenderHtmlContent();

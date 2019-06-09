@@ -1,32 +1,48 @@
 ﻿@model SearchBoxModel
 @using System.Text.Encodings.Web
+
+@*<input type="text" name="search_input" id="search_input" placeholder="Search entire store here..." />
+<a class="ineer_searchLink" href="#">
+    <span class="lnr lnr-magnifier ineer_searchbox_icon"></span>
+</a>*@
+
 <form asp-route="ProductSearch" method="get" id="small-search-box-form">
-    <input type="text" class="search-box-text" id="small-searchterms" autocomplete="off" name="q" placeholder="@T("Search.SearchBox.Tooltip")" />
+    <input type="text" class="search-box-text" id="search_input" autocomplete="off" name="q" placeholder="@T("Search.SearchBox.Tooltip")" />
     @await Component.InvokeAsync("Widget", new { widgetZone = "searchbox_before_search_button" })
-    <input type="submit" class="button-1 search-box-button" value="@T("Search.Button")" />
+    @*<input type="submit" class="button-1 search-box-button" value="@T("Search.Button")" />*@
+    <a onclick="return submitTheSearchForm();" class="ineer_searchLink" href="#">
+        <span class="lnr lnr-magnifier ineer_searchbox_icon"></span>
+    </a>
     @if (Model.SearchTermMinimumLength > 0)
     {
         <script type="text/javascript" asp-location="Footer">
             $("#small-search-box-form").submit(function(event) {
-                if ($("#small-searchterms").val() == "") {
+                if ($("#search_input").val() == "") {
                     alert('@Html.Raw(JavaScriptEncoder.Default.Encode(T("Search.EnterSearchTerms").Text))');
-                    $("#small-searchterms").focus();
+                    $("#search_input").focus();
                     event.preventDefault();
                 }
             });
+
+            function submitTheSearchForm() {
+                $("#small-search-box-form").submit();
+            }
         </script>
     }
     @if (Model.AutoCompleteEnabled)
     {
         <script type="text/javascript" asp-location="Footer">
-            $(document).ready(function() {
-                $('#small-searchterms').autocomplete({
+            $(document).ready(function () {
+
+                
+
+                $('#search_input').autocomplete({
                         delay: 500,
                         minLength: @(Model.SearchTermMinimumLength.ToString()),
                         source: '@(Url.RouteUrl("ProductSearchAutoComplete"))',
                         appendTo: '.search-box',
                         select: function(event, ui) {
-                            $("#small-searchterms").val(ui.item.label);
+                            $("#search_input").val(ui.item.label);
                             setLocation(ui.item.producturl);
                             return false;
                         }

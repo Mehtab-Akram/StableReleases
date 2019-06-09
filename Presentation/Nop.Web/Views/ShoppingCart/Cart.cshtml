@@ -9,13 +9,23 @@
 }
 @if (!Model.OnePageCheckoutEnabled)
 {
-    @await Component.InvokeAsync("CheckoutProgress", new {step = CheckoutProgressStep.Cart})
+    @await Component.InvokeAsync("CheckoutProgress", new { step = CheckoutProgressStep.Cart })
 }
-<div class="page shopping-cart-page">
+<main>
+    <section class="py-5 my-5 shopping_cart">
+        <div class="container">
+            <h1 class="page_title">
+                <strong class="title">@T("ShoppingCart")</strong>
+            </h1>
+            @await Component.InvokeAsync("OrderSummary", new { overriddenModel = Model })
+        </div>
+    </section>
+</main>
+@*<div class="page shopping-cart-page">
     <div class="page-title">
         <h1>@T("ShoppingCart")</h1>
     </div>
     <div class="page-body">
-        @await Component.InvokeAsync("OrderSummary", new { overriddenModel = Model})
+        @await Component.InvokeAsync("OrderSummary", new { overriddenModel = Model })
     </div>
-</div>
+</div>*@

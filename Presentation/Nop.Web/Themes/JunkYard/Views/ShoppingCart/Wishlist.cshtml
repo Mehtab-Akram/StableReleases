@@ -11,9 +11,13 @@
     //page class
     Html.AppendPageCssClassParts("html-wishlist-page");
 }
+<main>
+
 <div class="page wishlist-page">
-    <div class="page-title">
+    <div class="page-title page_title">
         <h1>
+            <strong>
+
             @if (Model.IsEditable)
             {
                 @T("Wishlist")
@@ -22,8 +26,13 @@
             {
                 @string.Format(T("Wishlist.WishlistOf").Text, Model.CustomerFullname)
             }
+            </strong>
         </h1>
     </div>
+    <div class="container form_container">
+        <div class="row">
+<div class="col-md-12">
+
     <div class="page-body">
         @if (Model.Items.Count > 0)
         {
@@ -41,7 +50,7 @@
                 }
                 <form asp-route="Wishlist" method="post">
                     <div class="table-wrapper">
-                        <table class="cart">
+                        <table class="table cart">
                             <colgroup>
                                 @if (Model.IsEditable)
                                 {
@@ -59,7 +68,7 @@
                                 {
                                     <col width="1" />
                                 }
-                                <col />
+                                <col width="1"/>
                                 <col width="1" />
                                 <col width="1" />
                                 <col width="1" />
@@ -96,7 +105,7 @@
                                     <th class="unit-price">
                                         @T("ShoppingCart.UnitPrice")
                                     </th>
-                                    <th class="quantity">
+                                    <th class="item-quantity">
                                         @T("ShoppingCart.Quantity")
                                     </th>
                                     <th class="subtotal">
@@ -125,7 +134,7 @@
                                         @if (Model.ShowSku)
                                         {
                                             <td class="sku">
-                                                <label class="td-title">@T("ShoppingCart.SKU"):</label>
+                                                @*<label class="td-title">@T("ShoppingCart.SKU"):</label>*@
                                                 <span class="sku-number">@item.Sku</span>
                                             </td>
                                         }
@@ -176,11 +185,11 @@
                                             }
                                         </td>
                                         <td class="unit-price">
-                                            <label class="td-title">@T("ShoppingCart.UnitPrice"):</label>
+                                            @*<label class="td-title">@T("ShoppingCart.UnitPrice"):</label>*@
                                             <span class="product-unit-price">@item.UnitPrice</span>
                                         </td>
-                                        <td class="quantity">
-                                            <label class="td-title">@T("ShoppingCart.Quantity"):</label>
+                                        <td class="item-quantity">
+                                            @*<label class="td-title">@T("ShoppingCart.Quantity"):</label>*@
                                             @if (Model.IsEditable)
                                             {
                                                 if (item.AllowedQuantities.Count > 0)
@@ -203,7 +212,7 @@
                                             }
                                         </td>
                                         <td class="subtotal">
-                                            <label class="td-title">@T("ShoppingCart.ItemTotal"):</label>
+                                            @*<label class="td-title">@T("ShoppingCart.ItemTotal"):</label>*@
                                             <span class="product-subtotal">@item.SubTotal</span>
                                             @if (!string.IsNullOrEmpty(item.Discount))
                                             {
@@ -232,27 +241,30 @@
                             @T(inclTax ? "Wishlist.TaxShipping.InclTax" : "Wishlist.TaxShipping.ExclTax", Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("shippinginfo") }))
                         </div>
                     }
-                    <div class="buttons">
+                    <div class="buttons buttonToRight">
                         @if (Model.IsEditable)
                         {
-                            <input type="submit" name="updatecart" value="@T("Wishlist.UpdateCart")" class="button-2 update-wishlist-button" />
+                            <input type="submit" name="updatecart" value="@T("Wishlist.UpdateCart")" class="button-2 update-wishlist-button Normalbutton" />
                         }
                         @if (Model.DisplayAddToCart)
                         {
-                            <input type="submit" name="addtocartbutton" value="@T("ShoppingCart.AddToCart")" class="button-2 wishlist-add-to-cart-button" />
+                            <input type="submit" name="addtocartbutton" value="@T("ShoppingCart.AddToCart")" class="button-2 wishlist-add-to-cart-button Normalbutton" />
                         }
                         @if (Model.IsEditable && Model.EmailWishlistEnabled)
                         {
-                            <input type="button" value="@T("Wishlist.EmailAFriend")" class="button-2 email-a-friend-wishlist-button" onclick="setLocation('@Url.RouteUrl("EmailWishlist")')" />
+                            <input type="button" value="@T("Wishlist.EmailAFriend")" class="button-2 email-a-friend-wishlist-button Normalbutton" onclick="setLocation('@Url.RouteUrl("EmailWishlist")')" />
                         }
                     </div>
+
                 </form>
             </div>
         }
         else
         {
             <div class="no-data">
+              <h5>
                 @T("Wishlist.CartIsEmpty")
+                  </h5>
             </div>
         }
         @if (Model.IsEditable && Model.Items.Count > 0)
@@ -263,4 +275,10 @@
             </div>
         }
     </div>
+
 </div>
+        </div>
+    </div>
+</div>
+
+</main>

@@ -1,4 +1,11 @@
 ﻿@model LogoModel
-<a href="@Url.RouteUrl("HomePage")">
-    <img title="" alt="@Model.StoreName" src="@Model.LogoPath">
+<a class="navbar-brand" href="@Url.RouteUrl("HomePage")">
+    <img src="@Model.LogoPath" alt="@Model.StoreName" />
+    @*~/Themes/Junkyard/Content/img/logo_4.png*@
 </a>
+
+
+@*@model LogoModel
+    <a href="@Url.RouteUrl("HomePage")">
+        <img title="" alt="@Model.StoreName" src="@Model.LogoPath">
+    </a>*@

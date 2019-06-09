@@ -47,11 +47,15 @@
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
     <None Remove="Themes\JunkYard\Content\css\CustomStyles.css" />
     <None Remove="Themes\JunkYard\Content\css\ie8.css" />
+    <None Remove="Themes\JunkYard\Content\css\otherStyles.css" />
     <None Remove="Themes\JunkYard\Content\css\print.css" />
+    <None Remove="Themes\JunkYard\Content\css\style.css" />
+    <None Remove="Themes\JunkYard\Content\css\style.min.css" />
+    <None Remove="Themes\JunkYard\Content\css\style.scss" />
     <None Remove="Themes\JunkYard\Content\css\styles - Copy.rtl.css" />
-    <None Remove="Themes\JunkYard\Content\css\styles.css" />
     <None Remove="Themes\JunkYard\Content\css\styles.rtl.css" />
     <None Remove="Themes\JunkYard\Content\css\styles__ORI.css" />
+    <None Remove="Themes\JunkYard\Content\css\style_ORI.css" />
     <None Remove="Themes\JunkYard\Content\images\ajax-loader-small.gif" />
     <None Remove="Themes\JunkYard\Content\images\back-button.png" />
     <None Remove="Themes\JunkYard\Content\images\calendar-next.png" />
@@ -102,7 +106,31 @@
     <None Remove="Themes\JunkYard\Content\images\watch.png" />
     <None Remove="Themes\JunkYard\Content\images\wishlist-button.png" />
     <None Remove="Themes\JunkYard\preview.jpg" />
+    <Content Update="Themes\JunkYard\Content\css\style.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Themes\JunkYard\Content\css\style.min.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Checkout\OnePageCheckout__BAK_MU_Old_Design.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Checkout\OnePageCheckout__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\JunkYard\Views\Home\Index.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Order\Details__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Product\ProductTemplate.Simple__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Product\_ProductBreadcrumb__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Product\_ProductDetailsPictures__ORI.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\JunkYard\Views\Shared\Components\FooterSubscribe\Default.cshtml">
@@ -120,7 +148,19 @@
     <Content Update="Themes\JunkYard\Views\Shared\Components\HomepageNews\Default__ORI.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\SearchBox\Default__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\SocialButtons\Default__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\TopMenu\Default__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\JunkYard\Views\Shared\Head.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\_CategoryLine.TopMenu__ORI.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\JunkYard\Views\_ViewImports.cshtml">
@@ -129,10 +169,17 @@
     <Content Update="Themes\JunkYard\Views-bakup\Home\Index.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Catalog\Shop.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
 
     <None Update="Areas\Admin\sitemap.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+
+    <Content Update="Themes\JunkYard\Content\css\style_ORI.css">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <!-- This target execute after "Build" target.
