@@ -55,8 +55,8 @@
                                     @T("ShoppingCart.Quantity")
                                 </th>
                                 <th class="subtotal">
-                                        @T("ShoppingCart.ItemTotal")
-                                    </th>
+                                    @T("ShoppingCart.ItemTotal")
+                                </th>
 
                             </tr>
                         </thead>
@@ -180,21 +180,21 @@
                                         }
                                     </td>
                                     <td class="subtotal">
-                                            @*<label class="td-title">@T("ShoppingCart.ItemTotal"):</label>*@
-                                            <span class="product-subtotal">@item.SubTotal</span>
-                                            @if (!string.IsNullOrEmpty(item.Discount))
+                                        @*<label class="td-title">@T("ShoppingCart.ItemTotal"):</label>*@
+                                        <span class="product-subtotal">@item.SubTotal</span>
+                                        @if (!string.IsNullOrEmpty(item.Discount))
+                                        {
+                                            <div class="discount">
+                                                @T("ShoppingCart.ItemYouSave", item.Discount)
+                                            </div>
+                                            if (item.MaximumDiscountedQty.HasValue)
                                             {
-                                                <div class="discount">
-                                                    @T("ShoppingCart.ItemYouSave", item.Discount)
+                                                <div class="discount-additional-info">
+                                                    @T("ShoppingCart.MaximumDiscountedQty", item.MaximumDiscountedQty.Value)
                                                 </div>
-                                                if (item.MaximumDiscountedQty.HasValue)
-                                                {
-                                                    <div class="discount-additional-info">
-                                                        @T("ShoppingCart.MaximumDiscountedQty", item.MaximumDiscountedQty.Value)
-                                                    </div>
-                                                }
                                             }
-                                        </td>
+                                        }
+                                    </td>
 
 
 
@@ -238,7 +238,10 @@
                 <div class="col-md-4 right_content">
                     <div class="card">
                         <div class="card-body">
-                            <h3>Summery</h3>
+                            <h3>Summary</h3>
+
+                            @await Component.InvokeAsync("OrderTotals", new { isEditable = Model.IsEditable })
+
                             @if (Model.IsEditable && Model.Items.Count > 0 && Model.DisplayTaxShippingInfo)
                             {
                                 var inclTax = workContext.TaxDisplayType == TaxDisplayType.IncludingTax;
@@ -344,7 +347,7 @@
                             </div>
                             <div class="final_product_summery py-4 mt-3">
                                 <div class="totals">
-                                    @await Component.InvokeAsync("OrderTotals", new { isEditable = Model.IsEditable })
+                                    @*@await Component.InvokeAsync("OrderTotals", new { isEditable = Model.IsEditable })*@
                                     @if (Model.IsEditable)
                                     {
                                         if (!string.IsNullOrEmpty(Model.MinOrderSubtotalWarning))

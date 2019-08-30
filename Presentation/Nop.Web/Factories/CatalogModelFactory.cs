@@ -657,6 +657,10 @@ namespace Nop.Web.Factories
                         return pictureModel;
                     });
 
+                    //By Mahboob for getting sub categories name for home page category display
+                    IList<Category> lstSubCategories = _categoryService.GetAllCategoriesByParentCategoryId(category.Id).ToList();
+                    catModel.SubCategories = lstSubCategories.Select(x => new CategoryModel.SubCategoryModel { Name = x.Name }).ToList();
+
                     return catModel;
                 })
                 .ToList()
@@ -1426,6 +1430,8 @@ namespace Nop.Web.Factories
             }
 
             model.PagingFilteringContext.LoadPagedList(products);
+            //By Mahboob to get total products count   //TODO
+            //model.CustomProperties.Add("TotalProducts", products.Count());
             return model;
         }
 

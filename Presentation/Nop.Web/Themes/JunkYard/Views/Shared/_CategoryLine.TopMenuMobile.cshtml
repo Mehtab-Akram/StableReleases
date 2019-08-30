@@ -1,0 +1,80 @@
+﻿@model TopMenuModel.CategoryLineModel
+
+@if (Model.Level == 0)
+{
+
+var subCategories = Model.ResponsiveMobileMenu ?
+            //responsive (all categories)
+            Model.Category.SubCategories :
+            //standard design (only categories with "IncludeInTopMenu")
+            Model.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+ <!-- Interior -->
+<div class="mb-4 pb-2">
+
+    @if (subCategories.Count > 0)
+    {
+    <div role="tab" id="mobile_interior">
+        <h5 class="mb-0">
+            <a href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })" class="mobile_menu_nav_link">
+                @Model.Category.SeName
+
+                @if (Model.Category.NumberOfProducts.HasValue)
+                {
+                <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
+                }
+            </a>
+            <a data-toggle="collapse" data-parent="#hamburger_menu_item" href="#mobile_@Model.Category.SeName.Trim().Replace(" ","_")_content_ID" aria-expanded="true" aria-controls="mobile_@Model.Category.SeName.Trim().Replace(" ","_")_content_ID" class="lnr lnr-chevron-down" id="interior_down"></a>
+        </h5>
+    </div>
+    }
+    else{
+
+    <div role="tab" id="mobile_@Model.Category.SeName.Trim().Replace(" ","_")">
+        <h5 class="mb-0">
+            <a href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })" class="mobile_menu_nav_link">
+                @Model.Category.SeName
+                @if (Model.Category.NumberOfProducts.HasValue)
+                {
+                <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
+                }
+            </a>
+        </h5>
+    </div>
+    }
+
+    <div id="mobile_@Model.Category.SeName.Trim().Replace(" ","_")_content_ID" class="collapse in" role="tabpanel" aria-labelledby="mobile_@Model.Category.SeName.Trim().Replace(" ","_")">
+        <div class="mobile_@Model.Category.SeName.Trim().Replace(" ","_")_content">
+            <ul>
+                @foreach (var subCategory in subCategories)
+            {
+                var categoryLineModel = new TopMenuModel.CategoryLineModel
+                {
+                    Category = subCategory,
+                    Level = Model.Level + 1,
+                    ResponsiveMobileMenu = Model.ResponsiveMobileMenu
+                };
+
+                <li>
+                    <a href="@Url.RouteUrl("Category", new { SeName = categoryLineModel.Category.SeName })">
+                        <span class="lnr lnr-chevron-right"></span>
+                        <span class="mobile_hamburger_dropdown_link">
+                            @categoryLineModel.Category.SeName
+                            @if (categoryLineModel.Category.NumberOfProducts.HasValue)
+                {
+                            <text> </text>@T("Categories.TotalProducts", categoryLineModel.Category.NumberOfProducts.Value)
+                }
+                        </span>
+                    </a>
+                </li>
+            }
+            </ul>
+        </div>
+    </div>
+    </div>
+
+    <!-- Blog -->
+    }
+    else
+    {
+    <li class="mobile_blog"><a href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">@Model.Category.SeName</a></li>
+    }

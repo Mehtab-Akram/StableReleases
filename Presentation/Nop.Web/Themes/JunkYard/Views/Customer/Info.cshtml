@@ -47,14 +47,16 @@
 }
 <div class="right_product_content">
     <h3>@T("Account.MyAccount") - @T("Account.CustomerInfo")</h3>
+        <div class=" card text-center m-0 p-0  col-md-8">
+    <div class="form_container">
+
+            <h5 class="card-header dark-color white-text text-center py-4">@T("Account.YourPersonalDetails")</h5>
     <form asp-route="CustomerInfo" method="post">
         <div asp-validation-summary="ModelOnly" class="message-error"></div>
 
 
 
-        <div class="col-md-8">
 
-            <h5>@T("Account.YourPersonalDetails")</h5>
 
             @if (Model.GenderEnabled)
             {
@@ -160,7 +162,7 @@
             @if (Model.CompanyEnabled || Model.DisplayVatNumber)
             {
 
-                <h5>@T("Account.CompanyDetails")</h5>
+                <h5 class=" card-header dark-color white-text text-center py-4">@T("Account.CompanyDetails")</h5>
 
 
                 @if (Model.CompanyEnabled)
@@ -196,7 +198,7 @@
             {
                 <div class="fieldset">
                     <div class="title">
-                        <h5>@T("Account.Options")</h5>
+                        <h5 class=" card-header dark-color white-text text-center py-4">@T("Account.Options")</h5>
                     </div>
                     <div class="form-fields">
                         @if (Model.NewsletterEnabled)
@@ -228,7 +230,7 @@
             @if (Model.StreetAddressEnabled || Model.StreetAddress2Enabled || Model.ZipPostalCodeEnabled
 || Model.CityEnabled || Model.CountryEnabled)
             {
-                <h5>@T("Account.YourAddress")</h5>
+                <h5 class="card-header dark-color white-text text-center py-4">@T("Account.YourAddress")</h5>
                 @if (Model.StreetAddressEnabled)
                 {
                     <div class="form-group py-2">
@@ -336,7 +338,7 @@
             }
             @if (Model.PhoneEnabled || Model.FaxEnabled)
             {
-                <h5>@T("Account.YourContactInformation")</h5>
+                <h5 class="card-header dark-color white-text text-center py-4">@T("Account.YourContactInformation")</h5>
                 @if (Model.PhoneEnabled)
                 {
                     <div class="form-group py-2">
@@ -373,7 +375,7 @@
                 }
                 @if (Model.AllowCustomersToSetTimeZone || Model.SignatureEnabled)
                 {
-                    <h5>@T("Account.Preferences")</h5>
+                    <h5 class=" card-header dark-color white-text text-center py-4">@T("Account.Preferences")</h5>
 
                     <div class="form-group py-2">
                         @if (Model.AllowCustomersToSetTimeZone)
@@ -391,7 +393,7 @@
                 }
                 @if (Model.NumberOfExternalAuthenticationProviders > 0)
                 {
-                            <h5>@T("Account.AssociatedExternalAuth")</h5>
+                            <h5 class="card-header dark-color white-text text-center py-4">@T("Account.AssociatedExternalAuth")</h5>
                     <div class="fieldset">
                        
                         @if (Model.AssociatedExternalAuthRecords.Count > 0)
@@ -464,8 +466,9 @@
                 <div class="buttons">
                     <button type="submit" value="@T("Common.Save")" name="save-info-button" class="Normalbutton button-1 save-customer-info-button">@T("Common.Save")</button>
                 </div>
-        </div>
     </form>
+        </div>
+    </div>
     
 </div>
 

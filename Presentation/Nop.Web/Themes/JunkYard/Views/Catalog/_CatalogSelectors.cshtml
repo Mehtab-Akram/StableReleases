@@ -14,10 +14,10 @@
         </div>
     }
     <!-- this is different in nopcommerce from the template provided need to get value of page sise dropdown before showing it here.-->
-    <div class="col-md-4 page_item_number">
+    @*<div class="col-md-4 page_item_number">
 
-        <p>Items 1-9 of 20</p>
-    </div>
+        <p>Items 1-9 of 20: @Model.CustomProperties.FirstOrDefault(a => a.Key == "TotalProducts").Value</p>
+    </div>*@
     <div class="col-md-4 text-center right_filter">
         @*page size*@
         @if (Model.AllowCustomersToSelectPageSize)

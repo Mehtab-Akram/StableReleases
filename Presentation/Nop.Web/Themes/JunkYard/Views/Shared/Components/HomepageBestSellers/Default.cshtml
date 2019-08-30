@@ -9,35 +9,10 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-3">
-                    <div class="product_card">
                         @await Html.PartialAsync("_ProductBox", item)
 
-                        @*<img src="~/Themes/Junkyard/Content/img/portseat_set_las_vegas_artificial_leather_black_01.png"
-                                 class="card-img-top"
-                                 alt="product_image" />
-                            <div class="card-body">
-                                <p class="card-text">
-                                    As low as <span class="price">$120.00</span>
-                                </p>
-                                <strong>Portseat Set Las Vegas Artif...</strong>
-                                <a href="#" class="btn addToCart"><span class="lnr lnr-cart"></span>Add to Cart</a>
-                                <div class="review">
-                                    <div class="review_star">
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                        <span class="lnr lnr-star"></span>
-                                    </div>
-                                    <div class="review_text">4 reviews</div>
-                                </div>
-                                <div class="extra_option">
-                                    <span class="lnr lnr-heart"></span>
-                                    <span class="lnr lnr-store"></span>
-                                </div>
-                            </div>*@
+                       
                     </div>
-                </div>
             }
         </div>
     </div>

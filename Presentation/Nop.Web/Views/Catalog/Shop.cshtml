@@ -27,7 +27,7 @@
 <div class="page search-page">
     <div class="right_product_content noPaddingBottom">
         <h1 class="page_title noMarginBottom">
-            <strong class="title">Shop</strong>
+            <strong class="title">@T("Shop")</strong>
         </h1>
     </div>
     <div class="page-body">
@@ -40,7 +40,7 @@
                                 <label asp-for="q" class="float-left marginRight20 paddingTop10">@T("Search.SearchTerm"):</label>
                                 <input asp-for="q" class="search-text" style="width:86%;" />
                             </div>
-                            @await Component.InvokeAsync("Widget", new {widgetZone = "productsearch_page_basic"})
+                            @await Component.InvokeAsync("Widget", new { widgetZone = "productsearch_page_basic" })
                             @*<div class="inputs reversed">
                                 <input asp-for="adv"/>
                                 <label asp-for="adv">@T("Search.AdvancedSearch")</label>
@@ -90,13 +90,15 @@
                     </div>
                 </div>
                 <div class="buttons buttonToRight">
-                    <input id="btnShopSearch" type="submit" class="button-1 search-button Normalbutton" value="@T("Search.Button")"/>
+                    <input id="btnShopSearch" type="submit" class="button-1 search-button Normalbutton" value="@T("Search.Button")" />
                 </div>
             </form>
         </div>
         @if (Model.Products.Count > 0)
         {
-            @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext)
+            @await Html.PartialAsync("_CatalogSelectors", Model.PagingFilteringContext);
+
+            @*@Model.CustomProperties.FirstOrDefault(a => a.Key == "TotalProducts").Value;*@
         }
         @await Component.InvokeAsync("Widget", new { widgetZone = "productsearch_page_before_results" })
         <div class="search-results">
@@ -112,17 +114,21 @@
                     @T("Search.NoResultsText")
                 </div>
             }
-            
+
             @if (Model.Products.Count > 0)
             {
-                <div class="row @(Model.PagingFilteringContext.ViewMode == "list" ? "product-list" : "product-grid")">
+                string  boxSizeClassName = Model.PagingFilteringContext.ViewMode == "list" ? "col-lg-12 col-md-12 col-sm-12 col-xs-12" : "col-lg-4 col-md-4 col-sm-12 col-xs-12";
+
+                <div class="row @(Model.PagingFilteringContext.ViewMode == "list" ? "listViewProduct" : "product-grid")">
+
+                    
                     @*<div class="item-grid">*@
-                        @foreach (var product in Model.Products)
-                        {
-                            @*<div class="item-box">*@
-                                @await Html.PartialAsync("_ProductBox", product)
-                            @*</div>*@
-                        }
+                    @foreach (var product in Model.Products)
+                    {
+                        <div class="@boxSizeClassName item-box">
+                            @await Html.PartialAsync("_ProductBox", product)
+                        </div>
+                    }
                     @*</div>*@
                 </div>
 
@@ -132,6 +138,9 @@
             }
             @if (!pager.IsEmpty())
             {
+                @*<div class="pager">
+                    @pager
+                </div>*@
                 <div class="pager">
                     @pager
                 </div>

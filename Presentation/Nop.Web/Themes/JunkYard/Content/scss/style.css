@@ -75,15 +75,16 @@
       transition: color 0.3s ease; }
       .mobile_search_content_container form.mobile_search_form input[type="text"]:focus {
         color: #888888; }
-    .mobile_search_content_container form.mobile_search_form button {
-      width: 10%;
-      border: none;
-      outline: none;
-      background: #f6f6ff;
-      padding: 12px 5px;
-      font-size: 22px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out; }
+    .mobile_search_content_container form.mobile_search_form button, .mobile_search_content_container form.mobile_search_form a {
+        width: 10%;
+        border: none;
+        outline: none;
+        background: #f6f6ff;
+        padding: 12px 5px;
+        font-size: 22px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
       .mobile_search_content_container form.mobile_search_form button:hover {
         background: #000000;
         color: #fff; }
@@ -1759,10 +1760,10 @@ body {
     .first_nav a:hover {
       color: #000000 !important; }
     .first_nav a span {
-      font-size: 22px;
+      /*font-size: 22px;*/
       padding-right: 5px;
       line-height: 1;
-      float: left;
+      /*float: left;*/
       transition: all 0.3s; }
 
 .second_nav {

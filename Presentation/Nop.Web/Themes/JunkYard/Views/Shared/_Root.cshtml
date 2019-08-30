@@ -9,6 +9,10 @@
     @await Html.PartialAsync("_OldInternetExplorerWarning")
     @await Component.InvokeAsync("AdminHeaderLinks")
     @await Html.PartialAsync("_Header")
+    <script type="text/javascript" asp-location="Footer">
+        //AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart');
+        AjaxCart.init(false, '#navbarText .cart-qty', '#navbarText .wishlist-qty', '#flyout-cart');
+    </script>
 
     @if (IsSectionDefined("Breadcrumb"))
     {

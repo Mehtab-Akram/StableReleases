@@ -1,69 +1,128 @@
 ﻿@model ProductDetailsModel
 
-<div id="carousel-thumb"
-     class="carousel slide carousel-fade carousel-thumbnails product_carosel"
-     data-ride="carousel">
-    <!--Slides-->
-    @if (Model.PictureModels.Count > 1)
+
+@{
+    Html.AddCssFileParts(ResourceLocation.Head, "../Themes/JunkYard/Content/css/slick.css");
+    Html.AddCssFileParts(ResourceLocation.Head, "../Themes/JunkYard/Content/css/slick-theme.css");
+
+    Html.AddScriptParts(ResourceLocation.Head, "../Themes/JunkYard/Content/js/jquery.zoom.min.js");
+    Html.AddScriptParts(ResourceLocation.Head, "../Themes/JunkYard/Content/js/slick.min.js");
+}
+
+<style>
+    .slider-wrapper {
+        width: 600px;
+    }
+
+    .slider-for__item img {
+        width: 100%;
+    }
+
+    .slider-nav__item {
+        height: 150px;
+    }
+
+    .slick-prev:before, .slick-next:before {
+        color: black;
+    }
+    /**/
+    .slider-nav {
+        margin-top: 10px
+    }
+    .zoomImg
     {
-        <div class="carousel-inner" role="listbox">
-            @{
-                int firstImage = 1;
-                string activeClass = "";
-            }
+        background-color:#fff;
+        background-size:cover;
+    }
+    .slider-nav__item {
+        width:auto !important;
+        margin:1px ;
+        height:auto;
+        /*background:#fff;*/
+        border-radius:5px;
+    }
+    /*.slider-for__item
+    {
+        background-color:#fff;
+        border-radius:5px;
+    }*/
+</style>
+<script>
+    $(document).ready(function () {
+
+
+
+        // SLICK
+        $('.slider-for').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.slider-nav'
+        });
+        $('.slider-nav').slick({
+            slidesToShow: @Model.PictureModels.Count,
+            slidesToScroll: 1,
+            asNavFor: '.slider-for',
+            dots: false,
+            focusOnSelect: true
+        });
+
+        // ZOOM
+        $('.ex1').zoom({
+            magnify: 2.5
+        });
+
+    });
+</script>
+
+
+@if (Model.PictureModels.Count > 1)
+{
+    <div class="slider-wrapper">
+        <div class="slider-for">
+
+
             @foreach (var picture in Model.PictureModels)
             {
-                if (firstImage == 1)
-                {
-                    activeClass = "active";
-                }
-                else
-                {
-                    activeClass = "";
-                }
-                <div class="carousel-item @activeClass">
-                    <img class="d-block w-100"
-                         src="@picture.ImageUrl"
-                         alt="@picture.AlternateText" title="@picture.Title" />
+                <div class="slider-for__item ex1" data-src="@picture.ImageUrl">
+                    <img src="@picture.ImageUrl" alt="@picture.AlternateText" title="@picture.Title" />
                 </div>
-
-                ++firstImage;
             }
+
         </div>
-    }
-    else
-    {
-                    //default no image
-        <div class="carousel-item active">
-            <img class="d-block w-100"
-                 src="@Model.DefaultPictureModel.ImageUrl"
-                 alt="@Model.DefaultPictureModel.AlternateText" title="@Model.DefaultPictureModel.Title" />
-        </div>        
-    }
-    <!--/.Slides-->
-    <!--Controls-->
-    <a class="carousel-control-prev product_carosel_control"
-       href="#carousel-thumb"
-       role="button"
-       data-slide="prev">
-        <span class="carousel-control-prev-icon "
-              aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next product_carosel_control"
-       href="#carousel-thumb"
-       role="button"
-       data-slide="next">
-        <span class="carousel-control-next-icon"
-              aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-    <!--/.Controls-->
-    @if (Model.PictureModels.Count > 1)
-                    {
-        <ol class="carousel-indicators product_carosel_indicatior">
-            @{
-                int firstImage = 1;
+        <div class="slider-nav">
+            @foreach (var picture in Model.PictureModels)
+            {
+                <div class="slider-nav__item">
+                    <img src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" />
+                </div>
+            }
+
+        </div>
+    </div>
+}
+else
+{
+    //default no image
+    <div class="carousel-item active">
+        <img class="d-block w-100"
+             src="@Model.DefaultPictureModel.ImageUrl"
+             alt="@Model.DefaultPictureModel.AlternateText" title="@Model.DefaultPictureModel.Title" />
+    </div>
+}
+
+
+
+@*<div id="carousel-thumb"
+         class="carousel slide carousel-fade carousel-thumbnails product_carosel"
+         data-ride="carousel">
+        <!--Slides-->
+        @if (Model.PictureModels.Count > 1)
+        {
+            <div class="carousel-inner" role="listbox">
+                @{
+                    int firstImage = 1;
                     string activeClass = "";
                 }
                 @foreach (var picture in Model.PictureModels)
@@ -76,14 +135,69 @@
                     {
                         activeClass = "";
                     }
-                <li data-target="#carousel-thumb" data-slide-to="0" class="@activeClass">
-                    <img class="d-block w-100 img-fluid"
-                         src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" ImageUrl="@picture.ImageUrl" FullSizeImageUrl="@picture.FullSizeImageUrl" />
-                </li>
+                    <div class="carousel-item @activeClass">
+                        <img class="d-block w-100"
+                             src="@picture.ImageUrl"
+                             alt="@picture.AlternateText" title="@picture.Title" />
+                    </div>
 
-                ++firstImage;
-            }
+                    ++firstImage;
+                }
+            </div>
+        }
+        else
+        {
+                        //default no image
+            <div class="carousel-item active">
+                <img class="d-block w-100"
+                     src="@Model.DefaultPictureModel.ImageUrl"
+                     alt="@Model.DefaultPictureModel.AlternateText" title="@Model.DefaultPictureModel.Title" />
+            </div>
+        }
+        <!--/.Slides-->
+        <!--Controls-->
+        <a class="carousel-control-prev product_carosel_control"
+           href="#carousel-thumb"
+           role="button"
+           data-slide="prev">
+            <span class="carousel-control-prev-icon "
+                  aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next product_carosel_control"
+           href="#carousel-thumb"
+           role="button"
+           data-slide="next">
+            <span class="carousel-control-next-icon"
+                  aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <!--/.Controls-->
+        @if (Model.PictureModels.Count > 1)
+                        {
+            <ol class="carousel-indicators product_carosel_indicatior">
+                @{
+                    int firstImage = 1;
+                        string activeClass = "";
+                    }
+                    @foreach (var picture in Model.PictureModels)
+                    {
+                        if (firstImage == 1)
+                        {
+                            activeClass = "active";
+                        }
+                        else
+                        {
+                            activeClass = "";
+                        }
+                    <li data-target="#carousel-thumb" data-slide-to="0" class="@activeClass">
+                        <img class="d-block w-100 img-fluid"
+                             src="@picture.ThumbImageUrl" alt="@picture.AlternateText" title="@picture.Title" ImageUrl="@picture.ImageUrl" FullSizeImageUrl="@picture.FullSizeImageUrl" />
+                    </li>
 
-        </ol>
-    }
-</div>
+                    ++firstImage;
+                }
+
+            </ol>
+        }
+    </div>*@

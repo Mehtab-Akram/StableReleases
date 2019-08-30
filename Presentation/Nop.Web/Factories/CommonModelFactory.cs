@@ -66,6 +66,7 @@ namespace Nop.Web.Factories
         private readonly IPictureService _pictureService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IProductTagService _productTagService;
+        private readonly ICatalogModelFactory _CatalogModelFactory;
 
         private readonly CatalogSettings _catalogSettings;
         private readonly StoreInformationSettings _storeInformationSettings;
@@ -101,6 +102,7 @@ namespace Nop.Web.Factories
             IPageHeadBuilder pageHeadBuilder,
             IPictureService pictureService,
             IHostingEnvironment hostingEnvironment,
+            ICatalogModelFactory CatalogModelFactory,
             CatalogSettings catalogSettings,
             StoreInformationSettings storeInformationSettings,
             CommonSettings commonSettings,
@@ -142,6 +144,7 @@ namespace Nop.Web.Factories
             this._captchaSettings = captchaSettings;
             this._vendorSettings = vendorSettings;
             this._productTagService = productTagService;
+            this._CatalogModelFactory = CatalogModelFactory;
         }
 
         #endregion
@@ -296,7 +299,8 @@ namespace Nop.Web.Factories
         public virtual HeaderLinksModel PrepareHeaderLinksModel()
         {
             var customer = _workContext.CurrentCustomer;
-
+            //CatalogModelFactory objCatalogModelFactory = new CatalogModelFactory();
+            
             var unreadMessageCount = GetUnreadPrivateMessages();
             var unreadMessage = string.Empty;
             var alertMessage = string.Empty;
@@ -323,6 +327,7 @@ namespace Nop.Web.Factories
                 UnreadPrivateMessages = unreadMessage,
                 AlertMessage = alertMessage,
             };
+            model.objTopMenuModel = _CatalogModelFactory.PrepareTopMenuModel();
             //performance optimization (use "HasShoppingCartItems" property)
             if (customer.HasShoppingCartItems)
             {

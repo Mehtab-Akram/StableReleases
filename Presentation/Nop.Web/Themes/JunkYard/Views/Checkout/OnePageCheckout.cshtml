@@ -53,31 +53,31 @@
         <div class="checkout_left_content">
             <ul class="progress_bar">
                 <li id="lih-opc-billing" class="progress_bar_item progress_bar_item_active">
-                    <span class="number">@billingAddressStepNumber</span> @T("Checkout.BillingAddress")
+                    <span class="number">@billingAddressStepNumber. @T("Checkout.BillingAddress")</span> 
                 </li>
                 @if (Model.ShippingRequired)
                 {
                     <li id="lih-opc-shipping" class="progress_bar_item">
-                        <span class="number">@shippingAddressStepNumber</span> @T("Checkout.ShippingAddress")
+                        <span class="number">@shippingAddressStepNumber. @T("Checkout.ShippingAddress")</span> 
                     </li>
                     <li id="lih-opc-shipping_method" class="progress_bar_item">
-                        <span class="number">@shippingMethodStepNumber</span> @T("Checkout.ShippingMethod")
+                        <span class="number">@shippingMethodStepNumber. @T("Checkout.ShippingMethod")</span> 
                     </li>
                 }
                 <li id="lih-opc-payment_method" class="progress_bar_item">
-                    <span class="number">@paymentMethodStepNumber</span> @T("Checkout.PaymentMethod")
+                    <span class="number">@paymentMethodStepNumber. @T("Checkout.PaymentMethod")</span> 
                 </li>
                 <li id="lih-opc-payment_info" class="progress_bar_item">
-                    <span class="number">@paymentInfoStepNumber</span> @T("Checkout.PaymentInfo")
+                    <span class="number">@paymentInfoStepNumber. @T("Checkout.PaymentInfo")</span> 
                 </li>
                 <li id="lih-opc-confirm_order" class="progress_bar_item">
-                    <span class="number">@confirmOrderStepNumber</span> @T("Checkout.ConfirmOrder")
+                    <span class="number">@confirmOrderStepNumber. @T("Checkout.ConfirmOrder")</span> 
                 </li>
             </ul>
         </div>
     </div>
 
-    <div class="page-body checkout-data col-lg-10 col-md-10 col-sm-12 col-xs-12">
+    <div class="page-body checkout-data">
         @await Component.InvokeAsync("Widget", new { widgetZone = "opc_content_before" })
 
 
@@ -95,7 +95,7 @@
                             </li>
                         </ul>
                     </div>*@
-                <div id="checkout-step-billing" class="step a-item form_container offset-lg-1 offset-md-1" style="display: none;">
+                <div id="checkout-step-billing" class="step a-item form_container" style="display: none;">
                     <form id="co-billing-form" action="">
                         <div id="checkout-billing-load">
                             @await Html.PartialAsync("OpcBillingAddress", Model.BillingAddress)
@@ -128,7 +128,7 @@
                                 </li>
                             </ul>
                         </div>*@
-                    <div id="checkout-step-shipping" class="step a-item form_container offset-lg-1 offset-md-1" style="display: none;">
+                    <div id="checkout-step-shipping" class="step a-item form_container" style="display: none;">
                         <form action="" id="co-shipping-form">
                             <div id="checkout-shipping-load">
                                 @*shipping address content will be loaded here*@
@@ -164,7 +164,7 @@
                                 </li>
                             </ul>
                         </div>*@
-                    <div id="checkout-step-shipping-method" class="step a-item form_container offset-lg-1 offset-md-1" style="display: none;">
+                    <div id="checkout-step-shipping-method" class="step a-item form_container" style="display: none;">
                         <form id="co-shipping-method-form" action="">
                             <div id="checkout-shipping-method-load">
                                 @*shipping methods content will be loaded here*@
@@ -196,7 +196,7 @@
                             </li>
                         </ul>
                     </div>*@
-                <div id="checkout-step-payment-method" class="step a-item form_container offset-lg-1 offset-md-1" style="display: none;">
+                <div id="checkout-step-payment-method" class="step a-item form_container" style="display: none;">
                     <form action="" id="co-payment-method-form">
                         <div id="checkout-payment-method-load">
                             @*payment methods content will be loaded here*@ Payment is not required
@@ -226,7 +226,7 @@
                             </li>
                         </ul>
                     </div>*@
-                <div id="checkout-step-payment-info" class="step a-item form_container offset-lg-1 offset-md-1" style="display: none;">
+                <div id="checkout-step-payment-info" class="step a-item form_container" style="display: none;">
                     <form action="" id="co-payment-info-form">
                         <div id="checkout-payment-info-load">
                             @*payment info content will be loaded here*@ Payment is not required
@@ -256,7 +256,7 @@
                             </li>
                         </ul>
                     </div>*@
-                <div id="checkout-step-confirm-order" class="step a-item form_container offset-lg-1 offset-md-1" style="display: none;">
+                <div id="checkout-step-confirm-order" class="step a-item form_container col-md-12" style="display: none;">
                     <div id="checkout-confirm-order-load">
                         @*confirm order content will be loaded here*@
                     </div>

@@ -52,18 +52,28 @@ namespace Nop.Plugin.Widgets.NivoSlider.Controllers
                 Picture1Id = nivoSliderSettings.Picture1Id,
                 Text1 = nivoSliderSettings.Text1,
                 Link1 = nivoSliderSettings.Link1,
+                HLarge1 = nivoSliderSettings.HLarge1,
+                HSmall1 = nivoSliderSettings.HSmall1,
                 Picture2Id = nivoSliderSettings.Picture2Id,
                 Text2 = nivoSliderSettings.Text2,
                 Link2 = nivoSliderSettings.Link2,
+                HLarge2 = nivoSliderSettings.HLarge2,
+                HSmall2 = nivoSliderSettings.HSmall2,
                 Picture3Id = nivoSliderSettings.Picture3Id,
                 Text3 = nivoSliderSettings.Text3,
                 Link3 = nivoSliderSettings.Link3,
+                HLarge3 = nivoSliderSettings.HLarge3,
+                HSmall3 = nivoSliderSettings.HSmall3,
                 Picture4Id = nivoSliderSettings.Picture4Id,
                 Text4 = nivoSliderSettings.Text4,
                 Link4 = nivoSliderSettings.Link4,
+                HLarge4 = nivoSliderSettings.HLarge4,
+                HSmall4 = nivoSliderSettings.HSmall4,
                 Picture5Id = nivoSliderSettings.Picture5Id,
                 Text5 = nivoSliderSettings.Text5,
                 Link5 = nivoSliderSettings.Link5,
+                HLarge5 = nivoSliderSettings.HLarge5,
+                HSmall5 = nivoSliderSettings.HSmall5,
                 ActiveStoreScopeConfiguration = storeScope
             };
 
@@ -72,18 +82,28 @@ namespace Nop.Plugin.Widgets.NivoSlider.Controllers
                 model.Picture1Id_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Picture1Id, storeScope);
                 model.Text1_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Text1, storeScope);
                 model.Link1_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Link1, storeScope);
+                model.HLarge1_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HLarge1, storeScope);
+                model.HSmall1_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HSmall1, storeScope);
                 model.Picture2Id_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Picture2Id, storeScope);
                 model.Text2_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Text2, storeScope);
                 model.Link2_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Link2, storeScope);
+                model.HLarge2_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HLarge2, storeScope);
+                model.HSmall2_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HSmall2, storeScope);
                 model.Picture3Id_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Picture3Id, storeScope);
                 model.Text3_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Text3, storeScope);
                 model.Link3_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Link3, storeScope);
+                model.HLarge3_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HLarge3, storeScope);
+                model.HSmall3_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HSmall3, storeScope);
                 model.Picture4Id_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Picture4Id, storeScope);
                 model.Text4_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Text4, storeScope);
                 model.Link4_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Link4, storeScope);
+                model.HLarge4_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HLarge4, storeScope);
+                model.HSmall4_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HSmall4, storeScope);
                 model.Picture5Id_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Picture5Id, storeScope);
                 model.Text5_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Text5, storeScope);
                 model.Link5_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.Link5, storeScope);
+                model.HLarge5_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HLarge5, storeScope);
+                model.HSmall5_OverrideForStore = _settingService.SettingExists(nivoSliderSettings, x => x.HSmall5, storeScope);
             }
 
             return View("~/Plugins/Widgets.NivoSlider/Views/Configure.cshtml", model);
@@ -112,18 +132,28 @@ namespace Nop.Plugin.Widgets.NivoSlider.Controllers
             nivoSliderSettings.Picture1Id = model.Picture1Id;
             nivoSliderSettings.Text1 = model.Text1;
             nivoSliderSettings.Link1 = model.Link1;
+            nivoSliderSettings.HLarge1 = model.HLarge1;
+            nivoSliderSettings.HSmall1 = model.HSmall1;
             nivoSliderSettings.Picture2Id = model.Picture2Id;
             nivoSliderSettings.Text2 = model.Text2;
             nivoSliderSettings.Link2 = model.Link2;
+            nivoSliderSettings.HLarge2 = model.HLarge2;
+            nivoSliderSettings.HSmall2 = model.HSmall2;
             nivoSliderSettings.Picture3Id = model.Picture3Id;
             nivoSliderSettings.Text3 = model.Text3;
             nivoSliderSettings.Link3 = model.Link3;
+            nivoSliderSettings.HLarge3 = model.HLarge3;
+            nivoSliderSettings.HSmall3 = model.HSmall3;
             nivoSliderSettings.Picture4Id = model.Picture4Id;
             nivoSliderSettings.Text4 = model.Text4;
             nivoSliderSettings.Link4 = model.Link4;
+            nivoSliderSettings.HLarge4 = model.HLarge4;
+            nivoSliderSettings.HSmall4 = model.HSmall4;
             nivoSliderSettings.Picture5Id = model.Picture5Id;
             nivoSliderSettings.Text5 = model.Text5;
             nivoSliderSettings.Link5 = model.Link5;
+            nivoSliderSettings.HLarge5 = model.HLarge5;
+            nivoSliderSettings.HSmall5 = model.HSmall5;
 
             /* We do not clear cache after each setting update.
              * This behavior can increase performance because cached settings will not be cleared 
@@ -131,19 +161,29 @@ namespace Nop.Plugin.Widgets.NivoSlider.Controllers
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Picture1Id, model.Picture1Id_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Text1, model.Text1_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Link1, model.Link1_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HLarge1, model.HLarge1_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HSmall1, model.HSmall1_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Picture2Id, model.Picture2Id_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Text2, model.Text2_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Link2, model.Link2_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HLarge2, model.HLarge2_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HSmall2, model.HSmall2_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Picture3Id, model.Picture3Id_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Text3, model.Text3_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Link3, model.Link3_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HLarge3, model.HLarge3_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HSmall3, model.HSmall3_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Picture4Id, model.Picture4Id_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Text4, model.Text4_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Link4, model.Link4_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HLarge4, model.HLarge4_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HSmall4, model.HSmall4_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Picture5Id, model.Picture5Id_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Text5, model.Text5_OverrideForStore, storeScope, false);
             _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.Link5, model.Link5_OverrideForStore, storeScope, false);
-            
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HLarge5, model.HLarge5_OverrideForStore, storeScope, false);
+            _settingService.SaveSettingOverridablePerStore(nivoSliderSettings, x => x.HSmall5, model.HSmall5_OverrideForStore, storeScope, false);
+
             //now clear settings cache
             _settingService.ClearCache();
             

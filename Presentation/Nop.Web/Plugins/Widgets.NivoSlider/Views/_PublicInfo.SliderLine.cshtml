@@ -3,20 +3,66 @@
 @{
     var pictureUrl = ViewData["pictureUrl"]?.ToString() ?? "";
     var link = ViewData["link"]?.ToString() ?? "";
+    var hLarge = ViewData["hLarge"]?.ToString() ?? "";
+    var hSmall = ViewData["hSmall"]?.ToString() ?? "";
     var dataTransition = ViewData["dataTransition"]?.ToString() ?? "";
     var text = ViewData["text"]?.ToString() ?? "";
+    var carClass = ViewData["carClass"]?.ToString() ?? "";
+
+
 
     if (!string.IsNullOrEmpty(pictureUrl))
     {
-        if (!string.IsNullOrEmpty(link))
-        {
-            <a href="@link">
-                <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="" title="@text" />
-            </a>
-        }
-        else
-        {
-            <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="" title="@text" />
-        }
+
+
+        <div class="carousel-item">
+            @if (!string.IsNullOrEmpty(link))
+            {
+                <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" class="d-block w-100" alt="slider image" title="@text" />
+                <div class="carousel-caption  d-block @carClass">
+                    <h5>@text</h5>
+                    <h1>@hLarge</h1>
+                    <h4>@hSmall</h4>
+                    <a href="@link" class="btn">Shop Now!</a>
+                </div>
+            }
+            else
+            {
+                <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" class="d-block w-100" alt="slider image" title="@text" />
+            }
+        </div>
     }
 }
+
+@*<div class="carousel-item">
+        <img src="~/Themes/Junkyard/Content/img/slide_1_lt_5.jpg"
+             class="d-block w-100"
+             alt="slider image" />
+        <div class="carousel-caption  d-block first_carosel_caption">
+            <h5>The Quality Beyond Excellence</h5>
+            <h1>Buy TrustWorthy</h1>
+            <h4>Car Parts</h4>
+            <a href="#" class="btn">Shop Now!</a>
+        </div>
+    </div>*@
+
+@*@{
+        var pictureUrl = ViewData["pictureUrl"]?.ToString() ?? "";
+        var link = ViewData["link"]?.ToString() ?? "";
+        var dataTransition = ViewData["dataTransition"]?.ToString() ?? "";
+        var text = ViewData["text"]?.ToString() ?? "";
+
+        if (!string.IsNullOrEmpty(pictureUrl))
+        {
+            if (!string.IsNullOrEmpty(link))
+            {
+                <a href="@link">
+                    <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="" title="@text" />
+                </a>
+            }
+            else
+            {
+                <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="" title="@text" />
+            }
+        }
+    }*@

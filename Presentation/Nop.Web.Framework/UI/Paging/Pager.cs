@@ -257,7 +257,7 @@ namespace Nop.Web.Framework.UI.Paging
                     //previous page
                     if (model.PageIndex > 0)
                     {
-                        links.Append(CreatePageLink(model.PageIndex, localizationService.GetResource("Pager.Previous"), "previous-page", "page-link"));
+                        links.Append(CreatePageLink(model.PageIndex, "< " + localizationService.GetResource("Pager.Previous"), "page-item previous-page", "page-link"));
                     }
                 }
                 if (showIndividualPages)
@@ -284,7 +284,7 @@ namespace Nop.Web.Framework.UI.Paging
                     //next page
                     if ((model.PageIndex + 1) < model.TotalPages)
                     {
-                        links.Append(CreatePageLink(model.PageIndex + 2, localizationService.GetResource("Pager.Next"), "next-page", "page-link"));
+                        links.Append(CreatePageLink(model.PageIndex + 2, localizationService.GetResource("Pager.Next")+" >", "page-item next-page", "page-link"));
                     }
                 }
                 if (showLast)

@@ -47,20 +47,20 @@
         </h1>
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-3">
 
                 </div>
-                <div class="col-md-8">
+                <div class="card text-center col-md-6 m-0 p-0">
                     <!-- Left content start -->
                     <div class="checkout_left_content">
                         <div class="form_container">
+                                <h5 class="card-header dark-color white-text text-center py-4">@T("Account.YourPersonalDetails")</h5>
                             <form asp-route="Register" asp-route-returnurl="@Context.Request.Query["ReturnUrl"]" method="post">
                                 <div asp-validation-summary="ModelOnly" class="message-error"></div>
-                                <h5>@T("Account.YourPersonalDetails")</h5>
 
                                 @if (Model.GenderEnabled)
                                 {
-                                    <div class="form-group py-2">
+                                    <div class="form-group">
                                         <label for="email" class="control-label">@T("Account.Fields.Gender"):</label>
                                         <br />
                                         <div class="custom-control custom-radio custom-control-inline">
@@ -78,13 +78,13 @@
 
                                     </div>
                                 }
-                                <div class="form-group py-2">
+                                <div class="form-group">
                                     <label asp-for="FirstName" asp-postfix=":"></label><span class="starMark"><nop-required /></span>
                                     <input asp-for="FirstName" type="text" name="FirstName" id="FirstName" required />
 
                                     <span class="clsRequiredMsg" asp-validation-for="FirstName"></span>
                                 </div>
-                                <div class="form-group py-2">
+                                <div class="form-group">
                                     <label asp-for="LastName" asp-postfix=":"></label><span class="starMark"><nop-required /></span>
                                     <input asp-for="LastName" type="text" name="LastName" id="LastName" required />
 
@@ -92,7 +92,7 @@
                                     @*<label for="LastName">Last Name<span class="starMark">*</span></label>
                                         <input type="text" name="LastName" id="LastName" required />*@
                                 </div>
-                                <div class="form-group py-2">
+                                <div class="form-group">
                                     <label>
                                         @T("Account.Fields.DateOfBirth"):<span class="starMark">
                                             @if (Model.DateOfBirthRequired)
@@ -120,7 +120,7 @@
                                         <input type="date" name="DOB" id="DOB" required />*@
                                 </div>
                                 <br />
-                                <div class="form-group py-2">
+                                <div class="form-group">
                                     <label asp-for="Email" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
                                     <input asp-for="Email" />
 
@@ -131,7 +131,7 @@
                                 @if (Model.EnteringEmailTwice)
                                 {
 
-                                    <div class="form-group py-2">
+                                    <div class="form-group">
                                         <label asp-for="ConfirmEmail" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
                                         <input asp-for="ConfirmEmail" />
                                         <span class="clsRequiredMsg" asp-validation-for="ConfirmEmail"></span>
@@ -141,7 +141,7 @@
                                 }
                                 @if (Model.UsernamesEnabled)
                                 {
-                                    <div class="form-group py-2">
+                                    <div class="form-group">
                                         <label asp-for="Username" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
                                         <input asp-for="Username" />
                                         @*<nop-required />*@
@@ -156,12 +156,12 @@
                                 @if (Model.CompanyEnabled || Model.DisplayVatNumber)
                                 {
 
-                                    <h5>@T("Account.CompanyDetails")</h5>
+                                    <h5 class="card-header dark-color white-text text-center py-4">@T("Account.CompanyDetails")</h5>
 
 
                                     @if (Model.CompanyEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="Company" asp-postfix=":"></label><span class='starMark'>
                                                 @if (Model.CompanyRequired)
                                                 {
@@ -178,7 +178,7 @@
                                     }
                                     @if (Model.DisplayVatNumber)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="VatNumber" asp-postfix=":"></label>
                                             <input asp-for="VatNumber" />
                                             <span class="vat-note"><em>@T("Account.Fields.VatNumber.Note")</em></span>
@@ -194,7 +194,7 @@
                                     <h5>@T("Account.YourAddress")</h5>
                                     @if (Model.StreetAddressEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="StreetAddress" asp-postfix=":"></label>
                                             <span class='starMark'>
                                                 @if (Model.StreetAddressRequired)
@@ -212,7 +212,7 @@
                                     }
                                     @if (Model.StreetAddress2Enabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="StreetAddress2" asp-postfix=":"></label><span class='starMark'>
                                                 @if (Model.StreetAddress2Required)
                                                 {
@@ -229,7 +229,7 @@
                                     }
                                     @if (Model.ZipPostalCodeEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="ZipPostalCode" asp-postfix=":"></label><span class='starMark'>
                                                 @if (Model.ZipPostalCodeRequired)
                                                 {
@@ -246,7 +246,7 @@
                                     }
                                     @if (Model.CityEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="City" asp-postfix=":"></label><span class='starMark'>
                                                 @if (Model.CityRequired)
                                                 {
@@ -263,7 +263,7 @@
                                     }
                                     @if (Model.CountryEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="CountryId" asp-postfix=":"></label><span class='starMark'>
                                                 @if (Model.CountryRequired)
                                                 {
@@ -280,7 +280,7 @@
                                     }
                                     @if (Model.CountryEnabled && Model.StateProvinceEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="StateProvinceId" asp-postfix=":"></label><span class='starMark'>
                                                 @if (Model.StateProvinceRequired)
                                                 {
@@ -302,7 +302,7 @@
                                     <h5>@T("Account.YourContactInformation")</h5>
                                     @if (Model.PhoneEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="Phone" asp-postfix=":"></label><span class='starMark'>
                                                 @if (Model.PhoneRequired)
                                                 {
@@ -319,7 +319,7 @@
                                     }
                                     @if (Model.FaxEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="Fax" asp-postfix=":"></label><span class='starMark'>
                                                 @if (Model.FaxRequired)
                                                 {
@@ -335,12 +335,26 @@
                                         </div>
                                     }
                                 }
+
+                                <h5 class="card-header dark-color white-text text-center py-4">@T("Account.YourPassword")</h5>
+                                <div class="form-group">
+                                    <label asp-for="Password" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
+                                    <input asp-for="Password" />
+                                    @*<nop-required />*@
+                                    <span class="clsRequiredMsg" asp-validation-for="Password"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="ConfirmPassword" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
+                                    <input asp-for="ConfirmPassword" />
+                                    @*<nop-required />*@
+                                    <span class="clsRequiredMsg" asp-validation-for="ConfirmPassword"></span>
+                                </div>
                                 @if (Model.NewsletterEnabled || Model.CustomerAttributes.Count > 0)
                                 {
-                                    <h5>@T("Account.Options")</h5>
+                                    <h5 class="card-header dark-color white-text text-center py-4">@T("Account.Options")</h5>
                                     @if (Model.NewsletterEnabled)
                                     {
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label asp-for="Newsletter" asp-postfix=":">
                                             </label>
                                             <input asp-for="Newsletter" />
@@ -351,50 +365,8 @@
                                     {
                                         @await Html.PartialAsync("_CustomerAttributes", Model.CustomerAttributes)
                                     }
-                                    @*<div class="fieldset">
-                                        <div class="title">
-                                            <h5>@T("Account.Options")</h5>
-                                        </div>
-                                        <div class="form-fields">
-                                            @if (Model.NewsletterEnabled)
-                                            {
-                                                <div class="form-group py-2">
-                                                    <label asp-for="Newsletter" asp-postfix=":">
-                                                    </label>
-                                                    <input asp-for="Newsletter" />
-                                                    <span class="clsRequiredMsg" asp-validation-for="Newsletter"></span>
-                                                </div>
-                                            }
-                                            @if (Model.CustomerAttributes.Count > 0)
-                                            {
-                                                @await Html.PartialAsync("_CustomerAttributes", Model.CustomerAttributes)
-                                            }
-                                        </div>
-                                    </div>*@
-                                    @*<h5>Options</h5>
-                                        <div class="form-group py-2">
-                                            <label for="email" class="control-label">Newsletter </label>
-                                            <div class="custom-control custom-radio custom-control-inline">
-                                                <label class="custom-check-label" for="GenderMale">
-                                                    <input type="checkbox" class=" form-check-input" value="1" name="NewsLetter" checked>
 
-                                                </label>
-                                            </div>
-                                        </div>*@
                                 }
-                                <h5>@T("Account.YourPassword")</h5>
-                                <div class="form-group py-2">
-                                    <label asp-for="Password" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
-                                    <input asp-for="Password" />
-                                    @*<nop-required />*@
-                                    <span class="clsRequiredMsg" asp-validation-for="Password"></span>
-                                </div>
-                                <div class="form-group py-2">
-                                    <label asp-for="ConfirmPassword" asp-postfix=":"></label><span class='starMark'><nop-required /></span>
-                                    <input asp-for="ConfirmPassword" />
-                                    @*<nop-required />*@
-                                    <span class="clsRequiredMsg" asp-validation-for="ConfirmPassword"></span>
-                                </div>
                                 @if (Model.DisplayCaptcha)
                                 {
                                     <div class="captcha-box">
@@ -446,11 +418,11 @@
                                     </div>
                                 }
                                 @*<h5>Your Password</h5>
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label for="email">Password<span class="starMark">*</span></label>
                                             <input type="Password" name="Password" id="Password" required />
                                         </div>
-                                        <div class="form-group py-2">
+                                        <div class="form-group">
                                             <label for="email">Confirm Password<span class="starMark">*</span></label>
                                             <input type="Password" name="Password" id="Password" required />
                                         </div>

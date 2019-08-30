@@ -2,62 +2,82 @@
 
 @if (Model.Level == 0)
 {
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle"
-           id="@Model.Category.SeName"
-           data-toggle="dropdown"
-           aria-haspopup="true"
-           aria-expanded="false"
-           href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">
-            @Model.Category.Name
-            @if (Model.Category.NumberOfProducts.HasValue)
-            {
-                <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
-            }
-        </a>
-        @{
-            //subcategories
-            var subCategories = Model.ResponsiveMobileMenu ?
-                //responsive (all categories)
-                Model.Category.SubCategories :
-                //standard design (only categories with "IncludeInTopMenu")
-                Model.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
-
-            var levelClass = "";
-            if (Model.Level == 0)
-            {
-                levelClass = "first-level";
-            }
-            if (subCategories.Count > 0)
-            {
-                @*<div class="sublist-toggle"></div>
-                    <ul class="sublist @levelClass">*@
-                @*<div class="dropdown-menu " aria-labelledby="@Model.Category.SeName">*@
-                @foreach (var subCategory in subCategories)
+<li class="nav-item dropdown">
+    @{
+        //subcategories
+        var subCategories = Model.ResponsiveMobileMenu ?
+            //responsive (all categories)
+            Model.Category.SubCategories :
+            //standard design (only categories with "IncludeInTopMenu")
+            Model.Category.SubCategories.Where(x => x.IncludeInTopMenu).ToList();
+        if (subCategories.Count > 0)
+        {
+            <a class="nav-link dropdown-toggle"
+               id="@Model.Category.SeName"
+               @*data-toggle="dropdown" *@
+               href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">
+                @Model.Category.Name
+                @if (Model.Category.NumberOfProducts.HasValue)
                 {
-                    var categoryLineModel = new TopMenuModel.CategoryLineModel
-                    {
-                        Category = subCategory,
-                        Level = Model.Level + 1,
-                        ResponsiveMobileMenu = Model.ResponsiveMobileMenu
-                    };
-                    @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+                    <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
                 }
-                @*</div>*@
-                @*</ul>*@
-            }
+            </a>
         }
-    </li>
-    
+        else
+        {
+            <a class="nav-link "
+               id="@Model.Category.SeName"
+               @*data-toggle="dropdown" *@
+               href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">
+                @Model.Category.Name
+                @if (Model.Category.NumberOfProducts.HasValue)
+                {
+                    <text> </text>@T("Categories.TotalProducts", Model.Category.NumberOfProducts.Value)
+                }
+            </a>
+
+        }
+    }
+
+
+    @{
+
+
+        //var levelClass = "";
+        //if (Model.Level == 0)
+        //{
+        //    levelClass = "first-level";
+        //}
+        if (subCategories.Count > 0)
+        {
+            @*<div class="sublist-toggle"></div>
+                <ul class="sublist @levelClass">*@
+            <div class="dropdown-menu " aria-labelledby="@Model.Category.SeName">
+            @foreach (var subCategory in subCategories)
+            {
+                var categoryLineModel = new TopMenuModel.CategoryLineModel
+                {
+                    Category = subCategory,
+                    Level = Model.Level + 1,
+                    ResponsiveMobileMenu = Model.ResponsiveMobileMenu
+                };
+                @await Html.PartialAsync("_CategoryLine.TopMenu", categoryLineModel)
+            }
+            </div>
+            @*</ul>*@
+        }
+    }
+</li>
+
 }
 else
 {
-    <div class="dropdown-menu " aria-labelledby="@Model.Category.SeName">
+    @*<div class="dropdown-menu " aria-labelledby="@Model.Category.SeName">*@
         <a class="dropdown-item" href="@Url.RouteUrl("Category", new { SeName = Model.Category.SeName })">
             <span class="lnr lnr-chevron-right"></span>@Model.Category.SeName
-            Mats
+            
         </a>
-    </div>
+    @*</div>*@
 }
 @*@model TopMenuModel.CategoryLineModel
     <li>

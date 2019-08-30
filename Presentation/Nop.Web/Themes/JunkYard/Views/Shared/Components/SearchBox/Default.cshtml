@@ -6,7 +6,7 @@
     <span class="lnr lnr-magnifier ineer_searchbox_icon"></span>
 </a>*@
 
-<form asp-route="ProductSearch" method="get" id="small-search-box-form">
+<form asp-route="ProductSearch" method="get" id="small-search-box-form" class="mobile_search_form">
     <input type="text" class="search-box-text" id="search_input" autocomplete="off" name="q" placeholder="@T("Search.SearchBox.Tooltip")" />
     @await Component.InvokeAsync("Widget", new { widgetZone = "searchbox_before_search_button" })
     @*<input type="submit" class="button-1 search-box-button" value="@T("Search.Button")" />*@

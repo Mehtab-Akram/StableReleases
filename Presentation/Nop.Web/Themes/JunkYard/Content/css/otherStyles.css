@@ -1,5 +1,14 @@
 ﻿
 
+.textAlignLeft
+{
+    text-align:left;
+}
+
+.textAlignRight {
+    text-align: right;
+}
+
 .margin0auto
 {
     margin: 0 auto;
@@ -188,13 +197,15 @@ table th.total, table td.total
 }
 
 
-
+.listViewProduct a:first-child {
+    float: left;
+    margin-right: 50px;
+}
 
 
 
 
 @media all and (min-width: 1001px) {
-
     .center-1 .buttons {
         text-align: center;
     }

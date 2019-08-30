@@ -47,6 +47,7 @@
     <Content Include="Logs\**" CopyToPublishDirectory="PreserveNewest" />
     <None Remove="Themes\JunkYard\Content\css\CustomStyles.css" />
     <None Remove="Themes\JunkYard\Content\css\ie8.css" />
+    <None Remove="Themes\JunkYard\Content\css\mdb.min.css" />
     <None Remove="Themes\JunkYard\Content\css\otherStyles.css" />
     <None Remove="Themes\JunkYard\Content\css\print.css" />
     <None Remove="Themes\JunkYard\Content\css\style.css" />
@@ -58,6 +59,7 @@
     <None Remove="Themes\JunkYard\Content\css\style_ORI.css" />
     <None Remove="Themes\JunkYard\Content\images\ajax-loader-small.gif" />
     <None Remove="Themes\JunkYard\Content\images\back-button.png" />
+    <None Remove="Themes\JunkYard\Content\images\Background1.jpg" />
     <None Remove="Themes\JunkYard\Content\images\calendar-next.png" />
     <None Remove="Themes\JunkYard\Content\images\calendar-prev.png" />
     <None Remove="Themes\JunkYard\Content\images\close.png" />
@@ -105,7 +107,14 @@
     <None Remove="Themes\JunkYard\Content\images\vote-up.png" />
     <None Remove="Themes\JunkYard\Content\images\watch.png" />
     <None Remove="Themes\JunkYard\Content\images\wishlist-button.png" />
+    <None Remove="Themes\JunkYard\Content\js\mdb.min.js" />
     <None Remove="Themes\JunkYard\preview.jpg" />
+    <Content Update="Plugins\Widgets.NivoSlider\Views\PublicInfo__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Plugins\Widgets.NivoSlider\Views\_PublicInfo.SliderLine__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\JunkYard\Content\css\style.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -145,6 +154,9 @@
     <Content Update="Themes\JunkYard\Views\Shared\Components\HomepageBestSellers\Default__ORI.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\Components\HomepageCategories\Default__ORI.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Themes\JunkYard\Views\Shared\Components\HomepageNews\Default__ORI.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
@@ -158,6 +170,9 @@
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\JunkYard\Views\Shared\Head.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Themes\JunkYard\Views\Shared\_CategoryLine.TopMenuMobile.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Themes\JunkYard\Views\Shared\_CategoryLine.TopMenu__ORI.cshtml">
@@ -180,6 +195,10 @@
     <Content Update="Themes\JunkYard\Content\css\style_ORI.css">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Themes\JunkYard\Content\img\svg\" />
   </ItemGroup>
 
   <!-- This target execute after "Build" target.

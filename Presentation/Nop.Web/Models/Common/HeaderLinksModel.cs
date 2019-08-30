@@ -1,4 +1,5 @@
 ﻿using Nop.Web.Framework.Mvc.Models;
+using Nop.Web.Models.Catalog;
 
 namespace Nop.Web.Models.Common
 {
@@ -16,5 +17,6 @@ namespace Nop.Web.Models.Common
         public bool AllowPrivateMessages { get; set; }
         public string UnreadPrivateMessages { get; set; }
         public string AlertMessage { get; set; }
+        public TopMenuModel objTopMenuModel { get; set; } = new TopMenuModel();
     }
 }

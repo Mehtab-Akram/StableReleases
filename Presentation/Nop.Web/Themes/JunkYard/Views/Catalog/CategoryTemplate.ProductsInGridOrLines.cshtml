@@ -158,7 +158,10 @@
 
                     @foreach (var product in Model.Products)
                     {
+                        <div class="col-md-4">
+
                         @await Html.PartialAsync("_ProductBox", product)
+                        </div>
                     }
                 </div>
                 <!-- 3rd row end -->

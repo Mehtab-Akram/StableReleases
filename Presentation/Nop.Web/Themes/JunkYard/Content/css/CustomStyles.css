@@ -1,4 +1,7 @@
-﻿
+﻿@font-face {
+    font-family: sofia;
+    src: url(../fonts/SofiaProRegular.ttf);
+}
 input[type="date"] {
     display: block;
     width: 100%;
@@ -89,9 +92,10 @@ input[type="date"] {
 }
 
 .product_card a.link:hover {
-    border: 2px solid #000000;
+    border: 1px solid #000000;
     background: #fff;
     color: #000000;
+    border-radius: 3px;
 }
 
 label.bigtextlabel {
@@ -144,10 +148,10 @@ label.bigtextlabel {
     width: 200px;
 }
 
-    .left_product_content .block-category-navigation li a:hover, .left_product_content .block-category-navigation li a.active {
-        background: #000;
-        color: #fff;
-    }
+.left_product_content .block-account-navigation li a:hover, .left_product_content .block-category-navigation li a:hover, .left_product_content .block-category-navigation li a.active, .left_product_content .block-account-navigation li a.active {
+    background: #000;
+    color: #fff;
+}
 .left_product_content strong {
     text-transform: uppercase;
     color: #000000;
@@ -202,7 +206,7 @@ label.bigtextlabel {
     border-width: 1px;
     border-style: solid;
     border-color: transparent #ddd #ddd;
-    background-color: #fff;
+    /*background-color: #fff;*/
     padding: 20px;
     color: #444;
 }
@@ -401,4 +405,43 @@ table a {
 .compare-products-page .no-data {
     margin: 25px 0 0;
 }
+.dark-color {
+    background-color: #000000 !important;
+}
 
+.topic-block-body{
+    margin:15px 0 0 0 ;
+}
+.form-group
+{
+    margin-bottom:0.5rem;
+}
+.CustomerAddressAdd .form-group {
+    margin: 1em;
+}
+body {
+    background-image: url(../images/Background1.jpg) !important;
+}
+.card
+{
+    background:none !important;
+}
+.first_nav
+{
+    background:none !important;
+}
+.pagination .page-item.active .page-link
+{
+    background-color:#000 !important;
+    border-radius:5px;
+}
+
+
+.pagination .page-item .page-link:hover {
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+}
+.page_title strong {
+    text-transform: capitalize;
+}
